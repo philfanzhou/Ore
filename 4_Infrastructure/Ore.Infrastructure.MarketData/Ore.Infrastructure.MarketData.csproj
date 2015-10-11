@@ -41,8 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enum\Exchange.cs" />
-    <Compile Include="Interface\IProfileReader.cs" />
-    <Compile Include="Matedata\ISecurityProfile.cs" />
+    <Compile Include="Matedata\IStockStructure.cs" />
+    <Compile Include="Matedata\IStockProfile.cs" />
     <Compile Include="Enum\ListStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

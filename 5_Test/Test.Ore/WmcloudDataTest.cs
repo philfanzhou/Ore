@@ -13,8 +13,8 @@ namespace Test.Ore
         [TestMethod]
         public void TestGetBasicInfo()
         {
-            IProfileReader reader = new WmcloudDataReader();
-            List<ISecurityProfile> infoList = reader.GetAll().ToList();
+            WmcloudDataReader reader = new WmcloudDataReader();
+            List<IStockProfile> infoList = reader.GetAll().ToList();
 
             Assert.IsNotNull(infoList);
             Assert.IsTrue(infoList.Count > 0);
@@ -49,14 +49,11 @@ namespace Test.Ore
             Assert.AreEqual(Exchange.XSHE, dataItem.Exchange);
             Assert.AreEqual(new DateTime(1991,4,3), dataItem.ListDate);
             Assert.AreEqual(ListStatus.List, dataItem.ListStatus);
-            Assert.IsTrue(dataItem.NonrestFloatShares - 11804054579 < 0.000001);
             Assert.IsTrue(dataItem.OfficeAddress.Length > 0);
             Assert.IsTrue(dataItem.PrimeBusiness.Length > 0);
             Assert.IsTrue(dataItem.FullName.Length > 0);
-            Assert.AreEqual("000001.XSHE", dataItem.SecurityID);
             Assert.AreEqual("平安银行", dataItem.ShortName);
-            Assert.AreEqual("000001", dataItem.SecurityCode);
-            Assert.IsTrue(dataItem.TotalShares - 14308676139 < 0.000001);
+            Assert.AreEqual("000001", dataItem.Code);
             Assert.AreEqual(new DateTime(2015, 6, 30), dataItem.FinancialReportDate);
             Assert.IsTrue(dataItem.ShareholderEquity - 150880000000 < 0.000001);
         }

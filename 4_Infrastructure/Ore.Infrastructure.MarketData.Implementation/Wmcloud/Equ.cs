@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ore.Infrastructure.MarketData.Implementation
 {
     /// <summary>
     /// 股票基本信息
     /// </summary>
-    public class Equ : ISecurityProfile
+    public class Equ : IStockProfile
     {
         /// <summary>+
         /// 证券内部编码
@@ -30,6 +26,13 @@ namespace Ore.Infrastructure.MarketData.Implementation
             get;
             set;
         }
+        string IStockProfile.Code
+        {
+            get
+            {
+                return this.ticker;
+            }
+        }
 
         /// <summary>+
         /// 交易市场编码
@@ -39,6 +42,13 @@ namespace Ore.Infrastructure.MarketData.Implementation
         {
             get;
             set;
+        }
+        Exchange IStockProfile.Exchange
+        {
+            get
+            {
+                return (Exchange)Enum.Parse(typeof(Exchange), this.exchangeCD);
+            }
         }
 
         /// <summary>
@@ -80,6 +90,13 @@ namespace Ore.Infrastructure.MarketData.Implementation
             get;
             set;
         }
+        string IStockProfile.ShortName
+        {
+            get
+            {
+                return this.secShortName;
+            }
+        }
 
         /// <summary>+
         /// 证券全称
@@ -89,6 +106,13 @@ namespace Ore.Infrastructure.MarketData.Implementation
         {
             get;
             set;
+        }
+        string IStockProfile.FullName
+        {
+            get
+            {
+                return this.secFullName;
+            }
         }
 
         /// <summary>+
@@ -100,6 +124,25 @@ namespace Ore.Infrastructure.MarketData.Implementation
             get;
             set;
         }
+        ListStatus IStockProfile.ListStatus
+        {
+            get
+            {
+                switch (this.listStatusCD)
+                {
+                    case "L":
+                        return ListStatus.List;
+                    case "S":
+                        return ListStatus.suspend;
+                    case "DE":
+                        return ListStatus.Delist;
+                    case "UN":
+                        return ListStatus.Unlisted;
+                    default:
+                        return ListStatus.Unknown;
+                }
+            }
+        }
 
         /// <summary>+
         /// 上市时间
@@ -110,6 +153,13 @@ namespace Ore.Infrastructure.MarketData.Implementation
             get;
             set;
         }
+        DateTime IStockProfile.ListDate
+        {
+            get
+            {
+                return DateTime.Parse(this.listDate).Date;
+            }
+        }
 
         /// <summary>+
         /// 摘牌时间
@@ -118,6 +168,17 @@ namespace Ore.Infrastructure.MarketData.Implementation
         {
             get;
             set;
+        }
+        DateTime IStockProfile.DelistDate
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(this.delistDate))
+                {
+                    return DateTime.MinValue;
+                }
+                return DateTime.Parse(this.delistDate).Date;
+            }
         }
 
         /// <summary>
@@ -195,6 +256,13 @@ namespace Ore.Infrastructure.MarketData.Implementation
             get;
             set;
         }
+        string IStockProfile.OfficeAddress
+        {
+            get
+            {
+                return this.officeAddr;
+            }
+        }
 
         /// <summary>+
         /// 主营业务范围
@@ -204,122 +272,7 @@ namespace Ore.Infrastructure.MarketData.Implementation
             get;
             set;
         }
-
-        /// <summary>+
-        /// 财务报告日期
-        /// </summary>
-        public string endDate { get; set; }
-
-        /// <summary>+
-        /// 所有者权益合计
-        /// </summary>
-        public double TShEquity { get; set; }
-
-        string ISecurityProfile.SecurityID
-        {
-            get
-            {
-                return this.secID;
-            }
-        }
-
-        string ISecurityProfile.SecurityCode
-        {
-            get
-            {
-                return this.ticker;
-            }
-        }
-
-        Exchange ISecurityProfile.Exchange
-        {
-            get
-            {
-                return (Exchange)Enum.Parse(typeof(Exchange), this.exchangeCD);
-            }
-        }
-
-        string ISecurityProfile.ShortName
-        {
-            get
-            {
-                return this.secShortName;
-            }
-        }
-
-        string ISecurityProfile.FullName
-        {
-            get
-            {
-                return this.secFullName;
-            }
-        }
-
-        ListStatus ISecurityProfile.ListStatus
-        {
-            get
-            {
-                switch(this.listStatusCD)
-                {
-                    case "L":
-                        return ListStatus.List;
-                    case "S":
-                        return ListStatus.suspend;
-                    case "DE":
-                        return ListStatus.Delist;
-                    case "UN":
-                        return ListStatus.Unlisted;
-                    default:
-                        return ListStatus.Unknown;
-                }
-            }
-        }
-
-        DateTime ISecurityProfile.ListDate
-        {
-            get
-            {
-                return DateTime.Parse(this.listDate).Date;
-            }
-        }
-
-        DateTime ISecurityProfile.DelistDate
-        {
-            get
-            {
-                if(string.IsNullOrWhiteSpace(this.delistDate))
-                {
-                    return DateTime.MinValue;
-                }
-                return DateTime.Parse(this.delistDate).Date;
-            }
-        }
-
-        double ISecurityProfile.TotalShares
-        {
-            get
-            {
-                return this.totalShares;
-            }
-        }
-
-        double ISecurityProfile.NonrestFloatShares
-        {
-            get
-            {
-                return this.nonrestFloatShares;
-            }
-        }
-
-        string ISecurityProfile.OfficeAddress
-        {
-            get
-            {
-                return this.officeAddr;
-            }
-        }
-
-        string ISecurityProfile.PrimeBusiness
+        string IStockProfile.PrimeBusiness
         {
             get
             {
@@ -327,7 +280,11 @@ namespace Ore.Infrastructure.MarketData.Implementation
             }
         }
 
-        DateTime ISecurityProfile.FinancialReportDate
+        /// <summary>+
+        /// 财务报告日期
+        /// </summary>
+        public string endDate { get; set; }
+        DateTime IStockProfile.FinancialReportDate
         {
             get
             {
@@ -339,7 +296,11 @@ namespace Ore.Infrastructure.MarketData.Implementation
             }
         }
 
-        double ISecurityProfile.ShareholderEquity
+        /// <summary>+
+        /// 所有者权益合计
+        /// </summary>
+        public double TShEquity { get; set; }
+        double IStockProfile.ShareholderEquity
         {
             get
             {

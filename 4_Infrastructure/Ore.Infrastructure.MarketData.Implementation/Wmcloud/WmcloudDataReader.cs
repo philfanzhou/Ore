@@ -18,7 +18,7 @@ using System.Text;
 
 namespace Ore.Infrastructure.MarketData.Implementation
 {
-    public class WmcloudDataReader : IProfileReader
+    public class WmcloudDataReader
     {
         //股票基本信息URL
         private static string EquUrl = "https://api.wmcloud.com:443/data/v1/api/equity/getEqu.json?field=&listStatusCD=L&secID=&ticker=&equTypeCD=A";
@@ -53,7 +53,7 @@ namespace Ore.Infrastructure.MarketData.Implementation
             return message.Substring(0, message.Length - 1);
         }
 
-        public IEnumerable<ISecurityProfile> GetAll()
+        public IEnumerable<IStockProfile> GetAll()
         {
             string message = GetDataFromUrl(EquUrl);
             message = GetJsonStrByMessage(message);

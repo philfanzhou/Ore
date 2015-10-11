@@ -9,17 +9,12 @@ namespace Ore.Infrastructure.MarketData
     /// <summary>
     /// 定义证券基本信息接口
     /// </summary>
-    public interface ISecurityProfile
+    public interface IStockProfile
     {
-        /// <summary>
-        /// 证券编码
-        /// </summary>
-        string SecurityID { get; }
-
         /// <summary>
         /// 交易代码
         /// </summary>
-        string SecurityCode { get; }
+        string Code { get; }
 
         /// <summary>
         /// 证券交易所
@@ -50,16 +45,6 @@ namespace Ore.Infrastructure.MarketData
         /// 摘牌日期
         /// </summary>
         DateTime DelistDate { get; }
-
-        /// <summary>
-        /// 总股本（最新）
-        /// </summary>
-        double TotalShares { get; }
-
-        /// <summary>
-        /// 无限售流通股份合计(最新)
-        /// </summary>
-        double NonrestFloatShares { get; }
 
         /// <summary>
         /// 办公地址
