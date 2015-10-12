@@ -137,6 +137,8 @@ namespace Ore.Infrastructure.MarketData.Implementation
             set;
         }
 
+
+
         /// <summary>
         /// 日换手率
         /// </summary>

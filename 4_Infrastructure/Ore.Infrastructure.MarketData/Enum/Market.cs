@@ -1,9 +1,9 @@
 ﻿namespace Ore.Infrastructure.MarketData
 {
     /// <summary>
-    /// 交易所枚举
+    /// 交易市场枚举
     /// </summary>
-    public enum Exchange
+    public enum Market
     {
         Unknown = 0,
 

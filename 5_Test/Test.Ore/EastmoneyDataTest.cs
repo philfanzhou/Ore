@@ -14,9 +14,9 @@ namespace Test.Ore
 
             Assert.IsNotNull(data);
             Assert.IsTrue(data.Code == "600036");
-            Assert.IsTrue(data.Value > 0);
-            Assert.IsTrue(data.Zhuli > 0);
-            Assert.IsTrue(data.Chaoda > 0);
+            Assert.IsTrue(data.Value != 0);
+            Assert.IsTrue(data.Zhuli != 0);
+            Assert.IsTrue(data.Chaoda != 0);
             Assert.IsTrue(data.Day.Year == DateTime.Now.Year);
         }
     }

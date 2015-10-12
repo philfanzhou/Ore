@@ -46,7 +46,7 @@ namespace Test.Ore
             Assert.AreEqual("2015-06-30", equ.endDate);
             Assert.IsTrue(equ.TShEquity - 150880000000 < 0.000001);
             
-            Assert.AreEqual(Exchange.XSHE, dataItem.Exchange);
+            Assert.AreEqual(Market.XSHE, dataItem.Exchange);
             Assert.AreEqual(new DateTime(1991,4,3), dataItem.ListDate);
             Assert.AreEqual(ListStatus.List, dataItem.ListStatus);
             Assert.IsTrue(dataItem.OfficeAddress.Length > 0);

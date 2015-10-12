@@ -43,11 +43,11 @@ namespace Ore.Infrastructure.MarketData.Implementation
             get;
             set;
         }
-        Exchange IStockProfile.Exchange
+        Market IStockProfile.Exchange
         {
             get
             {
-                return (Exchange)Enum.Parse(typeof(Exchange), this.exchangeCD);
+                return (Market)Enum.Parse(typeof(Market), this.exchangeCD);
             }
         }
 

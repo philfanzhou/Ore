@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ore.Infrastructure.MarketDa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Ore", "5_Test\Test.Ore\Test.Ore.csproj", "{746E7D23-3D9C-4004-9F76-98D884D00C3E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ore.Infrastructure.MarketData.DataSource.Sina", "4_Infrastructure\Ore.Infrastructure.MarketData.DataSource.Sina\Ore.Infrastructure.MarketData.DataSource.Sina.csproj", "{B3E609E5-A5A1-457D-AA61-D07B07D29E34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{746E7D23-3D9C-4004-9F76-98D884D00C3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{746E7D23-3D9C-4004-9F76-98D884D00C3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{746E7D23-3D9C-4004-9F76-98D884D00C3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3E609E5-A5A1-457D-AA61-D07B07D29E34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3E609E5-A5A1-457D-AA61-D07B07D29E34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3E609E5-A5A1-457D-AA61-D07B07D29E34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3E609E5-A5A1-457D-AA61-D07B07D29E34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,5 +45,6 @@ Global
 		{11E69835-A2A1-4631-96C0-FE078B09F5F5} = {F2A6A5A4-847F-44A6-AB06-6441D323A0C6}
 		{A6E65CA4-C677-4EAA-8C34-9F030BA90E55} = {F2A6A5A4-847F-44A6-AB06-6441D323A0C6}
 		{746E7D23-3D9C-4004-9F76-98D884D00C3E} = {B6110A66-656D-41C3-9422-DB508107B056}
+		{B3E609E5-A5A1-457D-AA61-D07B07D29E34} = {F2A6A5A4-847F-44A6-AB06-6441D323A0C6}
 	EndGlobalSection
 EndGlobal

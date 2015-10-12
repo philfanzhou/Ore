@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Ore.Infrastructure.MarketData.Implementation;
+using Ore.Infrastructure.MarketData;
+using Ore.Infrastructure.MarketData.DataSource.Sina;
 using System.Collections.Generic;
 
 namespace Test.Ore
@@ -10,28 +11,65 @@ namespace Test.Ore
         [TestMethod]
         public void SinaRealTimeDataConstructorTest()
         {
-            SinaDataReader reader = new SinaDataReader();
-            SinaRealTimeData data = reader.GetData("sh600036");
+            SinaRealTimePriceAPI reader = new SinaRealTimePriceAPI();
+            IStockRealTimePrice data = reader.GetData(new Stock { Code = "600036", Market = Market.XSHG});
             Assert.IsNotNull(data);
             Assert.AreEqual("sh600036", data.Code);
-            Assert.AreEqual("招商银行", data.Name);
+            Assert.AreEqual("招商银行", data.ShortName);
 
             data = null;
-            data = reader.GetData("sz399001");
+            data = reader.GetData(new Stock { Code = "399001", Market = Market.XSHE });
             Assert.IsNotNull(data);
         }
 
         [TestMethod]
         public void GetMultipleDataTest()
         {
-            string[] codes = new string[] { "sh600036","sz150209","sh600518","sz300118","sh600298","sh601009","sh601933","sh600660","sh600196" };
-            SinaDataReader reader = new SinaDataReader();
-            IEnumerable<SinaRealTimeData> datas = reader.GetData(codes);
+            Stock[] codes = new Stock[] 
+            {
+                new Stock { Code = "600036", Market = Market.XSHG},
+                new Stock { Code = "150209", Market = Market.XSHE },
+                new Stock { Code = "600518", Market = Market.XSHG},
+                new Stock { Code = "300118", Market = Market.XSHE },
+                new Stock { Code = "600298", Market = Market.XSHG},
+                new Stock { Code = "601009", Market = Market.XSHG},
+                new Stock { Code = "601933", Market = Market.XSHG},
+                new Stock { Code = "600660", Market = Market.XSHG},
+                new Stock { Code = "600196", Market = Market.XSHG}
+            };
+            SinaRealTimePriceAPI reader = new SinaRealTimePriceAPI();
+            IEnumerable<IStockRealTimePrice> datas = reader.GetData(codes);
 
             Assert.IsNotNull(datas);
-            foreach(SinaRealTimeData data in datas)
+            foreach(IStockRealTimePrice data in datas)
             {
                 Assert.IsNotNull(data);
+            }
+        }
+    }
+
+    internal class Stock : ISecurity
+    {
+        public string Code
+        {
+            get; set;
+        }
+
+        public Market Market
+        {
+            get; set;
+        }
+
+        public string ShortName
+        {
+            get; set;
+        }
+
+        public SecurityType Type
+        {
+            get
+            {
+                return SecurityType.Sotck;
             }
         }
     }

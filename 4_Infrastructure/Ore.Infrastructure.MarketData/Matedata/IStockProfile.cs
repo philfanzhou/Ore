@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ore.Infrastructure.MarketData
 {
     /// <summary>
-    /// 定义证券基本信息接口
+    /// 定义股票基本信息接口
     /// </summary>
     public interface IStockProfile
     {
@@ -19,7 +15,7 @@ namespace Ore.Infrastructure.MarketData
         /// <summary>
         /// 证券交易所
         /// </summary>
-        Exchange Exchange { get; }
+        Market Exchange { get; }
 
         /// <summary>
         /// 证券简称
