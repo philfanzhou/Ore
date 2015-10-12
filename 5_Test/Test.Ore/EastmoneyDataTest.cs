@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Ore.Infrastructure.MarketData.DataSource.Eastmoney;
 using Ore.Infrastructure.MarketData.Implementation;
 using System;
 
@@ -18,6 +19,14 @@ namespace Test.Ore
             Assert.IsTrue(data.Zhuli != 0);
             Assert.IsTrue(data.Chaoda != 0);
             Assert.IsTrue(data.Day.Year == DateTime.Now.Year);
+        }
+
+        [TestMethod]
+        public void TestReadSecurityInfo()
+        {
+            var securities = new SecurityInfoAPI().GetAllSecurity();
+
+            Assert.IsNotNull(securities);
         }
     }
 }

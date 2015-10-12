@@ -56,6 +56,10 @@
     <Compile Include="WmcloudDataTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\4_Infrastructure\Ore.Infrastructure.MarketData.DataSource.Eastmoney\Ore.Infrastructure.MarketData.DataSource.Eastmoney.csproj">
+      <Project>{533e92c5-395b-4f8c-91d7-d366bb7a21a5}</Project>
+      <Name>Ore.Infrastructure.MarketData.DataSource.Eastmoney</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\4_Infrastructure\Ore.Infrastructure.MarketData.DataSource.Sina\Ore.Infrastructure.MarketData.DataSource.Sina.csproj">
       <Project>{b3e609e5-a5a1-457d-aa61-d07b07d29e34}</Project>
       <Name>Ore.Infrastructure.MarketData.DataSource.Sina</Name>
