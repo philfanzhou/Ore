@@ -2,6 +2,7 @@
 using Ore.Infrastructure.MarketData;
 using Ore.Infrastructure.MarketData.DataSource.Sina;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Test.Ore
 {
@@ -14,7 +15,8 @@ namespace Test.Ore
             SinaRealTimePriceAPI reader = new SinaRealTimePriceAPI();
             IStockRealTimePrice data = reader.GetData(new Stock { Code = "600036", Market = Market.XSHG});
             Assert.IsNotNull(data);
-            Assert.AreEqual("sh600036", data.Code);
+            Assert.AreEqual(Market.XSHG, data.Market);
+            Assert.AreEqual("600036", data.Code);
             Assert.AreEqual("招商银行", data.ShortName);
 
             data = null;
@@ -38,12 +40,13 @@ namespace Test.Ore
                 new Stock { Code = "600196", Market = Market.XSHG}
             };
             SinaRealTimePriceAPI reader = new SinaRealTimePriceAPI();
-            IEnumerable<IStockRealTimePrice> datas = reader.GetData(codes);
+            List<IStockRealTimePrice> datas = reader.GetData(codes).ToList();
 
             Assert.IsNotNull(datas);
-            foreach(IStockRealTimePrice data in datas)
+            for(int i = 0; i < codes.Length; i++)
             {
-                Assert.IsNotNull(data);
+                Assert.AreEqual(codes[i].Code, datas[i].Code);
+                Assert.AreEqual(codes[i].Market, datas[i].Market);
             }
         }
     }

@@ -10,6 +10,11 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
         public string Code { get; set; }
 
         /// <summary>
+        /// 交易市场
+        /// </summary>
+        public Market Market { get; set; }
+
+        /// <summary>
         /// 名称
         /// </summary>
         public string ShortName { get; set; }

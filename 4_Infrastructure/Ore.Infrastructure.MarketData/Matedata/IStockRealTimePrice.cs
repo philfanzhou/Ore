@@ -10,6 +10,11 @@ namespace Ore.Infrastructure.MarketData
         string Code { get; }
 
         /// <summary>
+        /// 交易市场
+        /// </summary>
+        Market Market { get; }
+
+        /// <summary>
         /// 简称
         /// </summary>
         string ShortName { get; }

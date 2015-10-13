@@ -46,7 +46,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
             List<SinaRealTimeData> datas = new List<SinaRealTimeData>();
             foreach (string item in strDatas)
             {
-                datas.Add(GetDataFromSource(strData));
+                datas.Add(GetDataFromSource(item));
             }
 
             return datas;
@@ -71,7 +71,23 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
         {
             SinaRealTimeData data = new SinaRealTimeData();
             strData = strData.Remove(0, 11);
-            data.Code = strData.Substring(0, 8);
+
+            string market = strData.Substring(0, 2);
+            if(market == "sh")
+            {
+                data.Market = Market.XSHG;
+            }
+            else if(market == "sz")
+            {
+                data.Market = Market.XSHE;
+            }
+            else
+            {
+                data.Market = Market.Unknown;
+            }
+
+            strData = strData.Remove(0, 2);
+            data.Code = strData.Substring(0, 6);
 
             int startIndex = strData.IndexOf("\"") + 1;
             int length = strData.LastIndexOf("\"") - startIndex;
