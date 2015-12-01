@@ -22,12 +22,12 @@ namespace Ore.Infrastructure.MarketData
         /// <summary>
         /// 今开
         /// </summary>
-        double TodayOpen { get; }
+        double Open { get; }
 
         /// <summary>
         /// 昨收
         /// </summary>
-        double YesterdayClose { get; }
+        double PreClose { get; }
 
         /// <summary>
         /// 当前成交价
