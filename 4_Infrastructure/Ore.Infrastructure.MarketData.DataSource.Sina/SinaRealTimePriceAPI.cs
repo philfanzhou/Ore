@@ -10,7 +10,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
     {
         private const string WebApiAddress = @"http://hq.sinajs.cn/list=";
 
-        public IStockRealTimePrice GetData(ISecurity security)
+        public IStockRealTime GetData(ISecurity security)
         {
             if (security.Type != SecurityType.Sotck)
             {
@@ -23,7 +23,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
             return GetDataFromSource(strData);
         }
 
-        public IEnumerable<IStockRealTimePrice> GetData(IEnumerable<ISecurity> securities)
+        public IEnumerable<IStockRealTime> GetData(IEnumerable<ISecurity> securities)
         {
             StringBuilder codesBuilder = new StringBuilder();
             foreach (ISecurity security in securities)

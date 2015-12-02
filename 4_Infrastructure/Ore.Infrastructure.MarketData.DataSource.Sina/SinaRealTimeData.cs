@@ -2,7 +2,7 @@
 
 namespace Ore.Infrastructure.MarketData.DataSource.Sina
 {
-    internal class SinaRealTimeData : IStockRealTimePrice
+    internal class SinaRealTimeData : IStockRealTime
     {
         /// <summary>
         /// 代码

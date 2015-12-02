@@ -2,7 +2,10 @@
 
 namespace Ore.Infrastructure.MarketData
 {
-    public interface IStockHistoryPrice
+    /// <summary>
+    /// 分时数据定义
+    /// </summary>
+    public interface IStockIntraday
     {
         /// <summary>
         /// 代码
@@ -20,43 +23,38 @@ namespace Ore.Infrastructure.MarketData
         string ShortName { get; }
 
         /// <summary>
-        /// 今开
+        /// 时间
         /// </summary>
-        double Open { get; }
+        DateTime Time { get; set; }
 
         /// <summary>
-        /// 昨收
+        /// 成交价
         /// </summary>
-        double PreClose { get; }
+        double Price { get; set; }
 
         /// <summary>
-        /// 当前成交价
+        /// 均价
         /// </summary>
-        double Current { get; }
+        double AveragePrice { get; set; }
 
         /// <summary>
-        /// 最高
+        /// 涨跌
         /// </summary>
-        double High { get; }
+        double Change { get; set; }
 
         /// <summary>
-        /// 最低
+        /// 涨跌幅
         /// </summary>
-        double Low { get; }
+        double ChangeRate { get; set; }
 
         /// <summary>
         /// 成交量
         /// </summary>
-        double Volume { get; }
+        double Volume { get; set; }
 
         /// <summary>
         /// 成交额
         /// </summary>
-        double Amount { get; }
-
-        /// <summary>
-        /// 日期与时间
-        /// </summary>
-        DateTime Time { get; }
+        double Amount { get; set; }
     }
 }

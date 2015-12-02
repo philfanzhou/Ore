@@ -2,7 +2,10 @@
 
 namespace Ore.Infrastructure.MarketData
 {
-    public interface IStockRealTimePrice
+    /// <summary>
+    /// 实时报价数据定义
+    /// </summary>
+    public interface IStockRealTime
     {
         /// <summary>
         /// 代码
