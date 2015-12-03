@@ -28,9 +28,9 @@ namespace Ore.Infrastructure.MarketData
         DateTime Time { get; set; }
 
         /// <summary>
-        /// 成交价
+        /// 当前价
         /// </summary>
-        double Price { get; set; }
+        double Current { get; set; }
 
         /// <summary>
         /// 均价
