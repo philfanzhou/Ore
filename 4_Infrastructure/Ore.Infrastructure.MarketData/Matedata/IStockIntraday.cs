@@ -33,28 +33,43 @@ namespace Ore.Infrastructure.MarketData
         double Current { get; set; }
 
         /// <summary>
-        /// 均价
+        /// 均价 = 当前时刻总成交额 / 当前时刻总成交量
         /// </summary>
         double AveragePrice { get; set; }
 
         /// <summary>
-        /// 涨跌
+        /// 前一交易日收盘价
         /// </summary>
-        double Change { get; set; }
+        double YesterdayClose { get; set; }
+
+        ///// <summary>
+        ///// 涨跌
+        ///// </summary>
+        //double Change { get; set; }
+
+        ///// <summary>
+        ///// 涨跌幅
+        ///// </summary>
+        //double ChangeRate { get; set; }
 
         /// <summary>
-        /// 涨跌幅
-        /// </summary>
-        double ChangeRate { get; set; }
-
-        /// <summary>
-        /// 成交量
+        /// 分时成交量
         /// </summary>
         double Volume { get; set; }
 
         /// <summary>
-        /// 成交额
+        /// 分时成交额
         /// </summary>
         double Amount { get; set; }
+
+        /// <summary>
+        /// 委买
+        /// </summary>
+        double BuyVolume { get; set; }
+
+        /// <summary>
+        /// 委卖
+        /// </summary>
+        double SellVolume { get; set; }
     }
 }

@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enum\Market.cs" />
+    <Compile Include="Matedata\IStockDividend.cs" />
     <Compile Include="Matedata\IStockIntraday.cs" />
     <Compile Include="Matedata\IStockKLine.cs" />
     <Compile Include="Matedata\IStockRealTime.cs" />
