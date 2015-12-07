@@ -25,22 +25,22 @@ namespace Ore.Infrastructure.MarketData
         /// <summary>
         /// 时间
         /// </summary>
-        DateTime Time { get; set; }
+        DateTime Time { get; }
 
         /// <summary>
         /// 当前价
         /// </summary>
-        double Current { get; set; }
+        double Current { get; }
 
         /// <summary>
         /// 均价 = 当前时刻总成交额 / 当前时刻总成交量
         /// </summary>
-        double AveragePrice { get; set; }
+        double AveragePrice { get; }
 
         /// <summary>
         /// 前一交易日收盘价
         /// </summary>
-        double YesterdayClose { get; set; }
+        double YesterdayClose { get; }
 
         ///// <summary>
         ///// 涨跌
@@ -55,21 +55,21 @@ namespace Ore.Infrastructure.MarketData
         /// <summary>
         /// 分时成交量
         /// </summary>
-        double Volume { get; set; }
+        double Volume { get; }
 
         /// <summary>
         /// 分时成交额
         /// </summary>
-        double Amount { get; set; }
+        double Amount { get; }
 
         /// <summary>
         /// 委买
         /// </summary>
-        double BuyVolume { get; set; }
+        double BuyVolume { get; }
 
         /// <summary>
         /// 委卖
         /// </summary>
-        double SellVolume { get; set; }
+        double SellVolume { get; }
     }
 }
