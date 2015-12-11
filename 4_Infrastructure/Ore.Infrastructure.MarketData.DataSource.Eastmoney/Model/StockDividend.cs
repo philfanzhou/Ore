@@ -4,16 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
+namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney.Model
 {
-    internal class StockStructure : IStockStructure
+    internal class StockDividend : IStockDividend
     {
         public string Code
-        {
-            get; internal set;
-        }
-
-        public DateTime Date
         {
             get; internal set;
         }
@@ -23,37 +18,57 @@ namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
             get; internal set;
         }
 
-        public string Reason
-        {
-            get; internal set;
-        }
-
-        public double SharesA
-        {
-            get; internal set;
-        }
-
-        public double SharesB
-        {
-            get; internal set;
-        }
-
-        public double SharesH
-        {
-            get; internal set;
-        }
-
         public string ShortName
         {
             get; internal set;
         }
 
-        public double TotalShares
+        public DateTime Date
         {
             get; internal set;
         }
 
-        public double TotalSharesA
+        public DateTime ExdividendDate
+        {
+            get; internal set;
+        }
+
+        public double Cash
+        {
+            get; internal set;
+        }
+
+        public double Split
+        {
+            get; internal set;
+        }
+
+        public double Bonus
+        {
+            get; internal set;
+        }
+
+        public double Dispatch
+        {
+            get; internal set;
+        }
+
+        public double Price
+        {
+            get; internal set;
+        }
+
+        public DateTime RegisterDate
+        {
+            get; internal set;
+        }
+
+        public DateTime ListingDate
+        {
+            get; internal set;
+        }
+
+        public string Description
         {
             get; internal set;
         }

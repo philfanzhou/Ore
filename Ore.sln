@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4_Infrastructure", "4_Infrastructure", "{F2A6A5A4-847F-44A6-AB06-6441D323A0C6}"
 EndProject
@@ -16,6 +16,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ore.Infrastructure.MarketData.DataSource.Sina", "4_Infrastructure\Ore.Infrastructure.MarketData.DataSource.Sina\Ore.Infrastructure.MarketData.DataSource.Sina.csproj", "{B3E609E5-A5A1-457D-AA61-D07B07D29E34}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ore.Infrastructure.MarketData.DataSource.Eastmoney", "4_Infrastructure\Ore.Infrastructure.MarketData.DataSource.Eastmoney\Ore.Infrastructure.MarketData.DataSource.Eastmoney.csproj", "{533E92C5-395B-4F8C-91D7-D366BB7A21A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{4EE3666B-6F7E-493F-97B7-CC46E8C30350}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{533E92C5-395B-4F8C-91D7-D366BB7A21A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{533E92C5-395B-4F8C-91D7-D366BB7A21A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{533E92C5-395B-4F8C-91D7-D366BB7A21A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EE3666B-6F7E-493F-97B7-CC46E8C30350}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EE3666B-6F7E-493F-97B7-CC46E8C30350}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EE3666B-6F7E-493F-97B7-CC46E8C30350}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EE3666B-6F7E-493F-97B7-CC46E8C30350}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

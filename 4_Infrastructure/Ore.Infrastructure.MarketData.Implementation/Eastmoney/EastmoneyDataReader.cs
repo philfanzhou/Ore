@@ -48,7 +48,6 @@ namespace Ore.Infrastructure.MarketData.Implementation
         {
             string url = string.Format(OrgPercentUrl, code);
             string message = GetDataFromUrl(url);
-            
             return new OrgPercentData(code, message);
         }
     }

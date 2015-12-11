@@ -30,8 +30,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FSharp.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ScrapySharp.2.2.63\lib\net40\FSharp.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.6.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ScrapySharp.2.2.63\lib\net40\HtmlAgilityPack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ScrapySharp, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ScrapySharp.2.2.63\lib\net40\ScrapySharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ScrapySharp.Core, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ScrapySharp.2.2.63\lib\net40\ScrapySharp.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\StockDividend.cs" />
     <Compile Include="PageReader.cs" />
     <Compile Include="Model\SecurityInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -53,6 +72,9 @@
       <Project>{11e69835-a2a1-4631-96c0-fe078b09f5f5}</Project>
       <Name>Ore.Infrastructure.MarketData</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
