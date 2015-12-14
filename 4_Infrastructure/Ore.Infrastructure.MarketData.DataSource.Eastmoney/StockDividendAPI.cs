@@ -37,7 +37,12 @@ namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
 
     public class StockDividendAPI
     {
-        private const string WebApiAddress = @"http://quote3.eastmoney.com/f10.aspx?StockCode=000002&stock_name=&f10=010";
+        //private const string WebApiAddress = @"http://quote3.eastmoney.com/f10.aspx?StockCode=000002&stock_name=&f10=010";
+
+        // 请使用新的数据源地址
+        private const string WebApiAddress = @"http://vip.stock.finance.sina.com.cn/corp/go.php/vISSUE_ShareBonus/stockid/000002.phtml";
+        private const string DetailInfo = @"http://vip.stock.finance.sina.com.cn/corp/view/vISSUE_ShareBonusDetail.php?stockid=000002&type=1&end_date=2015-07-14";
+
 
         public IEnumerable<IStockDividend> GetStockStructure(string stockCode)
         {
