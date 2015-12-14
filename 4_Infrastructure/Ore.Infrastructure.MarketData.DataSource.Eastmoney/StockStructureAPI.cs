@@ -1,22 +1,18 @@
-﻿using System;
+﻿using HtmlAgilityPack;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using HtmlAgilityPack;
 
 namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
 {
     public class StockStructureAPI
     {
-        private const string WebApiAddress = @"http://quote3.eastmoney.com/f10.aspx?StockCode=000002&stock_name=&f10=003";
+        private const string WebApiAddress = @"http://quote3.eastmoney.com/f10.aspx?StockCode={0}&stock_name=&f10=003";
         
         public IEnumerable<IStockStructure> GetStockStructure(string stockCode)
         {
-            string url = string.Format(@"http://quote3.eastmoney.com/f10.aspx?StockCode={0}&stock_name=&f10=003", stockCode);
+            string url = string.Format(WebApiAddress, stockCode);
 
             StreamReader pageStream = PageReader.GetPageStream(url);
             if (pageStream == null)

@@ -15,7 +15,7 @@
         /// <summary>
         /// 暂停
         /// </summary>
-        suspend = 2,
+        Suspend = 2,
 
         /// <summary>
         /// 摘牌

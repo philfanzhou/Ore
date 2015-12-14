@@ -133,7 +133,7 @@ namespace Ore.Infrastructure.MarketData.Implementation
                     case "L":
                         return ListStatus.List;
                     case "S":
-                        return ListStatus.suspend;
+                        return ListStatus.Suspend;
                     case "DE":
                         return ListStatus.Delist;
                     case "UN":
