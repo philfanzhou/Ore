@@ -45,7 +45,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
         private const string DetailInfo2 = @"http://vip.stock.finance.sina.com.cn/corp/view/vISSUE_ShareBonusDetail.php?stockid=000002&type=2&end_date=1999-12-22";
 
 
-        public IEnumerable<IStockDividend> GetStockStructure(string stockCode)
+        public IEnumerable<IStockBonus> GetStockBonus(string stockCode)
         {
             //string url = string.Format(@"http://quote3.eastmoney.com/f10.aspx?StockCode={0}&stock_name=&f10=010", stockCode);
 
