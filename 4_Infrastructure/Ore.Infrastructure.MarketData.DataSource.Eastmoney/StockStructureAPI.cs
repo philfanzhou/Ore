@@ -14,12 +14,13 @@ namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
         {
             string url = string.Format(WebApiAddress, stockCode);
 
-            StreamReader pageStream = PageReader.GetPageStream(url);
-            if (pageStream == null)
+            string html = PageReader.GetPageSource(url);
+            if (string.IsNullOrEmpty(html))
                 return null;
 
             var htmlDocument = new HtmlDocument();
-            htmlDocument.Load(pageStream);
+            htmlDocument.LoadHtml(html);
+            
             HtmlNode maintitleNode = htmlDocument.GetElementbyId("maintitle");
             string maintitle = maintitleNode.InnerText.Replace("&nbsp;", "");
 

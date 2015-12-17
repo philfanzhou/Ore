@@ -12,16 +12,16 @@ namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
 
         public IEnumerable<ISecurity> GetAllSecurity()
         {
-            StreamReader pageStream = PageReader.GetPageStream(WebApiAddress);
-            if (pageStream == null)
+            string html = PageReader.GetPageSource(WebApiAddress);
+            if (string.IsNullOrEmpty(html))
                 return null;
 
             var htmlDocument = new HtmlDocument();
-            htmlDocument.Load(pageStream);
-            var html = htmlDocument.DocumentNode;
+            htmlDocument.LoadHtml(html);            
+            var htmlNodes = htmlDocument.DocumentNode;
 
             List<SecurityInfo> datas = null;
-            var nodesSecurityInfo = html.CssSelect("div.quotebody").CssSelect("li");
+            var nodesSecurityInfo = htmlNodes.CssSelect("div.quotebody").CssSelect("li");
             if (nodesSecurityInfo != null)
             {
                 datas = new List<SecurityInfo>();

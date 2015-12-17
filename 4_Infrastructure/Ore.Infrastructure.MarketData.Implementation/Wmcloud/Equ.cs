@@ -7,6 +7,289 @@ namespace Ore.Infrastructure.MarketData.Implementation
     /// </summary>
     public class Equ : IStockProfile
     {
+        public string AccountingFirm
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string Area
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string BoardSecretary
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string BusinessRegistration
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string Chairman
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string CodeA
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string CodeB
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string CodeH
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string CompanyProfile
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string ContactNumber
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string Email
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string EnglishName
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public DateTime EstablishmentDate
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public Market Exchange
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string Fax
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string FullName
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string GeneralManager
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string IndependentDirectors
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string Industry
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string LawOffice
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string LegalRepresentative
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public DateTime ListDate
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string NameUsedBefore
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public int NumberOfEmployees
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public int NumberOfManagement
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string OfficeAddress
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string PrimeBusiness
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string RegisteredAddress
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public decimal RegisteredCapital
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string SecuritiesAffairsRepresentatives
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string ShortNameA
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string ShortNameB
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string ShortNameH
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string Website
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public string ZipCode
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+    }
+    /*
+    public class Equ : IStockProfile
+    {
         /// <summary>+
         /// 证券内部编码
         /// </summary>
@@ -308,4 +591,5 @@ namespace Ore.Infrastructure.MarketData.Implementation
             }
         }
     }
+    */
 }

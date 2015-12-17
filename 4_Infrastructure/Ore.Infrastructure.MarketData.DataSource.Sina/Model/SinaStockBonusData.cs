@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney.Model
+namespace Ore.Infrastructure.MarketData.DataSource.Sina.Model
 {
-    internal class StockBonus : IStockBonus
-    {
+    internal class SinaStockBonusData : IStockBonus
+    {  
         public double ActualDispatchRate { get; internal set; }
 
         public double BAndHDividendAfterTax { get; internal set; }

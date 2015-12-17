@@ -1,8 +1,12 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
+namespace Ore.Infrastructure.MarketData.DataSource.Sina
 {
     internal class PageReader
     {
@@ -21,6 +25,6 @@ namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
                     return streamReader.ReadToEnd();
                 }
             }
-        }        
+        }
     }
 }
