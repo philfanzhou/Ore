@@ -65,6 +65,7 @@
     <Compile Include="SecurityInfoAPI.cs" />
     <Compile Include="Model\StockStructure.cs" />
     <Compile Include="StockBonusAPI.cs" />
+    <Compile Include="StockProfileAPI.cs" />
     <Compile Include="StockStructureAPI.cs" />
   </ItemGroup>
   <ItemGroup>
