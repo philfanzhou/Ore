@@ -40,64 +40,64 @@ namespace Ore.Infrastructure.MarketData
         /// <summary>
         /// 税前红利（10派）（报价币种）
         /// </summary>
-        double Bonus { get; }
+        double PreTaxDividend { get; }
         /// <summary>
         /// 税后红利（10派）（报价币种）
         /// </summary>
-        double BonusAfterTax { get; }
+        double DividendAfterTax { get; }
         /// <summary>
         /// B、H股税前红利（人民币）
         /// </summary>
-        double BAndHBonus { get; }
+        double BAndHPreTaxDividend { get; }
         /// <summary>
         /// B、H股税后红利（人民币）
         /// </summary>
-        double BAndHBonusAfterTax { get; }
+        double BAndHDividendAfterTax { get; }
         /// <summary>
         /// 送股比例（10送）
         /// </summary>
-        double Field1 { get; }
+        double BonusRate { get; }
         /// <summary>
         /// 转增比例（10转增）
         /// </summary>
-        double Field2 { get; }
+        double IncreaseRate { get; }
         /// <summary>
         /// 盈余公积金转增比例（10转增）
         /// </summary>
-        double Field3 { get; }
+        double ReserveSurplusIncreaseRate { get; }
         /// <summary>
         /// 资本公积金转增比例（10转增）
         /// </summary>
-        double Field4 { get; }
+        double CapitalSurplusIncreaseRate { get; }
         /// <summary>
         /// 发放对象
         /// </summary>
-        string Field5 { get; }
+        string IssuingObject { get; }
         /// <summary>
         /// 股本基准日
         /// </summary>
-        DateTime Field6 { get; }
+        DateTime CapitalStockBaseDate { get; }
         /// <summary>
         /// 最后交易日
         /// </summary>
-        DateTime Field7 { get; }
+        DateTime LastTradingDay { get; }
 
         /// <summary>
         /// 红利/配股起始日（送、转股到账日)
         /// </summary>
-        DateTime Field8 { get; }
+        DateTime StartOrArriveDate { get; }
         /// <summary>
         /// 红利/配股终止日
         /// </summary>
-        DateTime Field9 { get; }
+        DateTime ExpirationDate { get; }
         /// <summary>
         /// 股东大会决议公告日期
         /// </summary>
-        DateTime Field10 { get; }
+        DateTime ResolutionOfShareholdersMeetingDate { get; }
         /// <summary>
         /// 可转债享受权益转股截止日
         /// </summary>
-        DateTime Field11 { get; }
+        DateTime ConvertibleBondDate { get; }
         
         /// <summary>
         /// 配股上市日
@@ -114,35 +114,35 @@ namespace Ore.Infrastructure.MarketData
         /// <summary>
         /// 转配比例
         /// </summary>
-        double Field12 { get; }
+        double TransferredAllottedRate { get; }
         /// <summary>
         /// 转配价
         /// </summary>
-        double Field13 { get; }
+        double TransferredAllottedPrice { get; }
         /// <summary>
         /// 配股有效期
         /// </summary>
-        DateTime Field14 { get; }
+        DateTime DispatchExpiryDate { get; }
         /// <summary>
         /// 实际配股数 (万股)
         /// </summary>
-        double Field15 { get; }
+        double TotalDispatch { get; }
         /// <summary>
         /// 配股前总股本 (万股)
         /// </summary>
-        double Field16 { get; }
+        double CapitalStockBeforeDispatch { get; }
         /// <summary>
         /// 实际配股比例
         /// </summary>
-        double Field17 { get; }
+        double ActualDispatchRate { get; }
         /// <summary>
         /// 每股拆细数
         /// </summary>
-        double Field18 { get; }
+        double ShareSplitCount { get; }
         /// <summary>
         /// 外币折算汇率
         /// </summary>
-        double Field19 { get; }
+        double ExchangeRate { get; }
 
         /// <summary>
         /// 权息说明
