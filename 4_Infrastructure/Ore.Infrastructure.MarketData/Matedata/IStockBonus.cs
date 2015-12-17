@@ -149,20 +149,4 @@ namespace Ore.Infrastructure.MarketData
         /// </summary>
         string Description { get; }
     }
-
-    /// <summary>
-    /// 分红配股类型枚举
-    /// </summary>
-    public enum BounsType
-    {
-        /// <summary>
-        /// 分红
-        /// </summary>
-        ProfitSharing,
-        /// <summary>
-        /// 配股
-        /// </summary>
-        StockOption
-    }
-
 }
