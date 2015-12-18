@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 
 namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
 {
-    public class SecurityInfoAPI
+    public class SecurityInfoApi
     {
         private const string WebApiAddress = @"http://quote.eastmoney.com/stock_list.html";
 

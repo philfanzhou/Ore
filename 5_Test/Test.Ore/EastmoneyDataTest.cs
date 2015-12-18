@@ -24,7 +24,7 @@ namespace Test.Ore
         [TestMethod]
         public void TestReadSecurityInfo()
         {
-            var securities = new SecurityInfoAPI().GetAllSecurity();
+            var securities = new SecurityInfoApi().GetAllSecurity();
 
             Assert.IsNotNull(securities);
         }

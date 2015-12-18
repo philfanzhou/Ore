@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ore.Infrastructure.MarketData.DataSource.Sina.Model
+namespace Ore.Infrastructure.MarketData.DataSource.Sina
 {
     internal class SinaStockBonusData : IStockBonus
     {  

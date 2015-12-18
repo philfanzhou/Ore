@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Ore.Infrastructure.MarketData.DataSource.Sina
 {
-    public class SinaRealTimePriceAPI
+    public class StockRealTimeApi
     {
         private const string WebApiAddress = @"http://hq.sinajs.cn/list=";
 

@@ -1,15 +1,10 @@
-﻿using System;
+﻿using HtmlAgilityPack;
+using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HtmlAgilityPack;
-using Ore.Infrastructure.MarketData.DataSource.Sina.Model;
 
 namespace Ore.Infrastructure.MarketData.DataSource.Sina
 {
-    public class SinaStockBonusAPI
+    public class StockBonusApi
     {
         // 请使用新的数据源地址 从这个页面获取到的数据，根据对应类型，传入下面的Detail页面获取详细数据
         private const string WebApiAddress = @"http://vip.stock.finance.sina.com.cn/corp/go.php/vISSUE_ShareBonus/stockid/000002.phtml";

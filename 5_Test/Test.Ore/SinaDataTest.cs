@@ -12,7 +12,7 @@ namespace Test.Ore
         [TestMethod]
         public void SinaRealTimeDataConstructorTest()
         {
-            SinaRealTimePriceAPI reader = new SinaRealTimePriceAPI();
+            StockRealTimeApi reader = new StockRealTimeApi();
             IStockRealTime data = reader.GetData(new Stock { Code = "600036", Market = Market.XSHG});
             Assert.IsNotNull(data);
             Assert.AreEqual(Market.XSHG, data.Market);
@@ -39,7 +39,7 @@ namespace Test.Ore
                 new Stock { Code = "600660", Market = Market.XSHG},
                 new Stock { Code = "600196", Market = Market.XSHG}
             };
-            SinaRealTimePriceAPI reader = new SinaRealTimePriceAPI();
+            StockRealTimeApi reader = new StockRealTimeApi();
             List<IStockRealTime> datas = reader.GetData(codes).ToList();
 
             Assert.IsNotNull(datas);

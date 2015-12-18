@@ -58,14 +58,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\StockBonus.cs" />
     <Compile Include="PageReader.cs" />
     <Compile Include="Model\SecurityInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SecurityInfoAPI.cs" />
-    <Compile Include="Model\StockStructure.cs" />
-    <Compile Include="StockBonusAPI.cs" />
-    <Compile Include="StockProfileAPI.cs" />
+    <Compile Include="SecurityInfoApi.cs" />
+    <Compile Include="StockProfileApi.cs" />
     <Compile Include="StockStructureAPI.cs" />
   </ItemGroup>
   <ItemGroup>

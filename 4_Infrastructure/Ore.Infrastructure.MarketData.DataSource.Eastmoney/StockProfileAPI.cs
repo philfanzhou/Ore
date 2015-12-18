@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
 {
-    class StockProfileAPI
+    class StockProfileApi
     {
         public IStockProfile GetStockProfile(string stockCode)
         {
