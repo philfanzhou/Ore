@@ -231,7 +231,7 @@ namespace Ore.Infrastructure.MarketData.Implementation
             }
         }
 
-        public decimal RegisteredCapital
+        public string RegisteredCapital
         {
             get
             {

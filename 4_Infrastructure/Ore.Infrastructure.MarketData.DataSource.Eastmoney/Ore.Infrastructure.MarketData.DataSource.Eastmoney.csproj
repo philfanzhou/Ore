@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\StockProfile.cs" />
     <Compile Include="PageReader.cs" />
     <Compile Include="Model\SecurityInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

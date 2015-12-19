@@ -21,6 +21,23 @@ namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
                     return streamReader.ReadToEnd();
                 }
             }
-        }        
+        }
+
+        internal static string GetPageSource(string url, Encoding encode)
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "GET";
+            request.Timeout = 5000;
+            request.Proxy = null;
+
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            {
+                using (StreamReader streamReader
+                    = new StreamReader(response.GetResponseStream(), encode))
+                {
+                    return streamReader.ReadToEnd();
+                }
+            }
+        }
     }
 }

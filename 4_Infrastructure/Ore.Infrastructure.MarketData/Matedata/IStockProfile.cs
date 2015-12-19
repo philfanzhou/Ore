@@ -110,7 +110,7 @@ namespace Ore.Infrastructure.MarketData
         /// <summary>
         /// 注册资本(元)
         /// </summary>
-        decimal RegisteredCapital { get; }
+        string RegisteredCapital { get; }
         /// <summary>
         /// 工商登记
         /// </summary>
