@@ -17,8 +17,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ore.Infrastructure.MarketDa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ore.Infrastructure.MarketData.DataSource.Eastmoney", "4_Infrastructure\Ore.Infrastructure.MarketData.DataSource.Eastmoney\Ore.Infrastructure.MarketData.DataSource.Eastmoney.csproj", "{533E92C5-395B-4F8C-91D7-D366BB7A21A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{4EE3666B-6F7E-493F-97B7-CC46E8C30350}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,10 +43,6 @@ Global
 		{533E92C5-395B-4F8C-91D7-D366BB7A21A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{533E92C5-395B-4F8C-91D7-D366BB7A21A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{533E92C5-395B-4F8C-91D7-D366BB7A21A5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4EE3666B-6F7E-493F-97B7-CC46E8C30350}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4EE3666B-6F7E-493F-97B7-CC46E8C30350}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4EE3666B-6F7E-493F-97B7-CC46E8C30350}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4EE3666B-6F7E-493F-97B7-CC46E8C30350}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
