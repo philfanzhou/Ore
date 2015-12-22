@@ -1,15 +1,131 @@
 ﻿using System;
 using System.Collections.Generic;
+using HtmlAgilityPack;
 
 namespace Ore.Infrastructure.MarketData.DataSource.Sina
 {
     public class StockStructureApi
     {
         private const string WebApiAddress = @"http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_StockStructure/stockid/000002.phtml";
-        
+
         public IEnumerable<IStockStructure> GetStockStructure(string stockCode)
         {
-            throw new NotImplementedException();
+            string url = string.Format(@"http://vip.stock.finance.sina.com.cn/corp/go.php/vCI_StockStructure/stockid/{0}.phtml", stockCode);
+
+            string html = PageReader.GetPageSource(url);
+            if (string.IsNullOrEmpty(html))
+                return null;
+
+            var htmlDocument = new HtmlDocument();
+            htmlDocument.LoadHtml(html);
+
+            var titleNode = htmlDocument.DocumentNode.SelectSingleNode("/html[1]/head[1]/title[1]");
+            // 简称
+            string name = titleNode.InnerText.Substring(0, titleNode.InnerText.IndexOf("("));
+            ///// 交易市场
+            //Market Market
+
+            string xpath = "/html[1]/body[1]/div[1]/div[9]/div[2]/div[1]/div[3]/table";
+            HtmlNodeCollection tableNodes = htmlDocument.DocumentNode.SelectNodes(xpath);
+            if (tableNodes == null || tableNodes.Count < 1)
+                return null;
+
+            List<SinaStockStructure> lstStockStructure = new List<SinaStockStructure>();            
+            foreach (HtmlNode it in tableNodes)
+            {
+                var colspanNode = it.SelectSingleNode("thead[1]/tr[1]/th[1]");
+                int colspan = int.Parse((string)colspanNode.Attributes["colspan"].Value);
+                for (int i = 0; i < colspan - 1; i++)
+                {
+                    SinaStockStructure stockStructure = new SinaStockStructure() { Code = stockCode, ShortName = name };
+                    /// 变动日期
+                    DateTime DateOfChange = DateTime.MaxValue;
+                    if (DateTime.TryParse(it.SelectSingleNode(string.Format("tbody[1]/tr[1]/td[{0}]", 2 + i)).InnerText, out DateOfChange))
+                        stockStructure.DateOfChange = DateOfChange;
+                    /// 公告日期
+                    DateTime DateOfDeclaration = DateTime.MaxValue;
+                    if (DateTime.TryParse(it.SelectSingleNode(string.Format("tbody[1]/tr[2]/td[{0}]", 2 + i)).InnerText, out DateOfDeclaration))
+                        stockStructure.DateOfDeclaration = DateOfDeclaration;
+                    /// 变更原因
+                    string Reason = it.SelectSingleNode(string.Format("tbody[1]/tr[4]/td[{0}]", 2 + i)).InnerText;
+                    /// 总股本
+                    double TotalShares = 0;
+                    if (double.TryParse(it.SelectSingleNode(string.Format("tbody[1]/tr[5]/td[{0}]", 2 + i)).InnerText.Replace("万股", ""), out TotalShares))
+                        stockStructure.TotalShares = TotalShares;
+                    /// 流通A股
+                    double SharesA = 0;
+                    if (double.TryParse(it.SelectSingleNode(string.Format("tbody[1]/tr[7]/td[{0}]", 2 + i)).InnerText.Replace("万股", ""), out SharesA))
+                        stockStructure.SharesA = SharesA;
+                    /// 高管股
+                    double ExecutiveShares = 0;
+                    if (double.TryParse(it.SelectSingleNode(string.Format("tbody[1]/tr[8]/td[{0}]", 2 + i)).InnerText.Replace("万股", ""), out ExecutiveShares))
+                        stockStructure.ExecutiveShares = ExecutiveShares;
+                    /// 限售A股
+                    double RestrictedSharesA = 0;
+                    if (double.TryParse(it.SelectSingleNode(string.Format("tbody[1]/tr[9]/td[{0}]", 2 + i)).InnerText.Replace("万股", ""), out RestrictedSharesA))
+                        stockStructure.RestrictedSharesA = RestrictedSharesA;
+                    /// 流通B股
+                    double SharesB = 0;
+                    if (double.TryParse(it.SelectSingleNode(string.Format("tbody[1]/tr[10]/td[{0}]", 2 + i)).InnerText.Replace("万股", ""), out SharesB))
+                        stockStructure.SharesB = SharesB;
+                    /// 限售B股
+                    double RestrictedSharesB = 0;
+                    if (double.TryParse(it.SelectSingleNode(string.Format("tbody[1]/tr[11]/td[{0}]", 2 + i)).InnerText.Replace("万股", ""), out RestrictedSharesB))
+                        stockStructure.RestrictedSharesB = RestrictedSharesB;
+                    /// 流通H股
+                    double SharesH = 0;
+                    if (double.TryParse(it.SelectSingleNode(string.Format("tbody[1]/tr[12]/td[{0}]", 2 + i)).InnerText.Replace("万股", ""), out SharesH))
+                        stockStructure.SharesH = SharesH;
+                    /// 国家股
+                    double StateShares = 0;
+                    if (double.TryParse(it.SelectSingleNode(string.Format("tbody[1]/tr[13]/td[{0}]", 2 + i)).InnerText.Replace("万股", ""), out StateShares))
+                        stockStructure.StateShares = StateShares;
+                    /// 国有法人股
+                    double StateOwnedLegalPersonShares = 0;
+                    if (double.TryParse(it.SelectSingleNode(string.Format("tbody[1]/tr[14]/td[{0}]", 2 + i)).InnerText.Replace("万股", ""), out StateOwnedLegalPersonShares))
+                        stockStructure.StateOwnedLegalPersonShares = StateOwnedLegalPersonShares;
+                    /// 境内法人股
+                    double DomesticLegalPersonShares = 0;
+                    if (double.TryParse(it.SelectSingleNode(string.Format("tbody[1]/tr[15]/td[{0}]", 2 + i)).InnerText.Replace("万股", ""), out DomesticLegalPersonShares))
+                        stockStructure.DomesticLegalPersonShares = DomesticLegalPersonShares;
+                    /// 境内发起人股
+                    double DomesticSponsorsShares = 0;
+                    if (double.TryParse(it.SelectSingleNode(string.Format("tbody[1]/tr[16]/td[{0}]", 2 + i)).InnerText.Replace("万股", ""), out DomesticSponsorsShares))
+                        stockStructure.DomesticSponsorsShares = DomesticSponsorsShares;
+                    /// 募集法人股
+                    double RaiseLegalPersonShares = 0;
+                    if (double.TryParse(it.SelectSingleNode(string.Format("tbody[1]/tr[17]/td[{0}]", 2 + i)).InnerText.Replace("万股", ""), out RaiseLegalPersonShares))
+                        stockStructure.RaiseLegalPersonShares = RaiseLegalPersonShares;
+                    /// 一般法人股
+                    double GeneralLegalPersonShares = 0;
+                    if (double.TryParse(it.SelectSingleNode(string.Format("tbody[1]/tr[18]/td[{0}]", 2 + i)).InnerText.Replace("万股", ""), out GeneralLegalPersonShares))
+                        stockStructure.GeneralLegalPersonShares = GeneralLegalPersonShares;
+                    /// 战略投资者持股
+                    double StrategicInvestorsShares = 0;
+                    if (double.TryParse(it.SelectSingleNode(string.Format("tbody[1]/tr[19]/td[{0}]", 2 + i)).InnerText.Replace("万股", ""), out StrategicInvestorsShares))
+                        stockStructure.StrategicInvestorsShares = StrategicInvestorsShares;
+                    /// 基金持股
+                    double FundsShares = 0;
+                    if (double.TryParse(it.SelectSingleNode(string.Format("tbody[1]/tr[20]/td[{0}]", 2 + i)).InnerText.Replace("万股", ""), out FundsShares))
+                        stockStructure.FundsShares = FundsShares;
+                    /// 转配股
+                    double TransferredAllottedShares = 0;
+                    if (double.TryParse(it.SelectSingleNode(string.Format("tbody[1]/tr[21]/td[{0}]", 2 + i)).InnerText.Replace("万股", ""), out TransferredAllottedShares))
+                        stockStructure.TransferredAllottedShares = TransferredAllottedShares;
+                    /// 内部职工股
+                    double InternalStaffShares = 0;
+                    if (double.TryParse(it.SelectSingleNode(string.Format("tbody[1]/tr[22]/td[{0}]", 2 + i)).InnerText.Replace("万股", ""), out InternalStaffShares))
+                        stockStructure.InternalStaffShares = InternalStaffShares;
+                    /// 优先股
+                    double PreferredStock = 0;
+                    if (double.TryParse(it.SelectSingleNode(string.Format("tbody[1]/tr[23]/td[{0}]", 2 + i)).InnerText.Replace("万股", ""), out PreferredStock))
+                        stockStructure.PreferredStock = PreferredStock;
+
+                    lstStockStructure.Add(stockStructure);
+                }
+            }
+
+            return lstStockStructure;
         }
 
     }

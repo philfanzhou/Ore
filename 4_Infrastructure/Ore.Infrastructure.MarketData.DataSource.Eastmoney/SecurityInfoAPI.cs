@@ -13,11 +13,11 @@ namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
         {
             string html = PageReader.GetPageSource(WebApiAddress);
             if (string.IsNullOrEmpty(html))
-                return null;
+                return null;            
 
             var htmlDocument = new HtmlDocument();
             htmlDocument.LoadHtml(html);            
-            var htmlNodes = htmlDocument.DocumentNode;
+            var htmlNodes = htmlDocument.DocumentNode;            
 
             List<SecurityInfo> datas = null;
             var nodesSecurityInfo = htmlNodes.CssSelect("div.quotebody").CssSelect("li");
@@ -39,6 +39,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
                     }
                 }
             }
+
             return datas;
         }
 
