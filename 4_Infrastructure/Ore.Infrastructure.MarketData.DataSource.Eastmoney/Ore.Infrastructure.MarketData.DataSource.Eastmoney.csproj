@@ -64,7 +64,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SecurityInfoApi.cs" />
     <Compile Include="StockProfileApi.cs" />
-    <Compile Include="StockStructureAPI.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Ore.Infrastructure.MarketData\Ore.Infrastructure.MarketData.csproj">

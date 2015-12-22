@@ -51,7 +51,7 @@
     <Compile Include="Model\SinaRealTimeData.cs" />
     <Compile Include="StockBonusApi.cs" />
     <Compile Include="Model\SinaStockBonusData.cs" />
-    <Compile Include="StockStructureAPI.cs" />
+    <Compile Include="StockStructureApi.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Ore.Infrastructure.MarketData\Ore.Infrastructure.MarketData.csproj">

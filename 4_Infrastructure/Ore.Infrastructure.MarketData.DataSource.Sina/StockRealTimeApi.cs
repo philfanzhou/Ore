@@ -10,34 +10,23 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
     {
         private const string WebApiAddress = @"http://hq.sinajs.cn/list=";
 
-        public IStockRealTime GetData(ISecurity security)
+        public IStockRealTime GetData(string stockCode)
         {
-            if (security.Type != SecurityType.Sotck)
-            {
-                throw new ArgumentOutOfRangeException("security");
-            }
-
-            string stockCode = GetStockCode(security);
-            string url = WebApiAddress + stockCode;
+            string url = WebApiAddress + GetStockCodeWithMarket(stockCode); ;
             string strData = GetStringData(url);
             return GetDataFromSource(strData);
         }
 
-        public IEnumerable<IStockRealTime> GetData(IEnumerable<ISecurity> securities)
+        public IEnumerable<IStockRealTime> GetData(IEnumerable<string> stockCodes)
         {
             StringBuilder codesBuilder = new StringBuilder();
-            foreach (ISecurity security in securities)
+            foreach (string code in stockCodes)
             {
-                if (security.Type != SecurityType.Sotck)
-                {
-                    throw new ArgumentOutOfRangeException("securities");
-                }
-
                 if (codesBuilder.Length > 0)
                 {
                     codesBuilder.Append(',');
                 }
-                codesBuilder.Append(GetStockCode(security));
+                codesBuilder.Append(GetStockCodeWithMarket(code));
             }
 
             string strData = GetStringData(WebApiAddress + codesBuilder.ToString());
@@ -51,19 +40,24 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
 
             return datas;
         }
-
-        private string GetStockCode(ISecurity security)
+        
+        private static string GetStockCodeWithMarket(string stockCode)
         {
-            if (security.Market == Market.XSHG)
+            if (stockCode.StartsWith("5") ||
+                stockCode.StartsWith("6") ||
+                stockCode.StartsWith("9"))
             {
-                return "sh" + security.Code;
+                return "sh" + stockCode;
             }
-            else if (security.Market == Market.XSHE)
+            else if (stockCode.StartsWith("009") ||
+                stockCode.StartsWith("126") ||
+                stockCode.StartsWith("110"))
             {
-                return "sz" + security.Code;
+                return "sh" + stockCode;
             }
+            else
             {
-                throw new ArgumentOutOfRangeException("security");
+                return "sz" + stockCode;
             }
         }
 

@@ -5,6 +5,9 @@
     /// </summary>
     public enum ListStatus
     {
+        /// <summary>
+        /// 未知
+        /// </summary>
         Unknown = 0,
 
         /// <summary>
