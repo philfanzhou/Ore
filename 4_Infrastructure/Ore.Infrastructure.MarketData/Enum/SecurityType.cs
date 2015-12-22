@@ -5,6 +5,9 @@
     /// </summary>
     public enum SecurityType
     {
+        /// <summary>
+        /// 未知
+        /// </summary>
         Unknown = 0,
 
         /// <summary>

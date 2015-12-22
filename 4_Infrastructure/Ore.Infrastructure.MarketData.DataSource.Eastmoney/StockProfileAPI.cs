@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using HtmlAgilityPack;
+using System;
 using System.Text;
-using System.Threading.Tasks;
-using HtmlAgilityPack;
-using Ore.Infrastructure.MarketData.DataSource.Eastmoney.Model;
 
 namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
 {

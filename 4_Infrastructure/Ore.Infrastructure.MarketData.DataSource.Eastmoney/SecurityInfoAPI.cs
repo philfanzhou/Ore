@@ -1,7 +1,6 @@
 ﻿using HtmlAgilityPack;
 using ScrapySharp.Extensions;
 using System.Collections.Generic;
-using System.IO;
 using System.Text.RegularExpressions;
 
 namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
