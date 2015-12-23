@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Enum\BounsType.cs" />
     <Compile Include="Enum\Market.cs" />
+    <Compile Include="Matedata\IParticipation.cs" />
     <Compile Include="Matedata\IStockBonus.cs" />
     <Compile Include="Matedata\IStockIntraday.cs" />
     <Compile Include="Matedata\IStockKLine.cs" />

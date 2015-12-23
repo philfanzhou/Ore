@@ -13,24 +13,11 @@ namespace Test.Ore
     public class EastmoneyDataTest
     {
         [TestMethod]
-        public void TestReadOrgPercentData()
-        {
-            var data = new EastmoneyDataReader().Get("600036");
-            
-            Assert.IsNotNull(data);
-            Assert.IsTrue(data.Code == "600036");
-            Assert.IsTrue(data.Value != 0);
-            Assert.IsTrue(data.Zhuli != 0);
-            Assert.IsTrue(data.Chaoda != 0);
-            Assert.IsTrue(data.Day.Year == DateTime.Now.Year);
-        }
-
-        [TestMethod]
         public void TestReadSecurityInfo()
         {
-            var securities = new SecurityInfoApi().GetAllSecurity();
-
+            var securities = new SecurityInfoApi().GetAllSecurity().ToList();
             Assert.IsNotNull(securities);
+            Assert.IsTrue(securities.Count > 0);
         }
 
         [TestMethod]
@@ -38,6 +25,18 @@ namespace Test.Ore
         {
             IStockProfile result = new StockProfileApi().GetStockProfile("600036");
             Assert.IsNotNull(result);
+            Assert.AreEqual("600036", result.CodeA);
+        }
+
+        [TestMethod]
+        public void TestParticipationInfo()
+        {
+            IParticipation result = new ParticipationApi().GetLatest("600036");
+            Assert.IsNotNull(result);
+            Assert.AreEqual("600036", result.Code);
+            Assert.IsTrue(result.Value != 0);
+            Assert.IsTrue(result.MainForceInflows != 0);
+            Assert.IsTrue(result.SuperLargeInflows != 0);
         }
     }
 }
