@@ -15,7 +15,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
         /// <returns>有返回IStockProfile对象，没有返回null</returns>
         public IStockProfile GetStockProfile(string stockCode)
         {
-            string url = string.Format(@"http://f10.eastmoney.com/f10_v2/CompanySurvey.aspx?code={0}", stockCode);
+            string url = string.Format(@"http://f10.eastmoney.com/f10_v2/CompanySurvey.aspx?code={0}", GetStockCodeWithMarket(stockCode));
 
             string html = PageReader.GetPageSource(url, Encoding.UTF8);
             if (string.IsNullOrEmpty(html))
@@ -143,6 +143,26 @@ namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
                 return Market.XHKG;
 
             return Market.Unknown;
+        }
+
+        private static string GetStockCodeWithMarket(string stockCode)
+        {
+            if (stockCode.StartsWith("5") ||
+                stockCode.StartsWith("6") ||
+                stockCode.StartsWith("9"))
+            {
+                return "sh" + stockCode;
+            }
+            else if (stockCode.StartsWith("009") ||
+                stockCode.StartsWith("126") ||
+                stockCode.StartsWith("110"))
+            {
+                return "sh" + stockCode;
+            }
+            else
+            {
+                return "sz" + stockCode;
+            }
         }
     }
 }
