@@ -1,12 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Ore.Infrastructure.MarketData.DataSource.TongHuaShun;
+using System;
 
 namespace Test.Ore
 {
-    class TongHuaShunDataTest
+    [TestClass]
+    public class TongHuaShunDataTest
     {
+        private string dataFolder = Environment.CurrentDirectory + @"\TestData";
+
+        [TestMethod]
+        public void TestConstructor()
+        {
+            var reader = ReaderFactory.Create(dataFolder);
+            Assert.AreEqual(dataFolder, reader.DataFolder);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void TestConstructor1()
+        {
+            ReaderFactory.Create(string.Empty);
+        }
     }
 }

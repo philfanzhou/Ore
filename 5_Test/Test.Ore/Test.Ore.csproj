@@ -64,6 +64,10 @@
       <Project>{b3e609e5-a5a1-457d-aa61-d07b07d29e34}</Project>
       <Name>Ore.Infrastructure.MarketData.DataSource.Sina</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\4_Infrastructure\Ore.Infrastructure.MarketData.DataSource.TongHuaShun\Ore.Infrastructure.MarketData.DataSource.TongHuaShun.csproj">
+      <Project>{1af8b7c8-f67b-4879-943a-56bbb69429e3}</Project>
+      <Name>Ore.Infrastructure.MarketData.DataSource.TongHuaShun</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\4_Infrastructure\Ore.Infrastructure.MarketData.Implementation\Ore.Infrastructure.MarketData.Implementation.csproj">
       <Project>{a6e65ca4-c677-4eaa-8c34-9f030ba90e55}</Project>
       <Name>Ore.Infrastructure.MarketData.Implementation</Name>
@@ -72,6 +76,41 @@
       <Project>{11e69835-a2a1-4631-96c0-fe078b09f5f5}</Project>
       <Name>Ore.Infrastructure.MarketData</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TestData\finance\利润分配.财经">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\finance\权息资料.财经">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\finance\股本结构.财经">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\finance\财务附注.财经">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\finance\资产负债.财经">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\history\shase\day\600036.day">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\history\shase\min5\600036.mn5">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\history\shase\min\600036.min">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\history\sznse\day\000400.day">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\history\sznse\min5\000400.mn5">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="TestData\history\sznse\min\000400.min">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

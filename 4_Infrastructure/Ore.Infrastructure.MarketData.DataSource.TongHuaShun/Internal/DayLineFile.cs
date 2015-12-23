@@ -14,7 +14,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
 
         public string GetStockSymbol()
         {
-            return Path.GetFileNameWithoutExtension(base.FilePaht);
+            return Path.GetFileNameWithoutExtension(base.FilePath);
         }
 
         public IKlineData GetData(DateTime startTime)
@@ -30,7 +30,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
         {
             List<IKlineItem> result = new List<IKlineItem>();
 
-            using (FileStream stream = File.OpenRead(base.FilePaht))
+            using (FileStream stream = File.OpenRead(base.FilePath))
             {
                 using (BinaryReader reader = new BinaryReader(stream))
                 {

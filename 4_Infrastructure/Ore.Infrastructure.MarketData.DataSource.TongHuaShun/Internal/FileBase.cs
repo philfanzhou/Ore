@@ -5,7 +5,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
 {
     internal abstract class FileBase
     {
-        protected readonly string FilePaht;
+        protected readonly string FilePath;
 
          protected FileBase(string filePath)
         {
@@ -19,7 +19,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
                 throw new FileNotFoundException("filePath");
             }
 
-            this.FilePaht = filePath;
+            this.FilePath = filePath;
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
         {
             List<DividendInfo> result = new List<DividendInfo>();
 
-            using (FileStream stream = File.OpenRead(base.FilePaht))
+            using (FileStream stream = File.OpenRead(base.FilePath))
             {
                 using (BinaryReader reader = new BinaryReader(stream))
                 {
