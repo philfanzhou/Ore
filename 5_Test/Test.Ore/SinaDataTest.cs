@@ -47,6 +47,20 @@ namespace Test.Ore
                 Assert.AreEqual(codes[i], datas[i].Code);
             }
         }
+
+        [TestMethod]
+        public void TestStructureInfo()
+        {
+            List<IStockStructure> result = new StockStructureApi().GetStockStructure("600036").ToList();
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        public void TestBonusInfo()
+        {
+            List<IStockBonus> result = new StockBonusApi().GetStockBonus("600036").ToList();
+            Assert.IsNotNull(result);
+        }
     }
 
     internal class Stock : ISecurity

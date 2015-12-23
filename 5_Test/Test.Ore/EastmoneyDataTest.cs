@@ -1,7 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Ore.Infrastructure.MarketData;
 using Ore.Infrastructure.MarketData.DataSource.Eastmoney;
+using Ore.Infrastructure.MarketData.DataSource.Sina;
 using Ore.Infrastructure.MarketData.Implementation;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Test.Ore
 {
@@ -27,6 +31,13 @@ namespace Test.Ore
             var securities = new SecurityInfoApi().GetAllSecurity();
 
             Assert.IsNotNull(securities);
+        }
+
+        [TestMethod]
+        public void TestProfileInfo()
+        {
+            IStockProfile result = new StockProfileApi().GetStockProfile("600036");
+            Assert.IsNotNull(result);
         }
     }
 }
