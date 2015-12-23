@@ -23,7 +23,7 @@ namespace Test.Ore
         [TestMethod]
         public void TestProfileInfo()
         {
-            IStockProfile result = new StockProfileApi().GetStockProfile("600036");
+            IStockProfile result = new StockProfileApi().GetStockProfile("sh600036");
             Assert.IsNotNull(result);
             Assert.AreEqual("600036", result.CodeA);
         }
