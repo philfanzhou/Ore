@@ -5,7 +5,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
     /// <summary>
     /// 定义K线数据接口
     /// </summary>
-    public interface IKlineItem
+    internal interface IKlineItem
     {
         /// <summary>
         /// 日期
