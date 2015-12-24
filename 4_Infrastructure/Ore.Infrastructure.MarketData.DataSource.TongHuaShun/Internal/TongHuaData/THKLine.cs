@@ -7,7 +7,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
     /// 同花顺日线数据
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
-    internal class THKLine : IKlineItem
+    internal class THKLine : IKlineItem, IStockKLine
     {
         #region Field
 
@@ -98,6 +98,11 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
         public double Turnover
         {
             get { return 0; }
+        }
+
+        public DateTime Time
+        {
+            get { return this.date.Value; }
         }
 
         #endregion

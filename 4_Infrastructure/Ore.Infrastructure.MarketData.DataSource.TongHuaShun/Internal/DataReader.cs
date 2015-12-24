@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
 {
-    public class DataReader
+    internal class DataReader
     {
         #region Field
 

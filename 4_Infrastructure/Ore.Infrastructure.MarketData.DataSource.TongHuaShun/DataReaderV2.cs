@@ -16,22 +16,25 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
             _pathHelper = new PathHelper(dataFolder);
         }
 
-        public string DataFolder
-        {
-            get { return _pathHelper.DataFolder; }
-        }
-
-        public IKlineData GetDayKLine(string stockCode)
+        public IEnumerable<IStockKLine> GetKLineDay(string stockCode)
         {
             DataReader reader = new DataReader();
             reader.AnalyseDayLineFiles(
-                new[] 
+                new[]
                 {
                     _pathHelper.ShangHaiDay,
                     _pathHelper.ShenZhenDay
                 });
 
-            return reader.GetDaylineData(stockCode, DateTime.MinValue);
+            IKlineData data = reader.GetDaylineData(stockCode, DateTime.MinValue);
+            if(data != null)
+            {
+                return data.Items.Cast<IStockKLine>();
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public IDividendData GetDividendData(string stockCode)

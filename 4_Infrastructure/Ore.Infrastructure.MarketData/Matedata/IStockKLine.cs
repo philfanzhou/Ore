@@ -8,34 +8,14 @@ namespace Ore.Infrastructure.MarketData
     public interface IStockKLine
     {
         /// <summary>
-        /// 代码
+        /// 日期与时间
         /// </summary>
-        string Code { get; }
-
-        /// <summary>
-        /// 交易市场
-        /// </summary>
-        Market Market { get; }
-
-        /// <summary>
-        /// 简称
-        /// </summary>
-        string ShortName { get; }
+        DateTime Time { get; }
 
         /// <summary>
         /// 今开
         /// </summary>
         double Open { get; }
-
-        /// <summary>
-        /// 昨收
-        /// </summary>
-        double PreClose { get; }
-
-        /// <summary>
-        /// 当前成交价
-        /// </summary>
-        double Current { get; }
 
         /// <summary>
         /// 最高
@@ -48,6 +28,11 @@ namespace Ore.Infrastructure.MarketData
         double Low { get; }
 
         /// <summary>
+        /// 收盘
+        /// </summary>
+        double Close { get; }
+
+        /// <summary>
         /// 成交量
         /// </summary>
         double Volume { get; }
@@ -56,10 +41,5 @@ namespace Ore.Infrastructure.MarketData
         /// 成交额
         /// </summary>
         double Amount { get; }
-
-        /// <summary>
-        /// 日期与时间
-        /// </summary>
-        DateTime Time { get; }
     }
 }
