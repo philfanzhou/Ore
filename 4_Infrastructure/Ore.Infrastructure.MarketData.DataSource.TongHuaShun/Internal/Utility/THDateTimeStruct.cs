@@ -14,14 +14,37 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
             get { return ByteToDateTime(data); }
         }
 
+        internal int IntValue
+        {
+            get { return BitConverter.ToInt32(data, 0); }
+        }
+
         private static DateTime ByteToDateTime(byte[] data)
         {
             DateTime dt;
 
             int intValue = BitConverter.ToInt32(data, 0);
-            dt = intValue > 10000 ? IntToDateTime(intValue) : DateTime.MinValue;
-
+            if(intValue > 19600101 && intValue < 21000101)
+            {
+                dt = IntToDateTime(intValue);
+            }
+            else
+            {
+                dt = DateTime.MinValue;
+            }
             return dt;
+
+            /*
+            201512231500 121420736 143 
+
+            201512220935 121418339  48
+
+            201512211500 121416640  47
+
+            201512211400 121416576  35
+
+            201512210935 121416291  0 
+            */
         }
 
         private static DateTime IntToDateTime(int value)

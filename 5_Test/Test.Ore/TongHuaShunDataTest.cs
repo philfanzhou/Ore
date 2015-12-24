@@ -99,6 +99,14 @@ namespace Test.Ore
         }
 
         [TestMethod]
+        public void TestReadKLineMin5()
+        {
+            var reader = ReaderFactory.Create();
+
+            var min5_600036 = reader.GetKLine("600036", KLineType.Min5).ToList();
+        }
+
+        [TestMethod]
         public void TestDividendData()
         {
             var reader = ReaderFactory.Create();

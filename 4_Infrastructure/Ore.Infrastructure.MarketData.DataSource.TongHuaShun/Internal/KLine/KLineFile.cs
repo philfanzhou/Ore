@@ -15,9 +15,9 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
             return Path.GetFileNameWithoutExtension(base.FilePath);
         }
 
-        public IEnumerable<IStockKLine> GetItems(DateTime startTime)
+        public IEnumerable<IStockKLine> GetItems()
         {
-            return base.GetItems<IStockKLine>().Where(d => d.Time > startTime);
+             return base.GetItems<IStockKLine>();
         }
 
         protected override IEnumerable<T> DoGetItems<T>(BinaryReader reader, THFileHeader header)
