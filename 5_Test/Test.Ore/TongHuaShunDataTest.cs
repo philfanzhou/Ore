@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Ore.Infrastructure.MarketData;
 using Ore.Infrastructure.MarketData.DataSource.TongHuaShun;
 using System;
 using System.Linq;
@@ -8,22 +9,13 @@ namespace Test.Ore
     [TestClass]
     public class TongHuaShunDataTest
     {
-        private string dataFolder = Environment.CurrentDirectory + @"\TestData";
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void TestConstructor1()
-        {
-            ReaderFactory.Create(string.Empty);
-        }
-
         [TestMethod]
         public void TestReadKLineDay()
         {
-            var reader = ReaderFactory.Create(dataFolder);
+            var reader = ReaderFactory.Create();
 
             #region 测试上海数据
-            var day600036 = reader.GetKLineDay("600036").ToList();
+            var day600036 = reader.GetKLine("600036", KLineType.Daily).ToList();
 
             var data_600036_20150601 = day600036[0];
             Assert.AreEqual(5176270700, data_600036_20150601.Amount);
@@ -54,7 +46,7 @@ namespace Test.Ore
             #endregion
 
             #region 测试指数数据
-            var day1A0001 = reader.GetKLineDay("1A0001").ToList();
+            var day1A0001 = reader.GetKLine("1A0001", KLineType.Daily).ToList();
 
             var data_1A0001_20150601 = day1A0001[0];
             Assert.AreEqual(934455500000, data_1A0001_20150601.Amount);
@@ -85,7 +77,7 @@ namespace Test.Ore
             #endregion
 
             #region 测试深圳数据
-            var day000400 = reader.GetKLineDay("000400").ToList();
+            var day000400 = reader.GetKLine("000400", KLineType.Daily).ToList();
 
             var data_000400_20150601 = day000400[0];
             Assert.AreEqual(1100802350, data_000400_20150601.Amount);
@@ -99,9 +91,17 @@ namespace Test.Ore
         }
 
         [TestMethod]
+        public void TestReadKLineMin1()
+        {
+            var reader = ReaderFactory.Create();
+
+            var min1_600036 = reader.GetKLine("600036", KLineType.Min1).ToList();
+        }
+
+        [TestMethod]
         public void TestDividendData()
         {
-            var reader = ReaderFactory.Create(dataFolder);
+            var reader = ReaderFactory.Create();
             var dividend600036 = reader.GetDividendData("600036");
             Assert.IsNotNull(dividend600036);
 

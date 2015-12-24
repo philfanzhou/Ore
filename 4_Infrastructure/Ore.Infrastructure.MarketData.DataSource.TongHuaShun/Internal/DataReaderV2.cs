@@ -9,30 +9,27 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
 {
     internal class DataReaderV2 : ITongHuaShunReader
     {
-        private readonly PathHelper _pathHelper;
-
-        public DataReaderV2(string dataFolder)
+        public IEnumerable<IStockKLine> GetKLine(string stockCode, KLineType type)
         {
-            _pathHelper = new PathHelper(dataFolder);
-        }
+            string filePath = PathHelper.GetKLineFilePath(stockCode, Market.XSHG, type);
+            if (!File.Exists(filePath))
+            {
+                filePath = PathHelper.GetKLineFilePath(stockCode, Market.XSHE, type);
+            }
 
-        public IEnumerable<IStockKLine> GetKLineDay(string stockCode)
-        {
-            DataReader reader = new DataReader();
-            reader.AnalyseDayLineFiles(
-                new[]
-                {
-                    _pathHelper.ShangHaiDay,
-                    _pathHelper.ShenZhenDay
-                });
+            if (!File.Exists(filePath))
+            {
+                return null;
+            }
 
-            return reader.GetDaylineData(stockCode, DateTime.MinValue);
+            var file = new KLineFile(filePath);
+            return file.GetItems(DateTime.MinValue);
         }
 
         public IDividendData GetDividendData(string stockCode)
         {
             DataReader reader = new DataReader();
-            reader.AnalyseDividendFile(_pathHelper.Dividend);
+            reader.AnalyseDividendFile(PathHelper.Dividend);
             return reader.GetDividendData(stockCode, DateTime.MinValue);
         }
     }

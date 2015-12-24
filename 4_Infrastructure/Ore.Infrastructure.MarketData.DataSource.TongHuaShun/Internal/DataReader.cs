@@ -12,7 +12,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
         private static readonly object _dayLineLock = new object();
         private static readonly object _dividendLock = new object();
 
-        private Dictionary<string, DayLineFile> _dayLineFileDictionary;
+        private Dictionary<string, KLineFile> _dayLineFileDictionary;
         private Dictionary<string, IDividendData> _dividendDataDictionary;
 
         #endregion
@@ -21,7 +21,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
 
         public DataReader()
         {
-            _dayLineFileDictionary = new Dictionary<string, DayLineFile>();
+            _dayLineFileDictionary = new Dictionary<string, KLineFile>();
             _dividendDataDictionary = new Dictionary<string, IDividendData>();
         }
 
@@ -101,16 +101,16 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
             return result;
         }
 
-        private static Dictionary<string, DayLineFile> LoadDayLineFiles(IEnumerable<string> folders)
+        private static Dictionary<string, KLineFile> LoadDayLineFiles(IEnumerable<string> folders)
         {
-            var result = new Dictionary<string, DayLineFile>();
+            var result = new Dictionary<string, KLineFile>();
 
             foreach (var folder in folders)
             {
                 var directory = new DirectoryInfo(folder);
                 foreach (var fileInfo in directory.GetFiles("*.day"))
                 {
-                    var dayLineFile = new DayLineFile(fileInfo.FullName);
+                    var dayLineFile = new KLineFile(fileInfo.FullName);
                     result.Add(dayLineFile.GetStockSymbol(), dayLineFile);
                 }
             }

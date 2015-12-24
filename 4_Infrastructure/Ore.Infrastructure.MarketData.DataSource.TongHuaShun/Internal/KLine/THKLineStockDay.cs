@@ -6,25 +6,25 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
     /// 同花顺的个股数据
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
-    internal class THKLineStock : THKLine
+    internal class THKLineStockDay : THKLine
     {
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
-        protected byte[] w1;
+        private byte[] w1;
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
-        protected byte[] w2;
+        private byte[] w2;
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
-        protected byte[] w3;
+        private byte[] w3;
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
-        protected byte[] w4;
+        private byte[] w4;
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
-        protected byte[] w5;
+        private byte[] w5;
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 120)]
-        protected byte[] otherData;
+        private byte[] otherData;
 
         internal double W1
         {

@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
 {
-    internal class DayLineFile : FileBase
+    internal class KLineFile : FileBase
     {
-        public DayLineFile(string filePath)
+        public KLineFile(string filePath)
             : base(filePath){}
 
         public string GetStockSymbol()
@@ -32,8 +32,14 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
             }
             else if (header.RecordLength == 168)
             {
-                //读取个股K线数据
-                THKLineStock[] stockData = StructUtil<THKLineStock>.ReadStructArray(reader, header.RecordCount);
+                //读取个股K线日线数据
+                THKLineStockDay[] stockData = StructUtil<THKLineStockDay>.ReadStructArray(reader, header.RecordCount);
+                result.AddRange(stockData);
+            }
+            else if (header.RecordLength == 136)
+            {
+                //读取个股K线分钟数据
+                THKLineStockMin[] stockData = StructUtil<THKLineStockMin>.ReadStructArray(reader, header.RecordCount);
                 result.AddRange(stockData);
             }
 

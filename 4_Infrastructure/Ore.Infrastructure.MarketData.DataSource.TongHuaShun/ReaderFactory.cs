@@ -2,9 +2,9 @@
 {
     public static class ReaderFactory
     {
-        public static ITongHuaShunReader Create(string dataFolder)
+        public static ITongHuaShunReader Create()
         {
-            return new DataReaderV2(dataFolder);
+            return new DataReaderV2();
         }
     }
 }

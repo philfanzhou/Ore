@@ -86,55 +86,55 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="TestData\finance\利润分配.财经">
+    <None Include="TongHuaShunData\finance\利润分配.财经">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\finance\权息资料.财经">
+    <None Include="TongHuaShunData\finance\权息资料.财经">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\finance\股本结构.财经">
+    <None Include="TongHuaShunData\finance\股本结构.财经">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\finance\财务附注.财经">
+    <None Include="TongHuaShunData\finance\财务附注.财经">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\finance\资产负债.财经">
+    <None Include="TongHuaShunData\finance\资产负债.财经">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\history\shase\day\1A0001.day">
+    <None Include="TongHuaShunData\history\shase\day\1A0001.day">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\history\shase\day\600011.day">
+    <None Include="TongHuaShunData\history\shase\day\600011.day">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\history\shase\day\600036.day">
+    <None Include="TongHuaShunData\history\shase\day\600036.day">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\history\shase\min5\1A0001.mn5">
+    <None Include="TongHuaShunData\history\shase\min5\1A0001.mn5">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\history\shase\min5\600011.mn5">
+    <None Include="TongHuaShunData\history\shase\min5\600011.mn5">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\history\shase\min5\600036.mn5">
+    <None Include="TongHuaShunData\history\shase\min5\600036.mn5">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\history\shase\min\1A0001.min">
+    <None Include="TongHuaShunData\history\shase\min\1A0001.min">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\history\shase\min\600011.min">
+    <None Include="TongHuaShunData\history\shase\min\600011.min">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\history\shase\min\600036.min">
+    <None Include="TongHuaShunData\history\shase\min\600036.min">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\history\sznse\day\000400.day">
+    <None Include="TongHuaShunData\history\sznse\day\000400.day">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\history\sznse\min5\000400.mn5">
+    <None Include="TongHuaShunData\history\sznse\min5\000400.mn5">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\history\sznse\min\000400.min">
+    <None Include="TongHuaShunData\history\sznse\min\000400.min">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

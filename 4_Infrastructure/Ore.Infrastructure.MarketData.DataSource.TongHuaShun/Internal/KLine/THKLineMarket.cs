@@ -9,6 +9,6 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
     internal class THKLineMarket : THKLine
     {
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 136)]
-        protected byte[] otherData;
+        private byte[] otherData;
     }
 }
