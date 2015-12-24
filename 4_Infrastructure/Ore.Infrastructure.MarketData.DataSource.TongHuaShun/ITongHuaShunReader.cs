@@ -19,5 +19,12 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
         /// <param name="stockCode"></param>
         /// <returns></returns>
         IKlineData GetDayKLine(string stockCode);
+
+        /// <summary>
+        /// 获取分红配股数据
+        /// </summary>
+        /// <param name="stockCode"></param>
+        /// <returns></returns>
+        IDividendData GetDividendData(string stockCode);
     }
 }

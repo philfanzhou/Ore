@@ -29,7 +29,7 @@ namespace Test.Ore
         {
             var reader = ReaderFactory.Create(dataFolder);
 
-            // 测试上海数据
+            #region 测试上海数据
             var day600036 = reader.GetDayKLine("600036");
             Assert.AreEqual("600036", day600036.Symbol);
             var day600036kLineItems = day600036.Items.ToList();
@@ -60,8 +60,9 @@ namespace Test.Ore
             Assert.AreEqual(18.17, data_600036_20151223.Low);
             Assert.AreEqual(18.28, data_600036_20151223.Open);
             Assert.AreEqual(108842854, data_600036_20151223.Volume);
+            #endregion
 
-            // 测试指数数据
+            #region 测试指数数据
             var day1A0001 = reader.GetDayKLine("1A0001");
             Assert.AreEqual("1A0001", day1A0001.Symbol);
             var day1A0001kLineItems = day1A0001.Items.ToList();
@@ -92,8 +93,9 @@ namespace Test.Ore
             Assert.AreEqual(3633.025, data_1A0001_20151223.Low);
             Assert.AreEqual(3653.281, data_1A0001_20151223.Open);
             Assert.AreEqual(29820180000, data_1A0001_20151223.Volume);
+            #endregion
 
-            // 测试深圳数据
+            #region 测试深圳数据
             var day000400 = reader.GetDayKLine("000400");
             Assert.AreEqual("000400", day000400.Symbol);
             var day000400kLineItems = day000400.Items.ToList();
@@ -106,6 +108,52 @@ namespace Test.Ore
             Assert.AreEqual(30.5, data_000400_20150601.Low);
             Assert.AreEqual(30.9, data_000400_20150601.Open);
             Assert.AreEqual(34821362, data_000400_20150601.Volume);
+            #endregion
+        }
+
+        [TestMethod]
+        public void TestDividendData()
+        {
+            var reader = ReaderFactory.Create(dataFolder);
+            var dividend600036 = reader.GetDividendData("600036");
+            Assert.IsNotNull(dividend600036);
+
+            var items = dividend600036.Items.ToList();
+            var item = items[0];
+            Assert.AreEqual(0.0, item.Bonus);
+            Assert.AreEqual(0.0, item.Cash);
+            Assert.AreEqual(new DateTime(2010, 3, 15), item.Date);
+            Assert.AreEqual("2010-03-15(每十股 配股1.30股 配股价8.85元)", item.Description);
+            Assert.AreEqual(0.13, item.Dispatch);
+            Assert.AreEqual(new DateTime(2010, 3, 15), item.ExdividendDate);
+            Assert.AreEqual(new DateTime(2010, 3, 19), item.ListingDate);
+            Assert.AreEqual(8.85, item.Price);
+            Assert.AreEqual(new DateTime(1, 1, 1), item.RegisterDate);
+            Assert.AreEqual(0.0, item.Split);
+
+            item = items[5];
+            Assert.AreEqual(0.0, item.Bonus);
+            Assert.AreEqual(0.0, item.Cash);
+            Assert.AreEqual(new DateTime(2013, 9, 5), item.Date);
+            Assert.AreEqual("2013-09-05(每十股 配股1.74股 配股价9.29元)", item.Description);
+            Assert.AreEqual(0.174, item.Dispatch);
+            Assert.AreEqual(new DateTime(2013, 9, 5), item.ExdividendDate);
+            Assert.AreEqual(new DateTime(2013, 9, 11), item.ListingDate);
+            Assert.AreEqual(9.29, item.Price);
+            Assert.AreEqual(new DateTime(1,1,1), item.RegisterDate);
+            Assert.AreEqual(0.0, item.Split);
+
+            item = items[6];
+            Assert.AreEqual(0.0, item.Bonus);
+            Assert.AreEqual(0.62, item.Cash);
+            Assert.AreEqual(new DateTime(2014, 7, 11), item.Date);
+            Assert.AreEqual("2014-07-11(每十股 红利6.20元 )", item.Description);
+            Assert.AreEqual(0.0, item.Dispatch);
+            Assert.AreEqual(new DateTime(2014, 7, 11), item.ExdividendDate);
+            Assert.AreEqual(new DateTime(1, 1, 1), item.ListingDate);
+            Assert.AreEqual(0.0, item.Price);
+            Assert.AreEqual(new DateTime(2014, 7, 10), item.RegisterDate);
+            Assert.AreEqual(0.0, item.Split);
         }
     }
 }

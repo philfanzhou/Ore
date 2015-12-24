@@ -33,5 +33,12 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
 
             return reader.GetDaylineData(stockCode, DateTime.MinValue);
         }
+
+        public IDividendData GetDividendData(string stockCode)
+        {
+            DataReader reader = new DataReader();
+            reader.AnalyseDividendFile(_pathHelper.Dividend);
+            return reader.GetDividendData(stockCode, DateTime.MinValue);
+        }
     }
 }

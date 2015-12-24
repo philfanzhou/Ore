@@ -14,7 +14,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
         private const string _day = @"day\";
         private const string _min1 = @"min\";
         private const string _min5 = @"min5\";
-        private const string _finance = @"finance\";
+        private const string _dividend = @"finance\权息资料.财经";
 
         private readonly string _dataFolder;
 
@@ -68,9 +68,9 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
             get { return Path.Combine(_dataFolder, _shenZhen, _min5); }
         }
 
-        public string Finance
+        public string Dividend
         {
-            get { return Path.Combine(_dataFolder, _finance); }
+            get { return Path.Combine(_dataFolder, _dividend); }
         }
     }
 }
