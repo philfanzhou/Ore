@@ -1,6 +1,7 @@
 ﻿using HtmlAgilityPack;
 using System;
 using System.Text;
+using Ore.Infrastructure.Common;
 
 namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
 {
@@ -15,7 +16,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
         /// <returns>有返回IStockProfile对象，没有返回null</returns>
         public IStockProfile GetStockProfile(string stockCode)
         {
-            string url = string.Format(@"http://f10.eastmoney.com/f10_v2/CompanySurvey.aspx?code={0}", GetStockCodeWithMarket(stockCode));
+            string url = string.Format(@"http://f10.eastmoney.com/f10_v2/CompanySurvey.aspx?code={0}", DataConverter.GetStockCodeWithMarket(stockCode));
 
             string html = PageReader.GetPageSource(url, Encoding.UTF8);
             if (string.IsNullOrEmpty(html))
@@ -46,7 +47,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
             stockProfile.ShortNameH = htmlNodes.SelectSingleNode("/html[1]/body[1]/div[1]/div[12]/div[2]/table[1]/tr[6]/td[2]").InnerText;
 
             /// 证券交易所//证券类别
-            stockProfile.Exchange = ConvertToMarketByString(htmlNodes.SelectSingleNode("/html[1]/body[1]/div[1]/div[12]/div[2]/table[1]/tr[7]/td[1]").InnerText);
+            stockProfile.Exchange = DataConverter.GetMarketByString(htmlNodes.SelectSingleNode("/html[1]/body[1]/div[1]/div[12]/div[2]/table[1]/tr[7]/td[1]").InnerText);
             /// 所属行业
             stockProfile.Industry = htmlNodes.SelectSingleNode("/html[1]/body[1]/div[1]/div[12]/div[2]/table[1]/tr[7]/td[2]").InnerText;
             /// 总经理
@@ -110,59 +111,6 @@ namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
                 stockProfile.ListDate = ListDate;
 
             return stockProfile;
-        }
-
-        private Market ConvertToMarketByString(string exchange)
-        {
-            // 上海证券交易所
-            if (exchange.Contains("上交所"))
-                return Market.XSHG;
-
-            // 深圳证券交易所
-            if (exchange.Contains("深交所"))
-                return Market.XSHE;
-
-            // 中国金融期货交易所   
-            if (exchange.Contains("中金"))
-                return Market.CCFX;
-
-            // 大连商品交易所
-            if (exchange.Contains("大连"))
-                return Market.XDCE;
-
-            // 上海期货交易所       
-            if (exchange.Contains("上海"))
-                return Market.XSGE;
-
-            // 郑州商品交易所
-            if (exchange.Contains("郑州"))
-                return Market.XZCE;
-
-            // 香港证券交易所
-            if (exchange.Contains("香港"))
-                return Market.XHKG;
-
-            return Market.Unknown;
-        }
-
-        private static string GetStockCodeWithMarket(string stockCode)
-        {
-            if (stockCode.StartsWith("5") ||
-                stockCode.StartsWith("6") ||
-                stockCode.StartsWith("9"))
-            {
-                return "sh" + stockCode;
-            }
-            else if (stockCode.StartsWith("009") ||
-                stockCode.StartsWith("126") ||
-                stockCode.StartsWith("110"))
-            {
-                return "sh" + stockCode;
-            }
-            else
-            {
-                return "sz" + stockCode;
-            }
-        }
+        } 
     }
 }

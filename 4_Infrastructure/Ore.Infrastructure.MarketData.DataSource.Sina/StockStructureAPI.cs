@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using HtmlAgilityPack;
+using Ore.Infrastructure.Common;
 
 namespace Ore.Infrastructure.MarketData.DataSource.Sina
 {
@@ -127,7 +128,6 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
 
             return lstStockStructure;
         }
-
     }
 }
 

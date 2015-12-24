@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text;
+using Ore.Infrastructure.Common;
 
 namespace Ore.Infrastructure.MarketData.DataSource.Sina
 {
@@ -12,7 +13,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
 
         public IStockRealTime GetData(string stockCode)
         {
-            string url = WebApiAddress + GetStockCodeWithMarket(stockCode); ;
+            string url = WebApiAddress + DataConverter.GetStockCodeWithMarket(stockCode); ;
             string strData = GetStringData(url);
             return GetDataFromSource(strData);
         }
@@ -26,7 +27,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
                 {
                     codesBuilder.Append(',');
                 }
-                codesBuilder.Append(GetStockCodeWithMarket(code));
+                codesBuilder.Append(DataConverter.GetStockCodeWithMarket(code));
             }
 
             string strData = GetStringData(WebApiAddress + codesBuilder.ToString());
@@ -41,26 +42,6 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
             return datas;
         }
         
-        private static string GetStockCodeWithMarket(string stockCode)
-        {
-            if (stockCode.StartsWith("5") ||
-                stockCode.StartsWith("6") ||
-                stockCode.StartsWith("9"))
-            {
-                return "sh" + stockCode;
-            }
-            else if (stockCode.StartsWith("009") ||
-                stockCode.StartsWith("126") ||
-                stockCode.StartsWith("110"))
-            {
-                return "sh" + stockCode;
-            }
-            else
-            {
-                return "sz" + stockCode;
-            }
-        }
-
         private SinaRealTimeData GetDataFromSource(string strData)
         {
             SinaRealTimeData data = new SinaRealTimeData();

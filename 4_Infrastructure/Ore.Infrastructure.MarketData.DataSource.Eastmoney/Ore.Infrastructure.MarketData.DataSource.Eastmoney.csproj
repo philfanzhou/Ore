@@ -30,20 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FSharp.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\ScrapySharp.2.2.63\lib\net40\FSharp.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="HtmlAgilityPack, Version=1.4.6.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\ScrapySharp.2.2.63\lib\net40\HtmlAgilityPack.dll</HintPath>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="ScrapySharp, Version=2.5.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\ScrapySharp.2.2.63\lib\net40\ScrapySharp.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="ScrapySharp.Core, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\ScrapySharp.2.2.63\lib\net40\ScrapySharp.Core.dll</HintPath>
+    <Reference Include="HtmlAgilityPack, Version=1.4.9.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\HtmlAgilityPack.1.4.9\lib\Net45\HtmlAgilityPack.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -59,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\StockProfile.cs" />
-    <Compile Include="PageReader.cs" />
     <Compile Include="Model\SecurityInfo.cs" />
     <Compile Include="ParticipationApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,15 +54,17 @@
     <Compile Include="StockProfileApi.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Ore.Infrastructure.Common\Ore.Infrastructure.Common.csproj">
+      <Project>{e18ff38f-94a4-4437-9e63-690acfdf215d}</Project>
+      <Name>Ore.Infrastructure.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Ore.Infrastructure.MarketData\Ore.Infrastructure.MarketData.csproj">
       <Project>{11e69835-a2a1-4631-96c0-fe078b09f5f5}</Project>
       <Name>Ore.Infrastructure.MarketData</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,7 +1,7 @@
 ﻿using HtmlAgilityPack;
-using ScrapySharp.Extensions;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using Ore.Infrastructure.Common;
 
 namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
 {
@@ -13,50 +13,35 @@ namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
         {
             string html = PageReader.GetPageSource(WebApiAddress);
             if (string.IsNullOrEmpty(html))
-                return null;            
+                return null;
 
             var htmlDocument = new HtmlDocument();
-            htmlDocument.LoadHtml(html);            
-            var htmlNodes = htmlDocument.DocumentNode;            
+            htmlDocument.LoadHtml(html);
+            var htmlNodes = htmlDocument.DocumentNode;
 
-            List<SecurityInfo> datas = null;
-            var nodesSecurityInfo = htmlNodes.CssSelect("div.quotebody").CssSelect("li");
-            if (nodesSecurityInfo != null)
+            string xpath = "/html[1]/body[1]/div[9]/div[2]/div[1]/ul";
+            HtmlNodeCollection ulNodes = htmlDocument.DocumentNode.SelectNodes(xpath);
+            if (ulNodes == null || ulNodes.Count < 1)
+                return null;
+
+            List<SecurityInfo> datas = new List<SecurityInfo>();
+            foreach (HtmlNode item in ulNodes)
             {
-                datas = new List<SecurityInfo>();
-                foreach (var node in nodesSecurityInfo)
+                HtmlNodeCollection liNodes = item.SelectNodes("li");
+                foreach (HtmlNode it in liNodes)
                 {
-                    if (node.HasChildNodes)
-                    {
-                        string strLink = node.FirstChild.Attributes["href"].Value;
-                        string strTest = node.FirstChild.InnerText;
-                        string marketCode = Regex.Match(strLink, @"[a-z]{2}\d{6}").Value;
-                        string market = Regex.Match(marketCode, @"[a-z]{2}").Value;//strLink.Substring(strLink.IndexOf(".com/") + 5, 2);
-                        string code = Regex.Match(marketCode, @"\d{6}").Value;//strTest.Substring(strTest.IndexOf("(") + 1, strTest.IndexOf(")") - strTest.IndexOf("(") - 1);
-                        string name = Regex.Replace(strTest, @"\(\d{6}\)", ""); //strTest.Substring(0, strTest.IndexOf("("));
-                        
-                        datas.Add(new SecurityInfo { Code = code, Market = GetMarketByString(market), ShortName = name, Type = SecurityType.Sotck });
-                    }
+                    string strLink = it.FirstChild.Attributes["href"].Value;
+                    string strTest = it.FirstChild.InnerText;
+                    string marketCode = Regex.Match(strLink, @"[a-z]{2}\d{6}").Value;
+                    string market = Regex.Match(marketCode, @"[a-z]{2}").Value;
+                    string code = Regex.Match(marketCode, @"\d{6}").Value;
+                    string name = Regex.Replace(strTest, @"\(\d{6}\)", "");
+
+                    datas.Add(new SecurityInfo { Code = code, Market = DataConverter.GetMarketByString(market), ShortName = name, Type = SecurityType.Sotck });
                 }
             }
 
             return datas;
-        }
-
-        private Market GetMarketByString(string market)
-        {
-            if (market == "sh")
-            {
-                return Market.XSHG;
-            }
-            else if (market == "sz")
-            {
-                return Market.XSHE;
-            }
-            else
-            {
-                return Market.Unknown;
-            }
         }
     }
 }

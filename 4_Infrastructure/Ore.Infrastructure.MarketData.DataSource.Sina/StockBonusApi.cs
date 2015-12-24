@@ -1,6 +1,7 @@
 ﻿using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
+using Ore.Infrastructure.Common;
 
 namespace Ore.Infrastructure.MarketData.DataSource.Sina
 {
@@ -12,8 +13,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
         private const string DetailInfo1 = @"http://vip.stock.finance.sina.com.cn/corp/view/vISSUE_ShareBonusDetail.php?stockid=000002&type=1&end_date=2015-07-14";
         // 配股详细信息地址 参数 end_date= 公告日期 type=2
         private const string DetailInfo2 = @"http://vip.stock.finance.sina.com.cn/corp/view/vISSUE_ShareBonusDetail.php?stockid=000002&type=2&end_date=1999-12-22";
-
-
+        
         public IEnumerable<IStockBonus> GetStockBonus(string stockCode)
         {            
             string url = string.Format(@"http://vip.stock.finance.sina.com.cn/corp/go.php/vISSUE_ShareBonus/stockid/{0}.phtml", stockCode);

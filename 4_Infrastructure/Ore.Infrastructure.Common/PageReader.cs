@@ -1,12 +1,16 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
+namespace Ore.Infrastructure.Common
 {
-    internal class PageReader
+    public class PageReader
     {
-        internal static string GetPageSource(string url)
+        public static string GetPageSource(string url)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = "GET";
@@ -23,7 +27,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
             }
         }
 
-        internal static string GetPageSource(string url, Encoding encode)
+        public static string GetPageSource(string url, Encoding encode)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = "GET";
