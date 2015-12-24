@@ -19,39 +19,63 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
         {
             DayLineInfo info = new DayLineInfo();
             info.Symbol = this.GetStockSymbol();
-            info.Items = this.GetKlineData(startTime);
+            info.Items = this.GetItems().Where(d => d.Date > startTime).ToList();
 
             return info;
         }
 
-        public List<IKlineItem> GetKlineData(DateTime startTime)
+        private List<IKlineItem> GetItems()
         {
-            List<IKlineItem> result = new List<IKlineItem>();
-
             using (FileStream stream = File.OpenRead(base.FilePath))
             {
                 using (BinaryReader reader = new BinaryReader(stream))
                 {
                     THFileHeader header = StructUtil<THFileHeader>.BytesToStruct(reader.ReadBytes(THFileHeader.StructSize));
-                    StructUtil<THColumnHeader>.ReadStructArray(reader, header.FieldCount);
+                    THColumnHeader[] columnList = StructUtil<THColumnHeader>.ReadStructArray(reader, header.FieldCount);
 
-                    if (header.RecordLength == 164)
-                    {
-                        //读取板块K线数据
-                        THKLineMarket[] marketData = StructUtil<THKLineMarket>.ReadStructArray(reader,
-                                                                                               header.RecordCount);
-                        result.AddRange(marketData.Where(d => d.Date > startTime));
-                    }
-                    else if (header.RecordLength == 168)
-                    {
-                        //读取个股K线数据
-                        THKLineStock[] stockData = StructUtil<THKLineStock>.ReadStructArray(reader, header.RecordCount);
-                        result.AddRange(stockData.Where(d => d.Date > startTime));
-                    }
+                    return DoGetItems(reader, header);
                 }
+            }
+        }
+
+        private static List<IKlineItem> DoGetItems(BinaryReader reader, THFileHeader header)
+        {
+            List<IKlineItem> result = new List<IKlineItem>();
+
+            if (header.RecordLength == 164)
+            {
+                //读取板块K线数据
+                THKLineMarket[] marketData = StructUtil<THKLineMarket>.ReadStructArray(reader, header.RecordCount);
+                result.AddRange(marketData);
+            }
+            else if (header.RecordLength == 168)
+            {
+                //读取个股K线数据
+                THKLineStock[] stockData = StructUtil<THKLineStock>.ReadStructArray(reader, header.RecordCount);
+                result.AddRange(stockData);
             }
 
             return result;
+        }
+
+        protected override IEnumerable<T> DoGetItems<T>(BinaryReader reader, THFileHeader header)
+        {
+            List<IKlineItem> result = new List<IKlineItem>();
+
+            if (header.RecordLength == 164)
+            {
+                //读取板块K线数据
+                THKLineMarket[] marketData = StructUtil<THKLineMarket>.ReadStructArray(reader, header.RecordCount);
+                result.AddRange(marketData);
+            }
+            else if (header.RecordLength == 168)
+            {
+                //读取个股K线数据
+                THKLineStock[] stockData = StructUtil<THKLineStock>.ReadStructArray(reader, header.RecordCount);
+                result.AddRange(stockData);
+            }
+
+            return result.Cast<T>();
         }
     }
 }

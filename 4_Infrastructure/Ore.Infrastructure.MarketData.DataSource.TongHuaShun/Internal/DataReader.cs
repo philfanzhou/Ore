@@ -88,7 +88,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
         private static Dictionary<string, IDividendData> LoadDividendData(string filePath)
         {
             var result = new Dictionary<string, IDividendData>();
-            var datas = new DividendFile(filePath).GetData();
+            var datas = new DividendFile(filePath).GetIteims();
             foreach (var dataItem in datas)
             {
                 var symbol = dataItem.Symbol;

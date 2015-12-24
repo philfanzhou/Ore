@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
@@ -21,5 +22,21 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
 
             this.FilePath = filePath;
         }
+
+        protected IEnumerable<T> GetItems<T>()
+        {
+            using (FileStream stream = File.OpenRead(FilePath))
+            {
+                using (BinaryReader reader = new BinaryReader(stream))
+                {
+                    THFileHeader header = StructUtil<THFileHeader>.BytesToStruct(reader.ReadBytes(THFileHeader.StructSize));
+                    THColumnHeader[] columnList = StructUtil<THColumnHeader>.ReadStructArray(reader, header.FieldCount);
+
+                    return DoGetItems<T>(reader, header);
+                }
+            }
+        }
+
+        protected abstract IEnumerable<T> DoGetItems<T>(BinaryReader reader, THFileHeader header);
     }
 }
