@@ -8,9 +8,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
     internal class DayLineFile : FileBase
     {
         public DayLineFile(string filePath)
-            : base(filePath)
-        {
-        }
+            : base(filePath){}
 
         public string GetStockSymbol()
         {

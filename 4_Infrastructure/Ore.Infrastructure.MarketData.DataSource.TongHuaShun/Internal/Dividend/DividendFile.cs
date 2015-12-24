@@ -8,9 +8,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
     internal class DividendFile : FileBase
     {
         public DividendFile(string filePath)
-            : base(filePath)
-        {
-        }
+            : base(filePath){ }
 
         public IEnumerable<IDividendData> GetData()
         {
@@ -22,6 +20,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
                 {
                     THFileHeader header = StructUtil<THFileHeader>.BytesToStruct(reader.ReadBytes(THFileHeader.StructSize));
                     THColumnHeader[] columnList = StructUtil<THColumnHeader>.ReadStructArray(reader, header.FieldCount);
+
                     byte[] W1 = reader.ReadBytes(header.FieldCount*2);
                     THIndexBlock block = THIndexBlock.Read(reader);
                     THDividendRecord[] recordList = StructUtil<THDividendRecord>.ReadStructArray(reader,
