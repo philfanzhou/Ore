@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
 {
@@ -29,7 +30,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
             {
                 using (BinaryReader reader = new BinaryReader(stream))
                 {
-                    THFileHeader header = StructUtil<THFileHeader>.BytesToStruct(reader.ReadBytes(THFileHeader.StructSize));
+                    THFileHeader header = StructUtil<THFileHeader>.BytesToStruct(reader.ReadBytes(Marshal.SizeOf(typeof(THFileHeader))));
                     THColumnHeader[] columnList = StructUtil<THColumnHeader>.ReadStructArray(reader, header.FieldCount);
 
                     return DoGetItems<T>(reader, header);

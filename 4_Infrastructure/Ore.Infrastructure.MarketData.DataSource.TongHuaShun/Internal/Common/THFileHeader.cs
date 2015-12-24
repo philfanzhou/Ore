@@ -6,24 +6,16 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
     [StructLayout(LayoutKind.Sequential)]
     internal struct THFileHeader
     {
-        /// <summary>
-        /// 本结构的字节大小
-        /// </summary>
-        internal static readonly int StructSize = Marshal.SizeOf(typeof(THFileHeader));
-
         #region Field
 
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
         private readonly byte[] sign;
-
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
-        private readonly byte[] w1;
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
         private readonly byte[] recordCount;
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
-        private readonly byte[] headerLength;
+        private readonly byte[] dataPosition;
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 2)]
         private readonly byte[] recordLength;
@@ -42,6 +34,11 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
                 uint value = BitConverter.ToUInt32(recordCount, 0) & 0xFFFFFF;
                 return value;
             }
+        }
+
+        internal ushort DataPosition
+        {
+            get { return BitConverter.ToUInt16(dataPosition, 0); }
         }
 
         internal ushort RecordLength

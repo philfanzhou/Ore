@@ -23,7 +23,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
             }
 
             var file = new KLineFile(filePath);
-            return file.GetItems(DateTime.MinValue);
+            return file.GetItems();
         }
 
         public IDividendData GetDividendData(string stockCode)
