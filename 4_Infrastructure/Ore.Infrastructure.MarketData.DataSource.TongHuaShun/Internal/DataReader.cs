@@ -71,12 +71,12 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
             }
         }
 
-        public IKlineData GetDaylineData(string symbol, DateTime startTime)
+        public IEnumerable<IStockKLine> GetDaylineData(string symbol, DateTime startTime)
         {
             lock (_dividendLock)
             {
                 return _dayLineFileDictionary.ContainsKey(symbol)
-                    ? _dayLineFileDictionary[symbol].GetData(startTime)
+                    ? _dayLineFileDictionary[symbol].GetItems(startTime)
                     : null;
             }
         }

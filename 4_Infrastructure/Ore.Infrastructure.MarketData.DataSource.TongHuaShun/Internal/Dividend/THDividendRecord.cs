@@ -43,7 +43,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
 
         #endregion
 
-        #region Property
+        #region IDividendItem Members
 
         /// <summary>
         /// 日期

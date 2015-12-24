@@ -7,7 +7,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
     /// 同花顺日线数据
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
-    internal class THKLine : IKlineItem, IStockKLine
+    internal class THKLine : IStockKLine
     {
         #region Field
 
@@ -34,70 +34,36 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
 
         #endregion
 
-        #region Property
-
-        /// <summary>
-        /// 日期
-        /// </summary>
-        public DateTime Date
-        {
-            get { return this.date.Value; }
-        }
-
-        /// <summary>
-        /// 开盘价
-        /// </summary>
+        #region IStockKLine Members
+        
         public double Open
         {
             get { return GetValue(this.open); }
         }
-
-        /// <summary>
-        /// 最高价
-        /// </summary>
+        
         public double High
         {
             get { return GetValue(this.high); }
         }
-
-        /// <summary>
-        /// 最低价
-        /// </summary>
+        
         public double Low
         {
             get { return GetValue(this.low); }
         }
-
-        /// <summary>
-        /// 收盘价
-        /// </summary>
+        
         public double Close
         {
             get { return GetValue(this.close); }
         }
-
-        /// <summary>
-        /// 成交金额
-        /// </summary>
+        
         public double Amount
         {
             get { return GetValue(this.amount); }
         }
-
-        /// <summary>
-        /// 成交量
-        /// </summary>
+        
         public double Volume
         {
             get { return GetValue(this.volume); }
-        }
-
-        /// <summary>
-        /// 换手率
-        /// </summary>
-        public double Turnover
-        {
-            get { return 0; }
         }
 
         public DateTime Time

@@ -44,10 +44,7 @@
     <Compile Include="Internal\DataReaderV2.cs" />
     <Compile Include="Internal\IDividendData.cs" />
     <Compile Include="Internal\IDividendItem.cs" />
-    <Compile Include="Internal\IKlineData.cs" />
-    <Compile Include="Internal\IKlineItem.cs" />
     <Compile Include="Internal\DayLine\DayLineFile.cs" />
-    <Compile Include="Internal\DayLine\DayLineInfo.cs" />
     <Compile Include="Internal\Dividend\DividendFile.cs" />
     <Compile Include="Internal\Dividend\DividendInfo.cs" />
     <Compile Include="Internal\Common\FileBase.cs" />

@@ -26,15 +26,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
                     _pathHelper.ShenZhenDay
                 });
 
-            var data = reader.GetDaylineData(stockCode, DateTime.MinValue);
-            if(data != null)
-            {
-                return data.Items.Cast<IStockKLine>();
-            }
-            else
-            {
-                return null;
-            }
+            return reader.GetDaylineData(stockCode, DateTime.MinValue);
         }
 
         public IDividendData GetDividendData(string stockCode)
