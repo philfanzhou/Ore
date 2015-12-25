@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Participation.cs" />
     <Compile Include="Model\StockProfile.cs" />
     <Compile Include="Model\SecurityInfo.cs" />
     <Compile Include="ParticipationApi.cs" />
