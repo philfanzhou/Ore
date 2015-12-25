@@ -7,5 +7,10 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
     {
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 108)]
         private byte[] otherData;
+
+        public override string ToString()
+        {
+            return base.date.IntValue.ToString();
+        }
     }
 }

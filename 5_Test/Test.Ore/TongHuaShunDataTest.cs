@@ -104,6 +104,7 @@ namespace Test.Ore
             var reader = ReaderFactory.Create();
 
             var min5_600036 = reader.GetKLine("600036", KLineType.Min5).ToList();
+            DateTime time = min5_600036[0].Time;
         }
 
         [TestMethod]

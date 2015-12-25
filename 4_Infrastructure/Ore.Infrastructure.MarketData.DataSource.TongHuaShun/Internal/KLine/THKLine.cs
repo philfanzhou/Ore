@@ -12,7 +12,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
         #region Field
 
         [MarshalAs(UnmanagedType.Struct)]
-        private THDateTimeStruct date;
+        protected THDateTimeStruct date;
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
         private byte[] open;
