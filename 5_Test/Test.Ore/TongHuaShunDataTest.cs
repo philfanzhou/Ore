@@ -10,7 +10,7 @@ namespace Test.Ore
     public class TongHuaShunDataTest
     {
         [TestMethod]
-        public void TestReadKLineDay()
+        public void TestStockKLineDay()
         {
             var reader = ReaderFactory.Create();
 
@@ -45,37 +45,6 @@ namespace Test.Ore
             Assert.AreEqual(108842854, data_600036_20151223.Volume);
             #endregion
 
-            #region 测试指数数据
-            var day1A0001 = reader.GetKLine("1A0001", KLineType.Daily).ToList();
-
-            var data_1A0001_20150601 = day1A0001[0];
-            Assert.AreEqual(934455500000, data_1A0001_20150601.Amount);
-            Assert.AreEqual(4828.738, data_1A0001_20150601.Close);
-            Assert.AreEqual(new DateTime(2015, 6, 1), data_1A0001_20150601.Time);
-            Assert.AreEqual(4829.502, data_1A0001_20150601.High);
-            Assert.AreEqual(4615.231, data_1A0001_20150601.Low);
-            Assert.AreEqual(4633.098, data_1A0001_20150601.Open);
-            Assert.AreEqual(59338903000, data_1A0001_20150601.Volume);
-
-            var data_1A0001_20150608 = day1A0001[5];
-            Assert.AreEqual(1309924500000, data_1A0001_20150608.Amount);
-            Assert.AreEqual(5131.88, data_1A0001_20150608.Close);
-            Assert.AreEqual(new DateTime(2015, 6, 8), data_1A0001_20150608.Time);
-            Assert.AreEqual(5146.949, data_1A0001_20150608.High);
-            Assert.AreEqual(4997.481, data_1A0001_20150608.Low);
-            Assert.AreEqual(5045.694, data_1A0001_20150608.Open);
-            Assert.AreEqual(85503508000, data_1A0001_20150608.Volume);
-
-            var data_1A0001_20151223 = day1A0001[139];
-            Assert.AreEqual(419902920000, data_1A0001_20151223.Amount);
-            Assert.AreEqual(3636.089, data_1A0001_20151223.Close);
-            Assert.AreEqual(new DateTime(2015, 12, 23), data_1A0001_20151223.Time);
-            Assert.AreEqual(3684.567, data_1A0001_20151223.High);
-            Assert.AreEqual(3633.025, data_1A0001_20151223.Low);
-            Assert.AreEqual(3653.281, data_1A0001_20151223.Open);
-            Assert.AreEqual(29820180000, data_1A0001_20151223.Volume);
-            #endregion
-
             #region 测试深圳数据
             var day000400 = reader.GetKLine("000400", KLineType.Daily).ToList();
 
@@ -91,7 +60,7 @@ namespace Test.Ore
         }
 
         [TestMethod]
-        public void TestReadKLineMin1()
+        public void TestStockKLineMin1()
         {
             var reader = ReaderFactory.Create();
 
@@ -117,7 +86,7 @@ namespace Test.Ore
         }
 
         [TestMethod]
-        public void TestReadKLineMin5()
+        public void TestStockKLineMin5()
         {
             var reader = ReaderFactory.Create();
 
@@ -160,6 +129,55 @@ namespace Test.Ore
             Assert.AreEqual(19.2, min5_000400_201512231500.Low);
             Assert.AreEqual(19.24, min5_000400_201512231500.Open);
             Assert.AreEqual(253668, min5_000400_201512231500.Volume);
+        }
+
+        [TestMethod]
+        public void TestIndexKLineDay()
+        {
+            var reader = ReaderFactory.Create();
+
+            #region 测试指数数据
+            var day1A0001 = reader.GetKLine("1A0001", KLineType.Daily).ToList();
+
+            var data_1A0001_20150601 = day1A0001[0];
+            Assert.AreEqual(934455500000, data_1A0001_20150601.Amount);
+            Assert.AreEqual(4828.738, data_1A0001_20150601.Close);
+            Assert.AreEqual(new DateTime(2015, 6, 1), data_1A0001_20150601.Time);
+            Assert.AreEqual(4829.502, data_1A0001_20150601.High);
+            Assert.AreEqual(4615.231, data_1A0001_20150601.Low);
+            Assert.AreEqual(4633.098, data_1A0001_20150601.Open);
+            Assert.AreEqual(59338903000, data_1A0001_20150601.Volume);
+
+            var data_1A0001_20150608 = day1A0001[5];
+            Assert.AreEqual(1309924500000, data_1A0001_20150608.Amount);
+            Assert.AreEqual(5131.88, data_1A0001_20150608.Close);
+            Assert.AreEqual(new DateTime(2015, 6, 8), data_1A0001_20150608.Time);
+            Assert.AreEqual(5146.949, data_1A0001_20150608.High);
+            Assert.AreEqual(4997.481, data_1A0001_20150608.Low);
+            Assert.AreEqual(5045.694, data_1A0001_20150608.Open);
+            Assert.AreEqual(85503508000, data_1A0001_20150608.Volume);
+
+            var data_1A0001_20151223 = day1A0001[139];
+            Assert.AreEqual(419902920000, data_1A0001_20151223.Amount);
+            Assert.AreEqual(3636.089, data_1A0001_20151223.Close);
+            Assert.AreEqual(new DateTime(2015, 12, 23), data_1A0001_20151223.Time);
+            Assert.AreEqual(3684.567, data_1A0001_20151223.High);
+            Assert.AreEqual(3633.025, data_1A0001_20151223.Low);
+            Assert.AreEqual(3653.281, data_1A0001_20151223.Open);
+            Assert.AreEqual(29820180000, data_1A0001_20151223.Volume);
+            #endregion
+        }
+
+        [TestMethod]
+        public void TestIndexKLineMin1()
+        {
+            throw new NotImplementedException();
+        }
+
+        [TestMethod]
+        public void TestIndexKLineMin5()
+        {
+            throw new NotImplementedException();
         }
 
         [TestMethod]
