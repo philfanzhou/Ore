@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Internal\Utility\DateTimeUtil.cs" />
     <Compile Include="Internal\DataReader.cs" />
     <Compile Include="Internal\DataReaderV2.cs" />
     <Compile Include="Internal\IDividendData.cs" />
@@ -49,7 +50,6 @@
     <Compile Include="Internal\Dividend\DividendInfo.cs" />
     <Compile Include="Internal\Common\FileBase.cs" />
     <Compile Include="Internal\Common\THColumnHeader.cs" />
-    <Compile Include="Internal\Utility\THDateTimeStruct.cs" />
     <Compile Include="Internal\Dividend\THDividendRecord.cs" />
     <Compile Include="Internal\Common\THFileHeader.cs" />
     <Compile Include="Internal\Dividend\THIndexBlock.cs" />

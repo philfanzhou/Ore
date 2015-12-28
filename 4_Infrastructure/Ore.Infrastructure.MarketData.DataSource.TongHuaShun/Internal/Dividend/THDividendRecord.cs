@@ -8,14 +8,14 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
     {
         #region Field
 
-        [MarshalAs(UnmanagedType.Struct)]
-        private readonly THDateTimeStruct date;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
+        private readonly byte[] date;
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
         private readonly byte[] w1;
 
-        [MarshalAs(UnmanagedType.Struct)]
-        private readonly THDateTimeStruct exdividendDate;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
+        private readonly byte[] exdividendDate;
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
         private readonly byte[] cash;
@@ -32,11 +32,11 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
         private readonly byte[] price;
 
-        [MarshalAs(UnmanagedType.Struct)]
-        private readonly THDateTimeStruct registerDate;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
+        private readonly byte[] registerDate;
 
-        [MarshalAs(UnmanagedType.Struct)]
-        private readonly THDateTimeStruct listingDate;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
+        private readonly byte[] listingDate;
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 178)]
         private readonly byte[] description;
@@ -50,7 +50,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
         /// </summary>
         public DateTime Date
         {
-            get { return this.date.Value; }
+            get { return DateTimeUtil.ConvertToDailyDateTime(date); }
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
         /// </summary>
         public DateTime ExdividendDate
         {
-            get { return this.exdividendDate.Value; }
+            get { return DateTimeUtil.ConvertToDailyDateTime(exdividendDate); }
         }
 
         /// <summary>
@@ -106,7 +106,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
         /// </summary>
         public DateTime RegisterDate
         {
-            get { return this.registerDate.Value; }
+            get { return DateTimeUtil.ConvertToDailyDateTime(registerDate); }
         }
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
         /// </summary>
         public DateTime ListingDate
         {
-            get { return this.listingDate.Value; }
+            get { return DateTimeUtil.ConvertToDailyDateTime(listingDate); }
         }
 
         /// <summary>

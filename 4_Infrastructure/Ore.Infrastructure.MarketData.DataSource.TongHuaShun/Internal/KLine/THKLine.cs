@@ -7,12 +7,12 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
     /// 同花顺日线数据
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
-    internal class THKLine : IStockKLine
+    internal abstract class THKLine : IStockKLine
     {
         #region Field
 
-        [MarshalAs(UnmanagedType.Struct)]
-        protected THDateTimeStruct date;
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
+        protected byte[] date;
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 4)]
         private byte[] open;
@@ -102,9 +102,9 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
             get { return GetValue(this.volume); }
         }
 
-        public DateTime Time
+        public abstract DateTime Time
         {
-            get { return this.date.Value; }
+            get;
         }
 
         #endregion

@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System;
+using System.Runtime.InteropServices;
 
 namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
 {
@@ -8,9 +9,12 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 108)]
         private byte[] otherData;
 
-        public override string ToString()
+        public override DateTime Time
         {
-            return base.date.IntValue.ToString();
+            get
+            {
+                return DateTimeUtil.ConverterToMinDateTime(base.date);
+            }
         }
     }
 }

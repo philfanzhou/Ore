@@ -96,6 +96,24 @@ namespace Test.Ore
             var reader = ReaderFactory.Create();
 
             var min1_600036 = reader.GetKLine("600036", KLineType.Min1).ToList();
+
+            var min1_600036_20151203135400 = min1_600036[0];
+            Assert.AreEqual(1945900, min1_600036_20151203135400.Amount);
+            Assert.AreEqual(17.79, min1_600036_20151203135400.Close);
+            Assert.AreEqual(new DateTime(2015, 12, 3, 13, 54, 0), min1_600036_20151203135400.Time);
+            Assert.AreEqual(17.79, min1_600036_20151203135400.High);
+            Assert.AreEqual(17.78, min1_600036_20151203135400.Low);
+            Assert.AreEqual(17.79, min1_600036_20151203135400.Open);
+            Assert.AreEqual(109401, min1_600036_20151203135400.Volume);
+
+            var min1_600036_20151223150000 = min1_600036[1276];
+            Assert.AreEqual(274500, min1_600036_20151223150000.Amount);
+            Assert.AreEqual(18.19, min1_600036_20151223150000.Close);
+            Assert.AreEqual(new DateTime(2015, 12, 23, 15, 0, 0), min1_600036_20151223150000.Time);
+            Assert.AreEqual(18.19, min1_600036_20151223150000.High);
+            Assert.AreEqual(18.18, min1_600036_20151223150000.Low);
+            Assert.AreEqual(18.18, min1_600036_20151223150000.Open);
+            Assert.AreEqual(15100, min1_600036_20151223150000.Volume);
         }
 
         [TestMethod]
@@ -104,7 +122,44 @@ namespace Test.Ore
             var reader = ReaderFactory.Create();
 
             var min5_600036 = reader.GetKLine("600036", KLineType.Min5).ToList();
-            DateTime time = min5_600036[0].Time;
+
+            var min5_600036_201512210935 = min5_600036[0];
+            Assert.AreEqual(41353406, min5_600036_201512210935.Amount);
+            Assert.AreEqual(17.44, min5_600036_201512210935.Close);
+            Assert.AreEqual(new DateTime(2015, 12, 21, 9, 35, 0), min5_600036_201512210935.Time);
+            Assert.AreEqual(17.48, min5_600036_201512210935.High);
+            Assert.AreEqual(17.35, min5_600036_201512210935.Low);
+            Assert.AreEqual(17.43, min5_600036_201512210935.Open);
+            Assert.AreEqual(2375145, min5_600036_201512210935.Volume);
+
+            var min5_600036_201512231500 = min5_600036[143];
+            Assert.AreEqual(60122500, min5_600036_201512231500.Amount);
+            Assert.AreEqual(18.19, min5_600036_201512231500.Close);
+            Assert.AreEqual(new DateTime(2015, 12, 23, 15, 0, 0), min5_600036_201512231500.Time);
+            Assert.AreEqual(18.26, min5_600036_201512231500.High);
+            Assert.AreEqual(18.17, min5_600036_201512231500.Low);
+            Assert.AreEqual(18.26, min5_600036_201512231500.Open);
+            Assert.AreEqual(3299037, min5_600036_201512231500.Volume);
+
+            var min5_000400 = reader.GetKLine("000400", KLineType.Min5).ToList();
+
+            var min5_000400_201512210935 = min5_000400[0];
+            Assert.AreEqual(10433224, min5_000400_201512210935.Amount);
+            Assert.AreEqual(19.34, min5_000400_201512210935.Close);
+            Assert.AreEqual(new DateTime(2015, 12, 21, 9, 35, 0), min5_000400_201512210935.Time);
+            Assert.AreEqual(19.38, min5_000400_201512210935.High);
+            Assert.AreEqual(19.26, min5_000400_201512210935.Low);
+            Assert.AreEqual(19.35, min5_000400_201512210935.Open);
+            Assert.AreEqual(539815, min5_000400_201512210935.Volume);
+
+            var min5_000400_201512231500 = min5_000400[143];
+            Assert.AreEqual(4871460, min5_000400_201512231500.Amount);
+            Assert.AreEqual(19.2, min5_000400_201512231500.Close);
+            Assert.AreEqual(new DateTime(2015, 12, 23, 15, 0, 0), min5_000400_201512231500.Time);
+            Assert.AreEqual(19.24, min5_000400_201512231500.High);
+            Assert.AreEqual(19.2, min5_000400_201512231500.Low);
+            Assert.AreEqual(19.24, min5_000400_201512231500.Open);
+            Assert.AreEqual(253668, min5_000400_201512231500.Volume);
         }
 
         [TestMethod]
