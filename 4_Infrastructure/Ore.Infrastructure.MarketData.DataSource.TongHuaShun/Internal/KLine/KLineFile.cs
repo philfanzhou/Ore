@@ -30,6 +30,12 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
                 THKLineMarket[] marketData = StructUtil<THKLineMarket>.ReadStructArray(reader, header.RecordCount);
                 result.AddRange(marketData);
             }
+            else if(header.RecordLength == 152)
+            {
+                //读取板块K线分钟数据
+                THKLineMarketMin[] stockData = StructUtil<THKLineMarketMin>.ReadStructArray(reader, header.RecordCount);
+                result.AddRange(stockData);
+            }
             else if (header.RecordLength == 168)
             {
                 //读取个股K线日线数据

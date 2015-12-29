@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Internal\KLine\THKLineMarketMin.cs" />
     <Compile Include="Internal\Utility\DateTimeUtil.cs" />
     <Compile Include="Internal\DataReader.cs" />
     <Compile Include="Internal\DataReaderV2.cs" />

@@ -171,13 +171,71 @@ namespace Test.Ore
         [TestMethod]
         public void TestIndexKLineMin1()
         {
-            throw new NotImplementedException();
+            var reader = ReaderFactory.Create();
+            
+            var min1_1A0001 = reader.GetKLine("1A0001", KLineType.Min1).ToList();
+
+            var min1_1A0001_20151221093000 = min1_1A0001[0];
+            Assert.AreEqual(4954199200, min1_1A0001_20151221093000.Amount);
+            Assert.AreEqual(3566.119, min1_1A0001_20151221093000.Close);
+            Assert.AreEqual(3568.58, min1_1A0001_20151221093000.High);
+            Assert.AreEqual(3566.107, min1_1A0001_20151221093000.Low);
+            Assert.AreEqual(3568.58, min1_1A0001_20151221093000.Open);
+            Assert.AreEqual(new DateTime(2015, 12, 21, 9, 30, 0), min1_1A0001_20151221093000.Time);
+            Assert.AreEqual(539450900, min1_1A0001_20151221093000.Volume);
+
+            var min1_1A0001_20151221093100 = min1_1A0001[1];
+            Assert.AreEqual(2898840400, min1_1A0001_20151221093100.Amount);
+            Assert.AreEqual(3567.87, min1_1A0001_20151221093100.Close);
+            Assert.AreEqual(3567.87, min1_1A0001_20151221093100.High);
+            Assert.AreEqual(3565.814, min1_1A0001_20151221093100.Low);
+            Assert.AreEqual(3565.991, min1_1A0001_20151221093100.Open);
+            Assert.AreEqual(new DateTime(2015, 12, 21, 9, 31, 0), min1_1A0001_20151221093100.Time);
+            Assert.AreEqual(206975900, min1_1A0001_20151221093100.Volume);
+
+            var min1_1A0001_20151221102200 = min1_1A0001[52];
+            Assert.AreEqual(1707595000, min1_1A0001_20151221102200.Amount);
+            Assert.AreEqual(3608.778, min1_1A0001_20151221102200.Close);
+            Assert.AreEqual(3610.187, min1_1A0001_20151221102200.High);
+            Assert.AreEqual(3608.778, min1_1A0001_20151221102200.Low);
+            Assert.AreEqual(3610.187, min1_1A0001_20151221102200.Open);
+            Assert.AreEqual(new DateTime(2015, 12, 21, 10, 22, 0), min1_1A0001_20151221102200.Time);
+            Assert.AreEqual(125885100, min1_1A0001_20151221102200.Volume);
         }
 
         [TestMethod]
         public void TestIndexKLineMin5()
         {
-            throw new NotImplementedException();
+            var reader = ReaderFactory.Create();
+
+            var min5_1A0001 = reader.GetKLine("1A0001", KLineType.Min5).ToList();
+
+            var min5_1A0001_201512210935 = min5_1A0001[0];
+            Assert.AreEqual(19231504000, min5_1A0001_201512210935.Amount);
+            Assert.AreEqual(3579.401, min5_1A0001_201512210935.Close);
+            Assert.AreEqual(3579.416, min5_1A0001_201512210935.High);
+            Assert.AreEqual(3565.814, min5_1A0001_201512210935.Low);
+            Assert.AreEqual(3568.58, min5_1A0001_201512210935.Open);
+            Assert.AreEqual(new DateTime(2015, 12, 21, 9, 35, 0), min5_1A0001_201512210935.Time);
+            Assert.AreEqual(1544944400, min5_1A0001_201512210935.Volume);
+
+            var min5_1A0001_201512210940 = min5_1A0001[1];
+            Assert.AreEqual(13560410000, min5_1A0001_201512210940.Amount);
+            Assert.AreEqual(3580.556, min5_1A0001_201512210940.Close);
+            Assert.AreEqual(3580.634, min5_1A0001_201512210940.High);
+            Assert.AreEqual(3575.369, min5_1A0001_201512210940.Low);
+            Assert.AreEqual(3578.871, min5_1A0001_201512210940.Open);
+            Assert.AreEqual(new DateTime(2015, 12, 21, 9, 40, 0), min5_1A0001_201512210940.Time);
+            Assert.AreEqual(950878300, min5_1A0001_201512210940.Volume);
+            
+            var min5_1A0001_201512231420 = min5_1A0001[135];
+            Assert.AreEqual(8293350000, min5_1A0001_201512231420.Amount);
+            Assert.AreEqual(3675.222, min5_1A0001_201512231420.Close);
+            Assert.AreEqual(3675.852, min5_1A0001_201512231420.High);
+            Assert.AreEqual(3672.235, min5_1A0001_201512231420.Low);
+            Assert.AreEqual(3673.827, min5_1A0001_201512231420.Open);
+            Assert.AreEqual(new DateTime(2015, 12, 23, 14, 20, 0), min5_1A0001_201512231420.Time);
+            Assert.AreEqual(580945000, min5_1A0001_201512231420.Volume);
         }
 
         [TestMethod]
