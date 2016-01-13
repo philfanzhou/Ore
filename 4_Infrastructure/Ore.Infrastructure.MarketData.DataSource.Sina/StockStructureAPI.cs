@@ -36,6 +36,9 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
             {
                 var colspanNode = it.SelectSingleNode("thead[1]/tr[1]/th[1]");
                 int colspan = int.Parse((string)colspanNode.Attributes["colspan"].Value);
+                var colspanNodeCount = it.SelectSingleNode("tbody[1]/tr").ChildNodes.Count;
+                if (colspanNodeCount < colspan)
+                    colspan = colspanNodeCount;
                 for (int i = 0; i < colspan - 1; i++)
                 {
                     SinaStockStructure stockStructure = new SinaStockStructure() { Code = stockCode, ShortName = name };

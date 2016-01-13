@@ -53,6 +53,9 @@ namespace Test.Ore
         {
             List<IStockStructure> result = new StockStructureApi().GetStockStructure("600036").ToList();
             Assert.IsNotNull(result);
+
+            List<IStockStructure> result1 = new StockStructureApi().GetStockStructure("600518").ToList();
+            Assert.IsNotNull(result1);
         }
 
         [TestMethod]
@@ -60,6 +63,9 @@ namespace Test.Ore
         {
             List<IStockBonus> result = new StockBonusApi().GetStockBonus("600036").ToList();
             Assert.IsNotNull(result);
+
+            List<IStockBonus> result1 = new StockBonusApi().GetStockBonus("600518").ToList();
+            Assert.IsNotNull(result1);
         }
     }
 
