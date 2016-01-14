@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Model\SinaStockStructure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StockKLineApi.cs" />
     <Compile Include="StockRealTimeApi.cs" />
     <Compile Include="Model\SinaRealTimeData.cs" />
     <Compile Include="StockBonusApi.cs" />
