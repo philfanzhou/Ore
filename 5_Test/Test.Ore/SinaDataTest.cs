@@ -91,171 +91,171 @@ namespace Test.Ore
             public double Volume { get; internal set; }
         }
         //"600036"
-        private IStockKLine ExampleData_600036_20160114()
+        private IStockKLine ExampleData_600036_20160115()
         {
             return new ExampleStockKLineData()
             {
                 // 日期与时间
-                Time = new DateTime(2016, 1, 14, 15, 0, 0),
+                Time = new DateTime(2016, 1, 15, 15, 0, 0),
                 // 今开
-                Open = 15.55,
+                Open = 15.87,
                 // 最高
-                High = 15.96,
+                High = 15.92,
                 // 最低
-                Low = 15.52,
+                Low = 15.45,
                 // 收盘
-                Close = 15.89,
+                Close = 15.48,
                 // 成交量
-                Volume = 42963031,
+                Volume = 34421564,
                 // 成交额
-                Amount = 678479480.000
+                Amount = 539614094
             };
         }
         //"150209"
-        private IStockKLine ExampleData_150209_20160114()
+        private IStockKLine ExampleData_150209_20160115()
         {
             return new ExampleStockKLineData()
             {
                 // 日期与时间
-                Time = new DateTime(2016, 1, 14, 15, 0, 0),
+                Time = new DateTime(2016, 1, 15, 15, 0, 0),
                 // 今开
-                Open = 0.977,
+                Open = 0.972,
                 // 最高
-                High = 0.986,
+                High = 0.982,
                 // 最低
-                Low = 0.968,
+                Low = 0.967,
                 // 收盘
-                Close = 0.975,
+                Close = 0.980,
                 // 成交量
-                Volume = 113910596,
+                Volume = 51584478,
                 // 成交额
-                Amount = 111414120.207
+                Amount = 50275348.698
             };
         }
         //"600518"
-        private IStockKLine ExampleData_600518_20160114()
+        private IStockKLine ExampleData_600518_20160115()
         {
             return new ExampleStockKLineData()
             {
                 // 日期与时间
-                Time = new DateTime(2016, 1, 14, 15, 0, 0),
+                Time = new DateTime(2016, 1, 15, 15, 0, 0),
                 // 今开
-                Open = 12.80,
+                Open = 13.40,
                 // 最高
-                High = 13.50,
+                High = 13.45,
                 // 最低
-                Low = 12.71,
+                Low = 12.70,
                 // 收盘
-                Close = 13.47,
+                Close = 13.20,
                 // 成交量
-                Volume = 32828215,
+                Volume = 33897595,
                 // 成交额
-                Amount = 433023061.000,
+                Amount = 442782040,
             };
         }
         //"300118"
-        private IStockKLine ExampleData_300118_20160114()
+        private IStockKLine ExampleData_300118_20160115()
         {
             return new ExampleStockKLineData()
             {
                 // 日期与时间
-                Time = new DateTime(2016, 1, 14, 15, 0, 0),
+                Time = new DateTime(2016, 1, 15, 15, 0, 0),
                 // 今开
-                Open = 10.80,
+                Open = 11.99,
                 // 最高
-                High = 12.23,
+                High = 12.20,
                 // 最低
-                Low = 10.78,
+                Low = 11.53,
                 // 收盘
-                Close = 12.12,
+                Close = 11.79,
                 // 成交量
-                Volume = 16492702,
+                Volume = 13797675,
                 // 成交额
-                Amount = 190668512.070,
+                Amount = 164059904.2,
             };
         }
         //"601009"
-        private IStockKLine ExampleData_601009_20160114()
+        private IStockKLine ExampleData_601009_20160115()
         {
             return new ExampleStockKLineData()
             {
                 // 日期与时间
-                Time = new DateTime(2016, 1, 14, 15, 0, 0),
+                Time = new DateTime(2016, 1, 15, 15, 0, 0),
                 // 今开
-                Open = 14.95,
+                Open = 15.60,
                 // 最高
-                High = 15.58,
+                High = 16.13,
                 // 最低
-                Low = 14.80,
+                Low = 15.45,
                 // 收盘
-                Close = 15.46,
+                Close = 15.69,
                 // 成交量
-                Volume = 22183535,
+                Volume = 38500392,
                 // 成交额
-                Amount = 335495843.000,
+                Amount = 606207482,
             };
         }
         //"601933"
-        private IStockKLine ExampleData_601933_20160114()
+        private IStockKLine ExampleData_601933_20160115()
         {
             return new ExampleStockKLineData()
             {
                 // 日期与时间
-                Time = new DateTime(2016, 1, 14, 15, 0, 0),
+                Time = new DateTime(2016, 1, 15, 15, 0, 0),
                 // 今开
-                Open = 8.01,
+                Open = 8.38,
                 // 最高
-                High = 8.46,
+                High = 8.39,
                 // 最低
-                Low = 7.95,
+                Low = 8.03,
                 // 收盘
-                Close = 8.40,
+                Close = 8.10,
                 // 成交量
-                Volume = 27046192,
+                Volume = 20769236,
                 // 成交额
-                Amount = 221910379.000,
+                Amount = 170332047,
             };
         }
         //"600660"
-        private IStockKLine ExampleData_600660_20160114()
+        private IStockKLine ExampleData_600660_20160115()
         {
             return new ExampleStockKLineData()
             {
                 // 日期与时间
-                Time = new DateTime(2016, 1, 14, 15, 0, 0),
+                Time = new DateTime(2016, 1, 15, 15, 0, 0),
                 // 今开
-                Open = 13.70,
+                Open = 14.30,
                 // 最高
-                High = 14.37,
+                High = 14.33,
                 // 最低
-                Low = 13.65,
+                Low = 13.83,
                 // 收盘
-                Close = 14.23,
+                Close = 13.94,
                 // 成交量
-                Volume = 9746848,
+                Volume = 8111174,
                 // 成交额
-                Amount = 137311494.000,
+                Amount = 113889119,
             };
         }
         //"600196"
-        private IStockKLine ExampleData_600196_20160114()
+        private IStockKLine ExampleData_600196_20160115()
         {
             return new ExampleStockKLineData()
             {
                 // 日期与时间
-                Time = new DateTime(2016, 1, 14, 15, 0, 0),
+                Time = new DateTime(2016, 1, 15, 15, 0, 0),
                 // 今开
-                Open = 19.30,
+                Open = 20.01,
                 // 最高
-                High = 20.24,
+                High = 20.17,
                 // 最低
-                Low = 19.04,
+                Low = 19.60,
                 // 收盘
-                Close = 20.14,
+                Close = 19.77,
                 // 成交量
-                Volume = 12942340,
+                Volume = 11300768,
                 // 成交额
-                Amount = 255299903.000,
+                Amount = 224906356,
             };
         }
 
@@ -266,7 +266,7 @@ namespace Test.Ore
             IStockKLine data = reader.GetLatest("600036");
             Assert.IsNotNull(data);
 
-            CompareStockKLineDataField(data, ExampleData_600036_20160114());
+            CompareStockKLineDataField(data, ExampleData_600036_20160115());
         }
 
         [TestMethod]
@@ -289,21 +289,21 @@ namespace Test.Ore
             Assert.IsNotNull(datas);
             Assert.AreEqual(datas.Count, codes.Count());
             //"600036"
-            CompareStockKLineDataField(datas[0], ExampleData_600036_20160114());
+            CompareStockKLineDataField(datas[0], ExampleData_600036_20160115());
             //"150209"
-            CompareStockKLineDataField(datas[1], ExampleData_150209_20160114());
+            CompareStockKLineDataField(datas[1], ExampleData_150209_20160115());
             //"600518"
-            CompareStockKLineDataField(datas[2], ExampleData_600518_20160114());
+            CompareStockKLineDataField(datas[2], ExampleData_600518_20160115());
             //"300118"
-            CompareStockKLineDataField(datas[3], ExampleData_300118_20160114());
+            CompareStockKLineDataField(datas[3], ExampleData_300118_20160115());
             //"601009"
-            CompareStockKLineDataField(datas[4], ExampleData_601009_20160114());
+            CompareStockKLineDataField(datas[4], ExampleData_601009_20160115());
             //"601933"
-            CompareStockKLineDataField(datas[5], ExampleData_601933_20160114());
+            CompareStockKLineDataField(datas[5], ExampleData_601933_20160115());
             //"600660"
-            CompareStockKLineDataField(datas[6], ExampleData_600660_20160114());
+            CompareStockKLineDataField(datas[6], ExampleData_600660_20160115());
             //"600196"
-            CompareStockKLineDataField(datas[7], ExampleData_600196_20160114());
+            CompareStockKLineDataField(datas[7], ExampleData_600196_20160115());
         }       
     }
 
