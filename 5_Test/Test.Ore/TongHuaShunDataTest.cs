@@ -15,7 +15,7 @@ namespace Test.Ore
             var reader = ReaderFactory.Create();
 
             #region 测试上海数据
-            var day600036 = reader.GetKLine("600036", KLineType.Daily).ToList();
+            var day600036 = reader.GetKLine("600036", KLineType.Day).ToList();
 
             var data_600036_20150601 = day600036[0];
             Assert.AreEqual(5176270700, data_600036_20150601.Amount);
@@ -46,7 +46,7 @@ namespace Test.Ore
             #endregion
 
             #region 测试深圳数据
-            var day000400 = reader.GetKLine("000400", KLineType.Daily).ToList();
+            var day000400 = reader.GetKLine("000400", KLineType.Day).ToList();
 
             var data_000400_20150601 = day000400[0];
             Assert.AreEqual(1100802350, data_000400_20150601.Amount);
@@ -137,7 +137,7 @@ namespace Test.Ore
             var reader = ReaderFactory.Create();
 
             #region 测试指数数据
-            var day1A0001 = reader.GetKLine("1A0001", KLineType.Daily).ToList();
+            var day1A0001 = reader.GetKLine("1A0001", KLineType.Day).ToList();
 
             var data_1A0001_20150601 = day1A0001[0];
             Assert.AreEqual(934455500000, data_1A0001_20150601.Amount);
