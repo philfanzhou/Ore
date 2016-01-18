@@ -28,7 +28,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
             string strTypeExt = string.Empty;
             switch(tyep)
             {
-                case KLineType.Day:
+                case KLineType.Daily:
                     strTypeFolder = _day;
                     strTypeExt = _dayExt;
                     break;
