@@ -8,11 +8,6 @@ namespace Ore.Infrastructure.MarketData
     public interface IParticipation
     {
         /// <summary>
-        /// 挂牌代码
-        /// </summary>
-        string Code { get; }
-
-        /// <summary>
         /// 日期与时间
         /// </summary>
         DateTime Time { get; }

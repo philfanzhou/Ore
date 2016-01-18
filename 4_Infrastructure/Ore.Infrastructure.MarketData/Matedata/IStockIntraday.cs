@@ -8,21 +8,6 @@ namespace Ore.Infrastructure.MarketData
     public interface IStockIntraday
     {
         /// <summary>
-        /// 代码
-        /// </summary>
-        string Code { get; }
-
-        /// <summary>
-        /// 交易市场
-        /// </summary>
-        Market Market { get; }
-
-        /// <summary>
-        /// 简称
-        /// </summary>
-        string ShortName { get; }
-
-        /// <summary>
         /// 时间
         /// </summary>
         DateTime Time { get; }

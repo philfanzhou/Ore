@@ -26,7 +26,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
             htmlDocument.LoadHtml(pageHtml);
 
             HtmlNode titleNode = htmlDocument.DocumentNode.SelectSingleNode("//title");
-            string name = titleNode.InnerText.Substring(0, titleNode.InnerText.IndexOf("("));
+            //string name = titleNode.InnerText.Substring(0, titleNode.InnerText.IndexOf("("));
 
             HtmlNode nodeSharebonus_1 = htmlDocument.GetElementbyId("sharebonus_1");
             HtmlNode nodeSharebonus_2 = htmlDocument.GetElementbyId("sharebonus_2");
@@ -40,8 +40,8 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
                 string urlDetails = string.Format(@"http://vip.stock.finance.sina.com.cn/{0}", item.SelectSingleNode("td/a").Attributes["href"].Value);
                 var stockBonus = new SinaStockBonusData()
                 {
-                    Code = stockCode,
-                    ShortName = name,
+                    //Code = stockCode,
+                    //ShortName = name,
                     DateOfDeclaration = DateTime.Parse(nodes[0].InnerText),// 公告日期
                     Type = BounsType.ProfitSharing,// 分红类型
                     ExdividendDate = DateTime.Parse(nodes[5].InnerText),// 除权除息日
@@ -59,8 +59,8 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
                 string urlDetails = string.Format(@"http://vip.stock.finance.sina.com.cn/{0}", item.SelectSingleNode("td/a").Attributes["href"].Value);
                 var stockBonus = new SinaStockBonusData()
                 {
-                    Code = stockCode,
-                    ShortName = name,
+                    //Code = stockCode,
+                    //ShortName = name,
                     DateOfDeclaration = DateTime.Parse(nodes[0].InnerText),// 公告日期
                     Type = BounsType.StockOption,// 配股类型
                     ExdividendDate = DateTime.Parse(nodes[4].InnerText),// 除权除息日

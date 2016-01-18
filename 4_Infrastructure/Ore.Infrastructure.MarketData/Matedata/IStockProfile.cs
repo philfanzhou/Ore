@@ -8,6 +8,14 @@ namespace Ore.Infrastructure.MarketData
     public interface IStockProfile
     {
         /// <summary>
+        /// A股交易代码
+        /// </summary>
+        string CodeA { get; }
+        /// <summary>
+        /// A股证券简称
+        /// </summary>
+        string ShortNameA { get; }
+        /// <summary>
         /// 公司名称
         /// </summary>
         string FullName { get; }
@@ -19,14 +27,6 @@ namespace Ore.Infrastructure.MarketData
         /// 曾用名
         /// </summary>
         string NameUsedBefore { get; }
-        /// <summary>
-        /// A股交易代码
-        /// </summary>
-        string CodeA { get; }
-        /// <summary>
-        /// A股证券简称
-        /// </summary>
-        string ShortNameA { get; }
         /// <summary>
         /// B股交易代码
         /// </summary>

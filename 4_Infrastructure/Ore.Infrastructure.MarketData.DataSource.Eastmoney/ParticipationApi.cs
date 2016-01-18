@@ -23,7 +23,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
             htmlDocument.LoadHtml(html);
             var htmlNodes = htmlDocument.DocumentNode;
 
-            Participation partObj = new Participation() { Code = stockCode };
+            Participation partObj = new Participation();
 
             //数据日期：2015-12-25 
             string xpathTime = "/html[1]/body[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[5]/table[1]/tr[1]/td[3]/span[1]";

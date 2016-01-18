@@ -8,19 +8,6 @@ namespace Ore.Infrastructure.MarketData
     public interface IStockBonus
     {
         /// <summary>
-        /// 代码
-        /// </summary>
-        string Code { get; }
-        /// <summary>
-        /// 交易市场
-        /// </summary>
-        Market Market { get; }
-        /// <summary>
-        /// 简称
-        /// </summary>
-        string ShortName { get; }
-
-        /// <summary>
         /// 公告日期
         /// </summary>
         DateTime DateOfDeclaration { get; }

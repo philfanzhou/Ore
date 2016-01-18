@@ -41,7 +41,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
                     colspan = colspanNodeCount;
                 for (int i = 0; i < colspan - 1; i++)
                 {
-                    SinaStockStructure stockStructure = new SinaStockStructure() { Code = stockCode, ShortName = name };
+                    SinaStockStructure stockStructure = new SinaStockStructure();
                     /// 变动日期
                     DateTime DateOfChange = DateTime.MaxValue;
                     if (DateTime.TryParse(it.SelectSingleNode(string.Format("tbody[1]/tr[1]/td[{0}]", 2 + i)).InnerText, out DateOfChange))

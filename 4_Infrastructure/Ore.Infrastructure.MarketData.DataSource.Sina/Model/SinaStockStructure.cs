@@ -4,8 +4,6 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
 {
     internal class SinaStockStructure : IStockStructure
     {
-        public string Code { get; internal set; }
-
         public DateTime DateOfChange { get; internal set; }
 
         public DateTime DateOfDeclaration { get; internal set; }
@@ -22,8 +20,6 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
 
         public double InternalStaffShares { get; internal set; }
 
-        public Market Market { get; internal set; }
-
         public double PreferredStock { get; internal set; }
 
         public double RaiseLegalPersonShares { get; internal set; }
@@ -39,8 +35,6 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
         public double SharesB { get; internal set; }
 
         public double SharesH { get; internal set; }
-
-        public string ShortName { get; internal set; }
 
         public double StateOwnedLegalPersonShares { get; internal set; }
 
