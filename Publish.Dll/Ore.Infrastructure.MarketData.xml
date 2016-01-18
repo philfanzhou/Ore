@@ -84,11 +84,6 @@
             定义机构参与度数据接口
             </summary>
         </member>
-        <member name="P:Ore.Infrastructure.MarketData.IParticipation.Code">
-            <summary>
-            挂牌代码
-            </summary>
-        </member>
         <member name="P:Ore.Infrastructure.MarketData.IParticipation.Time">
             <summary>
             日期与时间
@@ -122,21 +117,6 @@
         <member name="T:Ore.Infrastructure.MarketData.IStockBonus">
             <summary>
             股票分红配股信息
-            </summary>
-        </member>
-        <member name="P:Ore.Infrastructure.MarketData.IStockBonus.Code">
-            <summary>
-            代码
-            </summary>
-        </member>
-        <member name="P:Ore.Infrastructure.MarketData.IStockBonus.Market">
-            <summary>
-            交易市场
-            </summary>
-        </member>
-        <member name="P:Ore.Infrastructure.MarketData.IStockBonus.ShortName">
-            <summary>
-            简称
             </summary>
         </member>
         <member name="P:Ore.Infrastructure.MarketData.IStockBonus.DateOfDeclaration">
@@ -297,21 +277,6 @@
         <member name="T:Ore.Infrastructure.MarketData.IStockIntraday">
             <summary>
             分时数据定义
-            </summary>
-        </member>
-        <member name="P:Ore.Infrastructure.MarketData.IStockIntraday.Code">
-            <summary>
-            代码
-            </summary>
-        </member>
-        <member name="P:Ore.Infrastructure.MarketData.IStockIntraday.Market">
-            <summary>
-            交易市场
-            </summary>
-        </member>
-        <member name="P:Ore.Infrastructure.MarketData.IStockIntraday.ShortName">
-            <summary>
-            简称
             </summary>
         </member>
         <member name="P:Ore.Infrastructure.MarketData.IStockIntraday.Time">
@@ -584,21 +549,6 @@
             定义股票股本结构接口
             </summary>
         </member>
-        <member name="P:Ore.Infrastructure.MarketData.IStockStructure.Code">
-            <summary>
-            代码
-            </summary>
-        </member>
-        <member name="P:Ore.Infrastructure.MarketData.IStockStructure.Market">
-            <summary>
-            交易市场
-            </summary>
-        </member>
-        <member name="P:Ore.Infrastructure.MarketData.IStockStructure.ShortName">
-            <summary>
-            简称
-            </summary>
-        </member>
         <member name="P:Ore.Infrastructure.MarketData.IStockStructure.DateOfChange">
             <summary>
             变动日期
@@ -709,6 +659,16 @@
             定义股票基本信息接口
             </summary>
         </member>
+        <member name="P:Ore.Infrastructure.MarketData.IStockProfile.CodeA">
+            <summary>
+            A股交易代码
+            </summary>
+        </member>
+        <member name="P:Ore.Infrastructure.MarketData.IStockProfile.ShortNameA">
+            <summary>
+            A股证券简称
+            </summary>
+        </member>
         <member name="P:Ore.Infrastructure.MarketData.IStockProfile.FullName">
             <summary>
             公司名称
@@ -722,16 +682,6 @@
         <member name="P:Ore.Infrastructure.MarketData.IStockProfile.NameUsedBefore">
             <summary>
             曾用名
-            </summary>
-        </member>
-        <member name="P:Ore.Infrastructure.MarketData.IStockProfile.CodeA">
-            <summary>
-            A股交易代码
-            </summary>
-        </member>
-        <member name="P:Ore.Infrastructure.MarketData.IStockProfile.ShortNameA">
-            <summary>
-            A股证券简称
             </summary>
         </member>
         <member name="P:Ore.Infrastructure.MarketData.IStockProfile.CodeB">

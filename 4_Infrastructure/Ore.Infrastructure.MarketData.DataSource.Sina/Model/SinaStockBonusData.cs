@@ -18,8 +18,6 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
 
         public double CapitalSurplusIncreaseRate { get; internal set; }
 
-        public string Code { get; internal set; }
-
         public DateTime ConvertibleBondDate { get; internal set; }
 
         public DateTime DateOfDeclaration { get; internal set; }
@@ -48,8 +46,6 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
 
         public DateTime LastTradingDay { get; internal set; }
 
-        public Market Market { get; internal set; }
-
         public double PreTaxDividend { get; internal set; }
 
         public DateTime RegisterDate { get; internal set; }
@@ -59,8 +55,6 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
         public DateTime ResolutionOfShareholdersMeetingDate { get; internal set; }
 
         public double ShareSplitCount { get; internal set; }
-
-        public string ShortName { get; internal set; }
 
         public DateTime StartOrArriveDate { get; internal set; }
 
