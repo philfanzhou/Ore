@@ -1,5 +1,8 @@
 ﻿namespace Ore.Infrastructure.MarketData
 {
+    /// <summary>
+    /// K线类型定义
+    /// </summary>
     public enum KLineType
     {
         /// <summary>
