@@ -64,6 +64,11 @@
             香港证券交易所
             </summary>
         </member>
+        <member name="T:Ore.Infrastructure.MarketData.KLineType">
+            <summary>
+            K线类型定义
+            </summary>
+        </member>
         <member name="F:Ore.Infrastructure.MarketData.KLineType.Day">
             <summary>
             日线
