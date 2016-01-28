@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ore.Infrastructure.MarketDa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ore.Infrastructure.Common", "4_Infrastructure\Ore.Infrastructure.Common\Ore.Infrastructure.Common.csproj", "{E18FF38F-94A4-4437-9E63-690ACFDF215D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ore.Infrastructure.MarketData.DataSource.JueJin", "4_Infrastructure\Ore.Infrastructure.MarketData.DataSource.JueJin\Ore.Infrastructure.MarketData.DataSource.JueJin.csproj", "{1C5A1638-06AE-4857-B611-1D876CA5D2ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{E18FF38F-94A4-4437-9E63-690ACFDF215D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E18FF38F-94A4-4437-9E63-690ACFDF215D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E18FF38F-94A4-4437-9E63-690ACFDF215D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C5A1638-06AE-4857-B611-1D876CA5D2ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C5A1638-06AE-4857-B611-1D876CA5D2ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C5A1638-06AE-4857-B611-1D876CA5D2ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C5A1638-06AE-4857-B611-1D876CA5D2ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,5 +73,6 @@ Global
 		{533E92C5-395B-4F8C-91D7-D366BB7A21A5} = {F2A6A5A4-847F-44A6-AB06-6441D323A0C6}
 		{1AF8B7C8-F67B-4879-943A-56BBB69429E3} = {F2A6A5A4-847F-44A6-AB06-6441D323A0C6}
 		{E18FF38F-94A4-4437-9E63-690ACFDF215D} = {F2A6A5A4-847F-44A6-AB06-6441D323A0C6}
+		{1C5A1638-06AE-4857-B611-1D876CA5D2ED} = {F2A6A5A4-847F-44A6-AB06-6441D323A0C6}
 	EndGlobalSection
 EndGlobal
