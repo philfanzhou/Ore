@@ -33,7 +33,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
             string strData = GetStringData(WebApiAddress + codesBuilder.ToString());
             string[] strDatas = strData.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
 
-            List<SinaRealTimeData> datas = new List<SinaRealTimeData>();
+            List<StockRealTime> datas = new List<StockRealTime>();
             foreach (string item in strDatas)
             {
                 datas.Add(GetDataFromSource(item));
@@ -42,9 +42,9 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
             return datas;
         }
         
-        private SinaRealTimeData GetDataFromSource(string strData)
+        private StockRealTime GetDataFromSource(string strData)
         {
-            SinaRealTimeData data = new SinaRealTimeData();
+            StockRealTime data = new StockRealTime();
             strData = strData.Remove(0, 11);
 
             string market = strData.Substring(0, 2);

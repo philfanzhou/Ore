@@ -44,14 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\SinaStockKLineData.cs" />
-    <Compile Include="Model\SinaStockStructure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StockKLineApi.cs" />
     <Compile Include="StockRealTimeApi.cs" />
-    <Compile Include="Model\SinaRealTimeData.cs" />
     <Compile Include="StockBonusApi.cs" />
-    <Compile Include="Model\SinaStockBonusData.cs" />
     <Compile Include="StockStructureApi.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +63,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>IF NOT $(ConfigurationName) == Release GOTO end

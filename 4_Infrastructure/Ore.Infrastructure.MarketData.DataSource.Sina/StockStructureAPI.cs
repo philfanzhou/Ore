@@ -31,7 +31,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
             if (tableNodes == null || tableNodes.Count < 1)
                 return null;
 
-            List<SinaStockStructure> lstStockStructure = new List<SinaStockStructure>();            
+            List<StockStructure> lstStockStructure = new List<StockStructure>();            
             foreach (HtmlNode it in tableNodes)
             {
                 var colspanNode = it.SelectSingleNode("thead[1]/tr[1]/th[1]");
@@ -41,7 +41,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
                     colspan = colspanNodeCount;
                 for (int i = 0; i < colspan - 1; i++)
                 {
-                    SinaStockStructure stockStructure = new SinaStockStructure();
+                    StockStructure stockStructure = new StockStructure();
                     /// 变动日期
                     DateTime DateOfChange = DateTime.MaxValue;
                     if (DateTime.TryParse(it.SelectSingleNode(string.Format("tbody[1]/tr[1]/td[{0}]", 2 + i)).InnerText, out DateOfChange))

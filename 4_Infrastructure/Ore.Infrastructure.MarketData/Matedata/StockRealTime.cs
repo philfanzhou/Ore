@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
-namespace Ore.Infrastructure.MarketData.DataSource.Sina
+namespace Ore.Infrastructure.MarketData
 {
-    internal class SinaRealTimeData : IStockRealTime
+    public class StockRealTime : IStockRealTime
     {
         /// <summary>
         /// 代码
@@ -162,5 +164,55 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
         /// </summary>
         public double Buy5Volume { get; set; }
         #endregion
+    }
+
+    public static class StockRealTimeConverter
+    {
+        public static IEnumerable<StockRealTime> ToDataObject(this IEnumerable<IStockRealTime> self)
+        {
+            return self.Select(p => p.ToDataObject());
+        }
+
+        public static StockRealTime ToDataObject(this IStockRealTime self)
+        {
+            StockRealTime outputData = new StockRealTime
+            {
+                Buy1Price = self.Buy1Price,
+                Buy1Volume = self.Buy1Volume,
+                Buy2Price = self.Buy2Price,
+                Buy2Volume = self.Buy2Volume,
+                Buy3Price = self.Buy3Price,
+                Buy3Volume = self.Buy3Volume,
+                Buy4Price = self.Buy4Price,
+                Buy4Volume = self.Buy4Volume,
+                Buy5Price = self.Buy5Price,
+                Buy5Volume = self.Buy5Volume,
+
+                Sell1Price = self.Sell1Price,
+                Sell1Volume = self.Sell1Volume,
+                Sell2Price = self.Sell2Price,
+                Sell2Volume = self.Sell2Volume,
+                Sell3Price = self.Sell3Price,
+                Sell3Volume = self.Sell3Volume,
+                Sell4Price = self.Sell4Price,
+                Sell4Volume = self.Sell4Volume,
+                Sell5Price = self.Sell5Price,
+                Sell5Volume = self.Sell5Volume,
+
+                Amount = self.Amount,
+                ShortName = self.ShortName,
+                Code = self.Code,
+                Current = self.Current,
+                High = self.High,
+                Low = self.Low,
+                Market = self.Market,
+                Time = self.Time,
+                TodayOpen = self.TodayOpen,
+                Volume = self.Volume,
+                YesterdayClose = self.YesterdayClose
+            };
+
+            return outputData;
+        }
     }
 }

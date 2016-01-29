@@ -44,17 +44,25 @@
     <Compile Include="Enum\BounsType.cs" />
     <Compile Include="Enum\Market.cs" />
     <Compile Include="Enum\KLineType.cs" />
-    <Compile Include="Matedata\IParticipation.cs" />
-    <Compile Include="Matedata\IStockBonus.cs" />
-    <Compile Include="Matedata\IStockIntraday.cs" />
-    <Compile Include="Matedata\IStockKLine.cs" />
-    <Compile Include="Matedata\IStockRealTime.cs" />
-    <Compile Include="Matedata\ISecurity.cs" />
-    <Compile Include="Matedata\IStockStructure.cs" />
-    <Compile Include="Matedata\IStockProfile.cs" />
+    <Compile Include="Interface\IParticipation.cs" />
+    <Compile Include="Interface\IStockBonus.cs" />
+    <Compile Include="Interface\IStockIntraday.cs" />
+    <Compile Include="Interface\IStockKLine.cs" />
+    <Compile Include="Interface\IStockRealTime.cs" />
+    <Compile Include="Interface\ISecurity.cs" />
+    <Compile Include="Interface\IStockStructure.cs" />
+    <Compile Include="Interface\IStockProfile.cs" />
     <Compile Include="Enum\ListStatus.cs" />
+    <Compile Include="Matedata\Participation.cs" />
+    <Compile Include="Matedata\Security.cs" />
+    <Compile Include="Matedata\StockRealTime.cs" />
+    <Compile Include="Matedata\StockBonus.cs" />
+    <Compile Include="Matedata\StockKLine.cs" />
+    <Compile Include="Matedata\StockStructure.cs" />
+    <Compile Include="Matedata\StockProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Enum\SecurityType.cs" />
+    <Compile Include="Matedata\StockIntraday.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

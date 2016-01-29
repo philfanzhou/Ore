@@ -24,7 +24,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
             if (ulNodes == null || ulNodes.Count < 1)
                 return null;
 
-            List<SecurityInfo> datas = new List<SecurityInfo>();
+            List<Security> datas = new List<Security>();
             foreach (HtmlNode item in ulNodes)
             {
                 HtmlNodeCollection liNodes = item.SelectNodes("li");
@@ -37,7 +37,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
                     string code = Regex.Match(marketCode, @"\d{6}").Value;
                     string name = Regex.Replace(strTest, @"\(\d{6}\)", "");
 
-                    datas.Add(new SecurityInfo { Code = code, Market = DataConverter.GetMarketByString(market), ShortName = name, Type = SecurityType.Sotck });
+                    datas.Add(new Security { Code = code, Market = DataConverter.GetMarketByString(market), ShortName = name, Type = SecurityType.Sotck });
                 }
             }
 

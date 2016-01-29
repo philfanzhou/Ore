@@ -38,7 +38,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
             {
                 var nodes = item.SelectNodes("td");
                 string urlDetails = string.Format(@"http://vip.stock.finance.sina.com.cn/{0}", item.SelectSingleNode("td/a").Attributes["href"].Value);
-                var stockBonus = new SinaStockBonusData()
+                var stockBonus = new StockBonus()
                 {
                     //Code = stockCode,
                     //ShortName = name,
@@ -57,7 +57,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
             {
                 var nodes = item.SelectNodes("td");
                 string urlDetails = string.Format(@"http://vip.stock.finance.sina.com.cn/{0}", item.SelectSingleNode("td/a").Attributes["href"].Value);
-                var stockBonus = new SinaStockBonusData()
+                var stockBonus = new StockBonus()
                 {
                     //Code = stockCode,
                     //ShortName = name,
@@ -74,7 +74,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
             return lstStockBonus;
         }
 
-        private void StockBonusDetailsParser(string url, ref SinaStockBonusData data)
+        private void StockBonusDetailsParser(string url, ref StockBonus data)
         {
             string pageHtml = PageReader.GetPageSource(url);
             if (string.IsNullOrEmpty(pageHtml))

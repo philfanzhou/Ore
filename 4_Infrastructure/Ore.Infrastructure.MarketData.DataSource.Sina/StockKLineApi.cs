@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using Ore.Infrastructure.Common;
 
 namespace Ore.Infrastructure.MarketData.DataSource.Sina
 {
@@ -23,7 +17,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
             StockRealTimeApi reader = new StockRealTimeApi();
             List<IStockRealTime> stockRealTimeDatas = reader.GetData(stockCodes).ToList();
 
-            List<SinaStockKLineData> datas = new List<SinaStockKLineData>();
+            List<StockKLine> datas = new List<StockKLine>();
             foreach(var it in stockRealTimeDatas)
             {
                 datas.Add(GetDataFromStockRealTime(it));
@@ -32,9 +26,9 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
             return datas;
         }
 
-        private SinaStockKLineData GetDataFromStockRealTime(IStockRealTime stockRealTimeData)
+        private StockKLine GetDataFromStockRealTime(IStockRealTime stockRealTimeData)
         {
-            SinaStockKLineData data = new SinaStockKLineData();
+            StockKLine data = new StockKLine();
             // 日期与时间
             data.Time = stockRealTimeData.Time;
             // 今开
