@@ -19,6 +19,11 @@ namespace Ore.Infrastructure.MarketData
         public DateTime Time { get; set; }
 
         public double Volume { get; set; }
+
+        public override string ToString()
+        {
+            return Time.ToString("yyyy/MM/dd hh:mm:ss") + "  Close:" + Close;
+        }
     }
 
     public static class KLineConverter
