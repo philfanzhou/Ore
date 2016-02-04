@@ -5,13 +5,8 @@ namespace Ore.Infrastructure.MarketData
     /// <summary>
     /// K线数据定义
     /// </summary>
-    public interface IStockKLine
+    public interface IStockKLine : ITimeSeries
     {
-        /// <summary>
-        /// 日期与时间
-        /// </summary>
-        DateTime Time { get; }
-
         /// <summary>
         /// 今开
         /// </summary>

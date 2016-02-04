@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace Ore.Infrastructure.MarketData
 {
-    public class StockRealTime : IStockRealTime
+    public class StockRealTime : TimeSeries, IStockRealTime
     {
         /// <summary>
         /// 代码
@@ -55,11 +54,6 @@ namespace Ore.Infrastructure.MarketData
         /// 成交额
         /// </summary>
         public double Amount { get; set; }
-
-        /// <summary>
-        /// 日期与时间
-        /// </summary>
-        public DateTime Time { get; set; }
 
         #region 卖五
         /// <summary>

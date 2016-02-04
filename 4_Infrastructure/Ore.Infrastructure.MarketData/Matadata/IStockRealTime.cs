@@ -5,7 +5,7 @@ namespace Ore.Infrastructure.MarketData
     /// <summary>
     /// 实时报价数据定义
     /// </summary>
-    public interface IStockRealTime
+    public interface IStockRealTime : ITimeSeries
     {
         /// <summary>
         /// 代码
@@ -56,11 +56,6 @@ namespace Ore.Infrastructure.MarketData
         /// 成交额
         /// </summary>
         double Amount { get; }
-
-        /// <summary>
-        /// 日期与时间
-        /// </summary>
-        DateTime Time { get; }
 
         #region 卖五
         /// <summary>
