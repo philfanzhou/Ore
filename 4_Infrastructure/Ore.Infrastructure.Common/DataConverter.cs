@@ -9,26 +9,6 @@ namespace Ore.Infrastructure.Common
 {
     public class DataConverter
     {
-        public static string GetStockCodeWithMarket(string stockCode)
-        {
-            if (stockCode.StartsWith("5") ||
-                stockCode.StartsWith("6") ||
-                stockCode.StartsWith("9"))
-            {
-                return "sh" + stockCode;
-            }
-            else if (stockCode.StartsWith("009") ||
-                stockCode.StartsWith("126") ||
-                stockCode.StartsWith("110"))
-            {
-                return "sh" + stockCode;
-            }
-            else
-            {
-                return "sz" + stockCode;
-            }
-        }
-
         public static Market GetMarketByString(string market)
         {
             // 上海证券交易所

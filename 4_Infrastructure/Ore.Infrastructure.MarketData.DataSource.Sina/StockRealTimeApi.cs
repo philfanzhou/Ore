@@ -13,7 +13,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
 
         public IStockRealTime GetData(string stockCode)
         {
-            string url = WebApiAddress + DataConverter.GetStockCodeWithMarket(stockCode); ;
+            string url = WebApiAddress + FullStockCode.GetByCode(stockCode); ;
             string strData = GetStringData(url);
             return GetDataFromSource(strData);
         }
@@ -27,7 +27,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
                 {
                     codesBuilder.Append(',');
                 }
-                codesBuilder.Append(DataConverter.GetStockCodeWithMarket(code));
+                codesBuilder.Append(FullStockCode.GetByCode(code));
             }
 
             string strData = GetStringData(WebApiAddress + codesBuilder.ToString());

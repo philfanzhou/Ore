@@ -44,6 +44,7 @@
     <Compile Include="Enum\BounsType.cs" />
     <Compile Include="Enum\Market.cs" />
     <Compile Include="Enum\KLineType.cs" />
+    <Compile Include="FullStockCode.cs" />
     <Compile Include="Matadata\IParticipation.cs" />
     <Compile Include="Matadata\IStockBonus.cs" />
     <Compile Include="Matadata\IStockKLine.cs" />
