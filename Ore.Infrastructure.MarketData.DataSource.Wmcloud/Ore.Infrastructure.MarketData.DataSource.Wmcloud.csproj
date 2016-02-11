@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E18FF38F-94A4-4437-9E63-690ACFDF215D}</ProjectGuid>
+    <ProjectGuid>{C02EFBAE-198C-4DEE-BB82-0618D66D6FA9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ore.Infrastructure.Common</RootNamespace>
-    <AssemblyName>Ore.Infrastructure.Common</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <RootNamespace>Ore.Infrastructure.MarketData.DataSource.Wmcloud</RootNamespace>
+    <AssemblyName>Ore.Infrastructure.MarketData.DataSource.Wmcloud</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -32,7 +32,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,13 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataConverter.cs" />
-    <Compile Include="JsonHelper.cs" />
-    <Compile Include="PageReader.cs" />
+    <Compile Include="MktEqud.cs" />
+    <Compile Include="StockKLineApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Ore.Infrastructure.MarketData\Ore.Infrastructure.MarketData.csproj">
+    <ProjectReference Include="..\4_Infrastructure\Ore.Infrastructure.Common\Ore.Infrastructure.Common.csproj">
+      <Project>{e18ff38f-94a4-4437-9e63-690acfdf215d}</Project>
+      <Name>Ore.Infrastructure.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\4_Infrastructure\Ore.Infrastructure.MarketData\Ore.Infrastructure.MarketData.csproj">
       <Project>{11e69835-a2a1-4631-96c0-fe078b09f5f5}</Project>
       <Name>Ore.Infrastructure.MarketData</Name>
     </ProjectReference>
