@@ -30,7 +30,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
         {
             StockKLine data = new StockKLine();
             // 日期与时间
-            data.Time = stockRealTimeData.Time;
+            data.Time = stockRealTimeData.Time.Date;
             // 今开
             data.Open = stockRealTimeData.TodayOpen;
             // 最高
