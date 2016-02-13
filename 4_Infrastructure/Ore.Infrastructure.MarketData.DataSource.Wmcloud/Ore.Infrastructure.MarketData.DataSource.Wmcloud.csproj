@@ -45,11 +45,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\4_Infrastructure\Ore.Infrastructure.Common\Ore.Infrastructure.Common.csproj">
+    <ProjectReference Include="..\Ore.Infrastructure.Common\Ore.Infrastructure.Common.csproj">
       <Project>{e18ff38f-94a4-4437-9e63-690acfdf215d}</Project>
       <Name>Ore.Infrastructure.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\4_Infrastructure\Ore.Infrastructure.MarketData\Ore.Infrastructure.MarketData.csproj">
+    <ProjectReference Include="..\Ore.Infrastructure.MarketData\Ore.Infrastructure.MarketData.csproj">
       <Project>{11e69835-a2a1-4631-96c0-fe078b09f5f5}</Project>
       <Name>Ore.Infrastructure.MarketData</Name>
     </ProjectReference>

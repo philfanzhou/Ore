@@ -70,6 +70,10 @@
       <Project>{1af8b7c8-f67b-4879-943a-56bbb69429e3}</Project>
       <Name>Ore.Infrastructure.MarketData.DataSource.TongHuaShun</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\4_Infrastructure\Ore.Infrastructure.MarketData.DataSource.Wmcloud\Ore.Infrastructure.MarketData.DataSource.Wmcloud.csproj">
+      <Project>{c02efbae-198c-4dee-bb82-0618d66d6fa9}</Project>
+      <Name>Ore.Infrastructure.MarketData.DataSource.Wmcloud</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\4_Infrastructure\Ore.Infrastructure.MarketData.Implementation\Ore.Infrastructure.MarketData.Implementation.csproj">
       <Project>{a6e65ca4-c677-4eaa-8c34-9f030ba90e55}</Project>
       <Name>Ore.Infrastructure.MarketData.Implementation</Name>
@@ -77,10 +81,6 @@
     <ProjectReference Include="..\..\4_Infrastructure\Ore.Infrastructure.MarketData\Ore.Infrastructure.MarketData.csproj">
       <Project>{11e69835-a2a1-4631-96c0-fe078b09f5f5}</Project>
       <Name>Ore.Infrastructure.MarketData</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Ore.Infrastructure.MarketData.DataSource.Wmcloud\Ore.Infrastructure.MarketData.DataSource.Wmcloud.csproj">
-      <Project>{c02efbae-198c-4dee-bb82-0618d66d6fa9}</Project>
-      <Name>Ore.Infrastructure.MarketData.DataSource.Wmcloud</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

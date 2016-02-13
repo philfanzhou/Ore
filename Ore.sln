@@ -25,7 +25,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ore.Infrastructure.MarketDa
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Obsolete", "Obsolete", "{DD7AC35E-D3CD-4E23-8EB6-D294642950B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ore.Infrastructure.MarketData.DataSource.Wmcloud", "Ore.Infrastructure.MarketData.DataSource.Wmcloud\Ore.Infrastructure.MarketData.DataSource.Wmcloud.csproj", "{C02EFBAE-198C-4DEE-BB82-0618D66D6FA9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ore.Infrastructure.MarketData.DataSource.Wmcloud", "4_Infrastructure\Ore.Infrastructure.MarketData.DataSource.Wmcloud\Ore.Infrastructure.MarketData.DataSource.Wmcloud.csproj", "{C02EFBAE-198C-4DEE-BB82-0618D66D6FA9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
