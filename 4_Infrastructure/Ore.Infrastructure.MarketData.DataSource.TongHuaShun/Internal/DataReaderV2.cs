@@ -26,6 +26,11 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
             return file.GetItems();
         }
 
+        public IEnumerable<string> GetStockCodes(KLineType type)
+        {
+            throw new NotImplementedException();
+        }
+
         public IDividendData GetDividendData(string stockCode)
         {
             DataReader reader = new DataReader();

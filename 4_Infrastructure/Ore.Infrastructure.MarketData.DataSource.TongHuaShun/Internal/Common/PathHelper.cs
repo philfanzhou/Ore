@@ -45,6 +45,11 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
             return Path.Combine(_dataFolder, strMarket, strTypeFolder, stockCode + strTypeExt);
         }
 
+        public static string GetDataFolder(KLineType type)
+        {
+            throw new NotImplementedException();
+        }
+
         public static string ShangHaiDay
         {
             get { return Path.Combine(_dataFolder, _shangHai, _day); }
