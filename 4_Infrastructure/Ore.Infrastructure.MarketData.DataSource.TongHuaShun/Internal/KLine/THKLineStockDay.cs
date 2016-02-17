@@ -16,7 +16,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.TongHuaShun
         {
             get
             {
-                return DateTimeUtil.ConvertToDailyDateTime(base.date);
+                return DateTimeUtil.ConvertToDailyDateTime(base.date).Date;
             }
         }
     }
