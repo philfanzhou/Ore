@@ -36,7 +36,11 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
             List<StockRealTime> datas = new List<StockRealTime>();
             foreach (string item in strDatas)
             {
-                datas.Add(GetDataFromSource(item));
+                var data = GetDataFromSource(item);
+                if (data != null)
+                {
+                    datas.Add(data);
+                }
             }
 
             return datas;
@@ -67,6 +71,12 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
             int startIndex = strData.IndexOf("\"") + 1;
             int length = strData.LastIndexOf("\"") - startIndex;
             strData = strData.Substring(startIndex, length);
+
+            // 没有获取到数据
+            if(string.IsNullOrEmpty(strData) || string.IsNullOrWhiteSpace(strData))
+            {
+                return null;
+            }
 
             string[] fields = strData.Split(',');
 

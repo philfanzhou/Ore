@@ -28,6 +28,11 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
 
         private StockKLine GetDataFromStockRealTime(IStockRealTime stockRealTimeData)
         {
+            if(stockRealTimeData == null)
+            {
+                return null;
+            }
+
             StockKLine data = new StockKLine();
             // 日期与时间
             data.Time = stockRealTimeData.Time.Date;

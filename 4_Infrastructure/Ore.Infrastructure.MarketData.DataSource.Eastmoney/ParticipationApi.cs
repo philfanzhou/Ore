@@ -27,7 +27,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Eastmoney
             /// 日期与时间
             DateTime Time = DateTime.MaxValue;
             if (DateTime.TryParse(strTime, out Time))
-                partObj.Time = Time;
+                partObj.Time = Time.Date;
 
             //机构参与度为41.08%，属于完全控盘 
             string xpathValue = "/html[1]/body[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[5]/table[1]/tr[1]/td[2]/span[1]";

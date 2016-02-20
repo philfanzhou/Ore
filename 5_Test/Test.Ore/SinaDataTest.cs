@@ -11,6 +11,15 @@ namespace Test.Ore
     public class SinaDataTest
     {
         [TestMethod]
+        public void TestGetDataByInvalidCode()
+        {
+            Assert.IsNull(new StockRealTimeApi().GetData("12345"));
+            Assert.AreEqual(new StockRealTimeApi().GetData(new string[] { "12345" }).ToList().Count, 0);
+            Assert.IsNull(new StockKLineApi().GetLatest("12345"));
+            Assert.AreEqual(new StockKLineApi().GetLatest(new string[] { "12345" }).ToList().Count, 0);
+        }
+
+        [TestMethod]
         public void SinaRealTimeDataConstructorTest()
         {
             StockRealTimeApi reader = new StockRealTimeApi();
@@ -62,10 +71,14 @@ namespace Test.Ore
         [TestMethod]
         public void TestBonusInfo()
         {
-            List<IStockBonus> result = new StockBonusApi().GetStockBonus("600036").ToList();
+            var api = new StockBonusApi();
+
+            //Assert.AreEqual(api.GetStockBonus("12345").Count(), 0);
+
+            List<IStockBonus> result = api.GetStockBonus("600036").ToList();
             Assert.IsNotNull(result);
 
-            List<IStockBonus> result1 = new StockBonusApi().GetStockBonus("600518").ToList();
+            List<IStockBonus> result1 = api.GetStockBonus("600518").ToList();
             Assert.IsNotNull(result1);
         }
 
@@ -305,31 +318,5 @@ namespace Test.Ore
             ////"600196"
             //CompareStockKLineDataField(datas[7], ExampleData_600196_20160115());
         }       
-    }
-
-    internal class Stock : ISecurity
-    {
-        public string Code
-        {
-            get; set;
-        }
-
-        public Market Market
-        {
-            get; set;
-        }
-
-        public string ShortName
-        {
-            get; set;
-        }
-
-        public SecurityType Type
-        {
-            get
-            {
-                return SecurityType.Sotck;
-            }
-        }
     }
 }
