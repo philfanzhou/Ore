@@ -18,6 +18,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
             var stockRealTimeDatas = reader.GetData(stockCodes).ToList();
 
             Dictionary<string, IStockKLine> datas = new Dictionary<string, IStockKLine>();
+
             foreach(var it in stockRealTimeDatas)
             {
                 datas.Add(it.Key, GetDataFromStockRealTime(it.Value));

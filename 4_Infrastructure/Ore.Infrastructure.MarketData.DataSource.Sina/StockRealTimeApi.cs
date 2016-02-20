@@ -4,6 +4,7 @@ using System.IO;
 using System.Net;
 using System.Text;
 using Ore.Infrastructure.Common;
+using System.Linq;
 
 namespace Ore.Infrastructure.MarketData.DataSource.Sina
 {
@@ -19,6 +20,34 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
         }
 
         public IEnumerable<KeyValuePair<string, IStockRealTime>> GetData(IEnumerable<string> stockCodes)
+        {
+            if (stockCodes == null)
+            {
+                return new List<KeyValuePair<string, IStockRealTime>>();
+            }
+
+            List<List<string>> codePackages = new List<List<string>>();
+            foreach(var code in stockCodes)
+            {
+                if(codePackages.Count < 1 || codePackages.Last().Count > 100)
+                {
+                    codePackages.Add(new List<string>());
+                }
+
+                codePackages.Last().Add(code);
+            }
+
+            List<KeyValuePair<string, IStockRealTime>> result = new List<KeyValuePair<string, IStockRealTime>>();
+            foreach (var package in codePackages)
+            {
+                var packageResult = GetDataByPackage(package);
+                result.AddRange(packageResult);
+            }
+
+            return result;
+        }
+
+        private IEnumerable<KeyValuePair<string, IStockRealTime>> GetDataByPackage(IEnumerable<string> stockCodes)
         {
             StringBuilder codesBuilder = new StringBuilder();
             foreach (string code in stockCodes)

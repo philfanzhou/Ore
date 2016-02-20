@@ -4,12 +4,27 @@ using Ore.Infrastructure.MarketData.DataSource.Sina;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using Ore.Infrastructure.MarketData.DataSource.Eastmoney;
+using System.Diagnostics;
 
 namespace Test.Ore
 {
     [TestClass]
     public class SinaDataTest
     {
+        [TestMethod]
+        public void TestGetAllKLine()
+        {
+            var securities = new SecurityInfoApi().GetAllSecurity().ToList();
+
+            Stopwatch watch = new Stopwatch();
+            watch.Start();
+            var allKLine = new StockKLineApi().GetLatest(securities.Select(p => p.Code));
+            watch.Stop();
+
+            Assert.IsTrue(watch.Elapsed < new TimeSpan(0, 0, 5));
+        }
+
         [TestMethod]
         public void TestGetDataByInvalidCode()
         {

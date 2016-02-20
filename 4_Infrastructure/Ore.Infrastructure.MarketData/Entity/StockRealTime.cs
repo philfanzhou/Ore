@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Ore.Infrastructure.MarketData
 {
-    public class StockRealTime : TimeSeries, IStockRealTime
+    public class StockRealTime : TimeSeries, IStockRealTime, IStockKLine
     {
         /// <summary>
         /// 代码
@@ -157,6 +158,22 @@ namespace Ore.Infrastructure.MarketData
         /// 买五量
         /// </summary>
         public double Buy5Volume { get; set; }
+
+        public double Open
+        {
+            get
+            {
+                return TodayOpen;
+            }
+        }
+
+        public double Close
+        {
+            get
+            {
+                return Current;
+            }
+        }
         #endregion
     }
 
