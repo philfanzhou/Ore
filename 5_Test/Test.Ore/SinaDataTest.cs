@@ -49,7 +49,7 @@ namespace Test.Ore
                 "600196",
             };
             StockRealTimeApi reader = new StockRealTimeApi();
-            List<IStockRealTime> datas = reader.GetData(codes).ToList();
+            List<IStockRealTime> datas = reader.GetData(codes).Select(p => p.Value).ToList();
 
             Assert.IsNotNull(datas);
             for(int i = 0; i < codes.Length; i++)
@@ -297,7 +297,7 @@ namespace Test.Ore
                 "600196",
             };
             StockKLineApi reader = new StockKLineApi();
-            List<IStockKLine> datas = reader.GetLatest(codes).ToList();
+            List<IStockKLine> datas = reader.GetLatest(codes).Select(p => p.Value).ToList();
 
             Assert.IsNotNull(datas);
             Assert.AreEqual(datas.Count, codes.Count());

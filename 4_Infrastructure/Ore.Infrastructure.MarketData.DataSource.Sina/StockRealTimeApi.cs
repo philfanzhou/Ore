@@ -18,7 +18,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
             return GetDataFromSource(strData);
         }
 
-        public IEnumerable<IStockRealTime> GetData(IEnumerable<string> stockCodes)
+        public IEnumerable<KeyValuePair<string, IStockRealTime>> GetData(IEnumerable<string> stockCodes)
         {
             StringBuilder codesBuilder = new StringBuilder();
             foreach (string code in stockCodes)
@@ -33,17 +33,17 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
             string strData = GetStringData(WebApiAddress + codesBuilder.ToString());
             string[] strDatas = strData.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
 
-            List<StockRealTime> datas = new List<StockRealTime>();
+            Dictionary<string, IStockRealTime> result = new Dictionary<string, IStockRealTime>();
             foreach (string item in strDatas)
             {
                 var data = GetDataFromSource(item);
                 if (data != null)
                 {
-                    datas.Add(data);
+                    result.Add(data.Code, data);
                 }
             }
 
-            return datas;
+            return result;
         }
         
         private StockRealTime GetDataFromSource(string strData)

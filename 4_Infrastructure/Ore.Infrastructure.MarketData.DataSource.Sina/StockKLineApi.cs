@@ -12,15 +12,15 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
             return GetDataFromStockRealTime(data);
         }
 
-        public IEnumerable<IStockKLine> GetLatest(IEnumerable<string> stockCodes)
+        public IEnumerable<KeyValuePair<string, IStockKLine>> GetLatest(IEnumerable<string> stockCodes)
         {
             StockRealTimeApi reader = new StockRealTimeApi();
-            List<IStockRealTime> stockRealTimeDatas = reader.GetData(stockCodes).ToList();
+            var stockRealTimeDatas = reader.GetData(stockCodes).ToList();
 
-            List<StockKLine> datas = new List<StockKLine>();
+            Dictionary<string, IStockKLine> datas = new Dictionary<string, IStockKLine>();
             foreach(var it in stockRealTimeDatas)
             {
-                datas.Add(GetDataFromStockRealTime(it));
+                datas.Add(it.Key, GetDataFromStockRealTime(it.Value));
             }
 
             return datas;
