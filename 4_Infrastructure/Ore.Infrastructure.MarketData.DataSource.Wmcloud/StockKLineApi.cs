@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Text;
 
@@ -38,7 +39,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Wmcloud
             }
         }
 
-        public static string GetJsonStrByMessage(string message)
+        private static string GetJsonStrByMessage(string message)
         {
             message = message.Split(new string[] { "data\":" }, StringSplitOptions.RemoveEmptyEntries)[1];
             return message.Substring(0, message.Length - 1);
@@ -70,11 +71,12 @@ namespace Ore.Infrastructure.MarketData.DataSource.Wmcloud
                     High = Math.Round(mktEqud.highestPrice, 2),
                     Open = Math.Round(mktEqud.openPrice, 2),
                     Low = Math.Round(mktEqud.lowestPrice, 2),
-                    Time = new DateTime(int.Parse(tradeDay[0]), int.Parse(tradeDay[1]), int.Parse(tradeDay[2]), 15, 0, 0)
+                    Time = new DateTime(int.Parse(tradeDay[0]), int.Parse(tradeDay[1]), int.Parse(tradeDay[2]), 0, 0, 0).Date
                 });
             }
-
-            return stockKLineList;
+            
+            // 只返回开盘了的股票数据，停牌的数据不需要。
+            return stockKLineList.Where(p => p.Open - 0 > 0.00000001).ToList();
         }
     }
 }

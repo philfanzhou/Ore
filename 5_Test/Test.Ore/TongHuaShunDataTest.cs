@@ -14,6 +14,9 @@ namespace Test.Ore
         {
             var reader = ReaderFactory.Create();
 
+
+            var day600000 = reader.GetKLine("600000", KLineType.Day).ToList();
+
             #region 测试上海数据
             var day600036 = reader.GetKLine("600036", KLineType.Day).ToList();
 

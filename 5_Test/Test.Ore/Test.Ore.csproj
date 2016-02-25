@@ -102,6 +102,9 @@
     <None Include="TongHuaShunData\history\shase\day\1A0001.day">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="TongHuaShunData\history\shase\day\600000.day">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="TongHuaShunData\history\shase\day\600011.day">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
