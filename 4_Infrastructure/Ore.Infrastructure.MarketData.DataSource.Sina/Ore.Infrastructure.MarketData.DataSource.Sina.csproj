@@ -45,7 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StockKLineApi.cs" />
+    <Compile Include="StockKLineDayApi.cs" />
     <Compile Include="StockRealTimeApi.cs" />
     <Compile Include="StockBonusApi.cs" />
     <Compile Include="StockStructureApi.cs" />

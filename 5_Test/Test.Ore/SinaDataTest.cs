@@ -19,7 +19,7 @@ namespace Test.Ore
 
             Stopwatch watch = new Stopwatch();
             watch.Start();
-            var allKLine = new StockKLineApi().GetLatest(securities.Select(p => p.Code));
+            var allKLine = new StockKLineDayApi().GetLatest(securities.Select(p => p.Code));
             watch.Stop();
 
             Assert.IsTrue(watch.Elapsed < new TimeSpan(0, 0, 5));
@@ -30,8 +30,8 @@ namespace Test.Ore
         {
             Assert.IsNull(new StockRealTimeApi().GetData("12345"));
             Assert.AreEqual(new StockRealTimeApi().GetData(new string[] { "12345" }).ToList().Count, 0);
-            Assert.IsNull(new StockKLineApi().GetLatest("12345"));
-            Assert.AreEqual(new StockKLineApi().GetLatest(new string[] { "12345" }).ToList().Count, 0);
+            Assert.IsNull(new StockKLineDayApi().GetLatest("12345"));
+            Assert.AreEqual(new StockKLineDayApi().GetLatest(new string[] { "12345" }).ToList().Count, 0);
         }
 
         [TestMethod]
@@ -290,7 +290,7 @@ namespace Test.Ore
         [TestMethod]
         public void SinaStockKLineDataTest()
         {
-            StockKLineApi reader = new StockKLineApi();
+            StockKLineDayApi reader = new StockKLineDayApi();
             IStockKLine data = reader.GetLatest("600036");
             Assert.IsNotNull(data);
 
@@ -311,7 +311,7 @@ namespace Test.Ore
                 "600660",
                 "600196",
             };
-            StockKLineApi reader = new StockKLineApi();
+            StockKLineDayApi reader = new StockKLineDayApi();
             List<IStockKLine> datas = reader.GetLatest(codes).Select(p => p.Value).ToList();
 
             Assert.IsNotNull(datas);
