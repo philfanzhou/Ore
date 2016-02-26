@@ -15,5 +15,13 @@ namespace Test.Ore
             List<StockKLine> datas = reader.GetKLineFromWmcloudApi("600000");
             Assert.IsNotNull(datas);
         }
+
+        [TestMethod]
+        public void WmcloudKLineMultipleDataTest1()
+        {
+            StockKLineApi reader = new StockKLineApi();
+            List<StockKLine> datas = reader.GetKLineFromWmcloudApi("166105");
+            Assert.IsNull(datas);
+        }
     }
 }

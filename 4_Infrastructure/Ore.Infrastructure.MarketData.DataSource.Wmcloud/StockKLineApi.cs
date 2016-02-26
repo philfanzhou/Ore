@@ -41,8 +41,16 @@ namespace Ore.Infrastructure.MarketData.DataSource.Wmcloud
 
         private static string GetJsonStrByMessage(string message)
         {
-            message = message.Split(new string[] { "data\":" }, StringSplitOptions.RemoveEmptyEntries)[1];
-            return message.Substring(0, message.Length - 1);
+            string flag = "data\":";
+            if(!string.IsNullOrEmpty(message) && message.Contains(flag))
+            {
+                message = message.Split(new string[] { "data\":" }, StringSplitOptions.RemoveEmptyEntries)[1];
+                return message.Substring(0, message.Length - 1);
+            }
+            else
+            {
+                return null;
+            }
         }
 
         /// <summary>
@@ -56,7 +64,13 @@ namespace Ore.Infrastructure.MarketData.DataSource.Wmcloud
         {
             string mktEqudUrl = string.Format(MktEqudUrl, dateStart, dateEnd, stockCode);
             string message = GetDataFromUrl(mktEqudUrl);
+
             message = GetJsonStrByMessage(message);
+            if(string.IsNullOrEmpty(message))
+            {
+                return null;
+            }
+
             List<MktEqud> mktEqudList = JsonHelper.JsonToList<MktEqud>(message);
 
             List<StockKLine> stockKLineList = new List<StockKLine>();
