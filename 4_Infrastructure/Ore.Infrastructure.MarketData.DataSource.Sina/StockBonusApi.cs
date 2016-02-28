@@ -112,6 +112,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
             if (double.TryParse(lstTdNodes[15].InnerText, out CapitalSurplusIncreaseRate))
                 data.CapitalSurplusIncreaseRate = CapitalSurplusIncreaseRate;
             string IssuingObject = lstTdNodes[17].InnerText;// 发放对象
+            data.IssuingObject = string.IsNullOrEmpty(IssuingObject) ? string.Empty : IssuingObject;
             DateTime CapitalStockBaseDate = DateTime.MaxValue;// 股本基准日
             if (DateTime.TryParse(lstTdNodes[19].InnerText, out CapitalStockBaseDate))
                 data.CapitalStockBaseDate = CapitalStockBaseDate;
@@ -168,6 +169,7 @@ namespace Ore.Infrastructure.MarketData.DataSource.Sina
             if (double.TryParse(lstTdNodes[55].InnerText, out ExchangeRate))
                 data.ExchangeRate = ExchangeRate;
             string Description = lstTdNodes[57].InnerText;// 权息说明
+            data.Description = string.IsNullOrEmpty(Description) ? string.Empty : Description;
         }
     }
 }

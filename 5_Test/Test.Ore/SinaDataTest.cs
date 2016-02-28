@@ -93,7 +93,7 @@ namespace Test.Ore
             List<IStockBonus> result = api.GetStockBonus("600036").ToList();
             Assert.IsNotNull(result);
 
-            List<IStockBonus> result1 = api.GetStockBonus("600518").ToList();
+            List<IStockBonus> result1 = api.GetStockBonus("600005").ToList();
             Assert.IsNotNull(result1);
         }
 
